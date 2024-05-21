@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://62wtiudm3m27"]
+
+[ext_resource type="Texture2D" uid="uid://tuwfiohlo6fm" path="res://GUI/HUD/Resource/Guante/GuanteConYSinGemaV2.png" id="1_jnbkr"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58.25, 59.25)
+scale = Vector2(3.67187, 3.67187)
+texture = ExtResource("1_jnbkr")
+hframes = 7
+frame = 1

@@ -23,6 +23,26 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://Terrains/Agua_terrain/": "red",
+"res://Terrains/Arena_terrain/": "green",
+"res://Terrains/Bosque_terrain/": "red",
+"res://Terrains/Cueva_terrain/": "green",
+"res://Terrains/Desierto_terrain/": "green",
+"res://Terrains/Dev_terrain/": "red",
+"res://Terrains/Montaña_helada_terrain/": "green",
+"res://Terrains/Tutorial_terrain/": "red",
+"res://Tools/Camera/": "red",
+"res://Tools/Camera/Scenes/": "orange",
+"res://Tools/Camera/Scripts/": "yellow",
+"res://Tools/FXController/": "red",
+"res://Tools/FXController/Scenes/": "orange",
+"res://Tools/FXController/Scripts/": "yellow",
+"res://Tools/Sensor/": "red"
+}
+
 [input]
 
 Left_move={
@@ -121,3 +141,7 @@ Inventory_menu={
 2d_navigation/layer_4="Object"
 2d_physics/layer_5="Trap"
 2d_navigation/layer_5="Trap"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
