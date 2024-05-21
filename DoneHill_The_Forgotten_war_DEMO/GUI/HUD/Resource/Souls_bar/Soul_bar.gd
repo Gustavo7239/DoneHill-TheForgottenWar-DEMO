@@ -17,7 +17,7 @@ var puntos: float = 0.9
 #
 	#
 	
-func subir_bajar(points: float):
+func subir(points: float):
 	var points_final = SOUL_GRADIENT_BAR.gradient.offsets[2]
 	var tween: Tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
@@ -34,4 +34,4 @@ func _update_gradient_offset(value: float):
 func _on_button_pressed():
 	if puntos > 0.3:
 		puntos -= 0.05
-	subir_bajar(puntos)
+	subir(puntos)

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byx6p72alvadw" path="res://GUI/HUD/Resource/Souls_bar/Soul_gradient_bar.tres" id="3_lfwi0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ut5f8"]
+noise_type = 4
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a5tws"]
 seamless = true
@@ -13,7 +14,7 @@ noise = SubResource("FastNoiseLite_ut5f8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kapja"]
 shader = ExtResource("1_kq6hy")
-shader_parameter/scroll = Vector2(0.05, 0.05)
+shader_parameter/scroll = Vector2(0.1, 0.2)
 shader_parameter/distortionTexture = SubResource("NoiseTexture2D_a5tws")
 
 [node name="SoulBar" type="Node2D"]
