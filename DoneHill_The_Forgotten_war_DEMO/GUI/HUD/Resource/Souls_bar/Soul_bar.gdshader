@@ -1,14 +1,18 @@
 shader_type canvas_item;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform sampler2D distortionTexture: repeat_enable; // Corrige el nombre aquí si es necesario
+uniform vec2 scroll = vec2(0.05, 0.05);
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 void fragment() {
-	// Called for every pixel the material is visible on.
-}
+    // Ajusta las coordenadas UV de la textura de distorsión con el desplazamiento
+    vec2 scrolledUV = UV + scroll * TIME;
 
-//void light() {
-	// Called for every pixel for every light affecting the CanvasItem.
-	// Uncomment to replace the default light processing function with this one.
-//}
+    // Obtén las coordenadas UV distorsionadas usando la textura de distorsión desplazada
+    vec2 distortedUV = SCREEN_UV + texture(distortionTexture, scrolledUV).r * 0.1;
+
+    // Muestra el color de la pantalla en las coordenadas distorsionadas
+    vec4 screenColor = texture(TEXTURE, distortedUV);
+    COLOR = screenColor;
+}
