@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dds3xpmr7omdg"]
+
+[sub_resource type="Gradient" id="Gradient_v08ag"]
+colors = PackedColorArray(0.325441, 0.325441, 0.325441, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_octwg"]
+gradient = SubResource("Gradient_v08ag")
+width = 264
+height = 264
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[node name="SoulBar" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(347.75, 239.328)
+scale = Vector2(0.380682, 1.346)
+texture = SubResource("GradientTexture2D_octwg")
