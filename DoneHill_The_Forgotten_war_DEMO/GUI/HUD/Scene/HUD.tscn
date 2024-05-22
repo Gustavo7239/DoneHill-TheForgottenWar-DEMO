@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://62wtiudm3m27"]
 
 [ext_resource type="Texture2D" uid="uid://tuwfiohlo6fm" path="res://GUI/HUD/Resource/Guante/GuanteConYSinGemaV2.png" id="1_jnbkr"]
-[ext_resource type="PackedScene" uid="uid://dds3xpmr7omdg" path="res://GUI/HUD/Resource/Souls_bar/Soul_jar.tscn" id="2_b2218"]
+[ext_resource type="PackedScene" uid="uid://cpgt4ciqh3ww0" path="res://GUI/HUD/Resource/Souls_bar/Soul_jar.tscn" id="2_b2218"]
 
 [node name="HUD" type="CanvasLayer"]
 
