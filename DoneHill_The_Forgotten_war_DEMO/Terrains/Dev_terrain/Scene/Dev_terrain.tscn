@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqu3tfqxoosxe" path="res://Terrains/Cueva_terrain/Scene/cueva_tile_map.tscn" id="3_8ow5q"]
 [ext_resource type="PackedScene" uid="uid://dh7ctq67q8n86" path="res://Terrains/Desierto_terrain/Scene/desierto_tile_map.tscn" id="4_0q55q"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="5_8scee"]
+[ext_resource type="PackedScene" uid="uid://c8581qdasmokc" path="res://Characters/Enemies/BasicEnemy/Scene/BasicEnemy.tscn" id="5_1kbk7"]
 
 [node name="DevTerrain" type="Node2D"]
 
@@ -24,3 +25,5 @@ layer_0/tile_data = PackedInt32Array(1048678, 131072, 1, 983142, 65536, 1, 91760
 [node name="Player" parent="." instance=ExtResource("5_8scee")]
 position = Vector2(46, 332)
 scale = Vector2(0.25, 0.25)
+[node name="BasicEnemy" parent="." instance=ExtResource("5_1kbk7")]
+position = Vector2(265, 331)
