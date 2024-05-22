@@ -24,7 +24,6 @@ func _process(delta):
 	#var points_final = SOUL_GRADIENT_BAR.gradient.offsets[2]
 	#var tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	#tween.tween_property(SOUL_GRADIENT_BAR, ".gradiento.offsets[2]", points, 1.0)
-#
 	#
 	
 func subir(points: float):

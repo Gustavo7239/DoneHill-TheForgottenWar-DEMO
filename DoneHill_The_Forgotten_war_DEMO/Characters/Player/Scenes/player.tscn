@@ -1,6 +1,175 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci1vsvvvcnrq6"]
+[gd_scene load_steps=15 format=3 uid="uid://ci1vsvvvcnrq6"]
 
 [ext_resource type="Script" path="res://Characters/Player/Scripts/Player.gd" id="1_qce0l"]
+[ext_resource type="Texture2D" uid="uid://dibyjik6nwu7b" path="res://Characters/Player/Sprite/PlayerDesign01.png" id="2_wvatf"]
+
+[sub_resource type="Gradient" id="Gradient_5jkev"]
+colors = PackedColorArray(1, 1, 1, 1, 0.329412, 0.329412, 0.329412, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qlait"]
+gradient = SubResource("Gradient_5jkev")
+width = 164
+height = 164
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.3)
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_d6hdo"]
+_data = [Vector2(0, 0.5), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_g6pk2"]
+offsets = PackedFloat32Array(0, 0.506667, 1)
+colors = PackedColorArray(0.388235, 0.607843, 1, 1, 0.418186, 0.627678, 1, 1, 0.388235, 0.607843, 1, 1)
+
+[sub_resource type="Animation" id="Animation_j56je"]
+resource_name = "Idle"
+length = 1.95
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_sojd6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jbgeb"]
+resource_name = "Run"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_t3tx1"]
+resource_name = "Golpe"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [25, 26]
+}
+
+[sub_resource type="Animation" id="Animation_ompag"]
+resource_name = "Jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_yst3j"]
+resource_name = "Fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
+[sub_resource type="Animation" id="Animation_q556i"]
+resource_name = "Zen"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_21uaf"]
+_data = {
+"Fall": SubResource("Animation_yst3j"),
+"Golpe": SubResource("Animation_t3tx1"),
+"Idle": SubResource("Animation_j56je"),
+"Jump": SubResource("Animation_ompag"),
+"RESET": SubResource("Animation_sojd6"),
+"Run": SubResource("Animation_jbgeb"),
+"Zen": SubResource("Animation_q556i")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qce0l")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(5.5625, 5.5625)
+texture = ExtResource("2_wvatf")
+hframes = 8
+vframes = 5
+
+[node name="ZenPulse" type="CPUParticles2D" parent="PlayerSprite"]
+position = Vector2(0, 6.11236)
+scale = Vector2(0.179775, 0.179775)
+amount = 1
+lifetime = 3.0
+texture = SubResource("GradientTexture2D_qlait")
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_d6hdo")
+color_ramp = SubResource("Gradient_g6pk2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_21uaf")
+}
+autoplay = "Idle"
