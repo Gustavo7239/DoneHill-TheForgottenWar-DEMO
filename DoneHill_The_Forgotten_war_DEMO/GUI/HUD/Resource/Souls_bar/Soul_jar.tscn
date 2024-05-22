@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://dds3xpmr7omdg"]
+
+[ext_resource type="Script" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gd" id="1_3klb6"]
+[ext_resource type="Texture2D" uid="uid://biimgysemqnxc" path="res://GUI/HUD/Resource/Souls_bar/Sprite/Soul_jar_32Pixels.png" id="1_jluyc"]
+[ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="1_kq6hy"]
+[ext_resource type="Texture2D" uid="uid://byx6p72alvadw" path="res://GUI/HUD/Resource/Souls_bar/Soul_gradient_bar.tres" id="3_lfwi0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ut5f8"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvg6c"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_ut5f8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uucpg"]
+shader = ExtResource("1_kq6hy")
+shader_parameter/scroll = Vector2(0.1, 0.2)
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_vvg6c")
+
+[sub_resource type="Gradient" id="Gradient_f6eop"]
+offsets = PackedFloat32Array(0, 0.862069)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w7q3j"]
+gradient = SubResource("Gradient_f6eop")
+height = 186
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_8o252"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0psqv"]
+gradient = SubResource("Gradient_8o252")
+height = 186
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_8kip3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_4c86j"]
+offsets = PackedFloat32Array(0, 0.553571, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Soul_jar" type="Sprite2D"]
+script = ExtResource("1_3klb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58, 127.5)
+scale = Vector2(8.76, 8.532)
+texture = ExtResource("1_jluyc")
+hframes = 3
+frame = 1
+
+[node name="Soul_bar" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_uucpg")
+position = Vector2(53.5, 152)
+scale = Vector2(0.284091, 0.757576)
+texture = ExtResource("3_lfwi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Soul_bar"]
+visible = false
+position = Vector2(-5.27998, -25.612)
+scale = Vector2(9.295, 3.0025)
+texture = SubResource("GradientTexture2D_w7q3j")
+
+[node name="PointLight2D" type="PointLight2D" parent="Soul_bar"]
+position = Vector2(1.76001, -104.418)
+scale = Vector2(8.1125, 1.97989)
+texture = SubResource("GradientTexture2D_0psqv")
+
+[node name="Particle_souls" type="CPUParticles2D" parent="Soul_bar"]
+position = Vector2(-1.76001, 133.32)
+amount = 28
+direction = Vector2(1, -180)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 350.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_8kip3")
+color_initial_ramp = SubResource("Gradient_4c86j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(58, 127.5)
+scale = Vector2(8.76, 8.532)
+texture = ExtResource("1_jluyc")
+hframes = 3
