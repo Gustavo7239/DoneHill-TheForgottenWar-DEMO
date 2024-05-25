@@ -2,12 +2,8 @@
 
 [ext_resource type="Script" path="res://Characters/Player/Skills/Regenerate_skill/Scripts/Heal_skill.gd" id="1_goavp"]
 [ext_resource type="Texture2D" uid="uid://cqt3o7vmbq7sd" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle5.png" id="2_ayvfw"]
-[ext_resource type="AudioStream" uid="uid://dp31jtd4l8cn5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Start.wav" id="2_hs86g"]
 [ext_resource type="Texture2D" uid="uid://cram5nvt52qnj" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle4.png" id="3_3n27k"]
-[ext_resource type="AudioStream" uid="uid://c6xusie06t7en" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_In.wav" id="3_q8ojo"]
 [ext_resource type="Texture2D" uid="uid://2bogp2dp5ilp" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle3.png" id="4_0vvm0"]
-[ext_resource type="AudioStream" uid="uid://bnr3ipbaywhw5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Final.wav" id="4_qui2s"]
-[ext_resource type="AudioStream" uid="uid://cjp74qbce0kq2" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Cancel.wav" id="5_0u5fr"]
 [ext_resource type="Texture2D" uid="uid://c85nq7q5yfomd" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle7.png" id="5_d4ncg"]
 [ext_resource type="PackedScene" uid="uid://c0m140xrm248g" path="res://Tools/FXController/Scenes/FXController.tscn" id="6_3bm42"]
 [ext_resource type="Texture2D" uid="uid://d17u24prrh274" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle8.png" id="6_bn8to"]
@@ -17,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://yj6t8i7ht4i2" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle1.png" id="10_5sywl"]
 [ext_resource type="Texture2D" uid="uid://byxb42212h34h" path="res://Characters/Enemies/BasicEnemy/Sprite/vfx_effect_consume.png" id="11_jcuwe"]
 [ext_resource type="Texture2D" uid="uid://b2qb5f1bfg37o" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle6.png" id="12_4att1"]
+[ext_resource type="AudioStream" uid="uid://dp31jtd4l8cn5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Start.wav" id="13_f1i41"]
+[ext_resource type="AudioStream" uid="uid://c6xusie06t7en" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_In.wav" id="14_2ool4"]
+[ext_resource type="AudioStream" uid="uid://bnr3ipbaywhw5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Final.wav" id="15_tfxy5"]
+[ext_resource type="AudioStream" uid="uid://cjp74qbce0kq2" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Cancel.wav" id="16_16gm2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgsmp"]
 atlas = ExtResource("11_jcuwe")
@@ -112,16 +112,16 @@ autoplay = "Off"
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="HealingSkill_SoundFX_Start" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("2_hs86g")
+stream = ExtResource("13_f1i41")
 
 [node name="HealingSkill_SoundFX_In" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("3_q8ojo")
+stream = ExtResource("14_2ool4")
 
 [node name="HealingSkill_SoundFX_Final" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("4_qui2s")
+stream = ExtResource("15_tfxy5")
 
 [node name="HealingSkill_SoundFX_Cancel" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("5_0u5fr")
+stream = ExtResource("16_16gm2")
 
 [node name="Tools" type="Node2D" parent="."]
 
