@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnhqoq7bwt38h"]
+
+[ext_resource type="Texture2D" uid="uid://b7smjuioe1sdt" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/ArbolesNuevos.png" id="1_3lhg6"]
+[ext_resource type="Texture2D" uid="uid://c53p0s1udoajc" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/hoja.png" id="2_gav35"]
+[ext_resource type="Script" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scripts/tree_1.gd" id="2_jkd2q"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aqbko"]
+polygon = PackedVector2Array(-19, 17, -19, 19, -18, 19, -18, 23, -17, 23, -17, 23, -17, 24, -16, 24, -16, 25, -15, 25, -15, 27, -14, 27, -14, 28, -13, 28, -13, 26, -12, 26, -12, 25, -9, 25, -9, 24, -6, 24, -6, 25, -5, 25, -4, 25, -4, 8, -7, 8, -7, 9, -10, 9, -10, 10, -13, 10, -13, 11, -15, 11, -15, 12, -17, 12, -17, 14, -18, 14, -18, 17)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p6ttm"]
+polygon = PackedVector2Array(-8, -39, -8, -40, -3, -40, -3, -41, 10, -41, 10, -40, 13, -40, 13, -40, 13, -39, 16, -39, 16, -38, 18, -38, 18, -34, 19, -34, 19, -23, 18, -23, 18, -19, 17, -19, 17, -17, 15, -17, 15, -16, 13, -16, 13, -20, 12, -20, 12, -21, 11, -21, 11, -22, 4, -22, 4, -23, -1, -23, -1, -22, -2, -22, -2, -21, -3, -21, -3, -19, -5, -19, -5, -20, -6, -20, -6, -21, -10, -21, -10, -20, -11, -20, -11, -19, -12, -19, -12, -18, -14, -18, -14, -21, -17, -21, -17, -23, -19, -23, -19, -26, -18, -26, -18, -28, -19, -28, -19, -32, -18, -32, -18, -36, -18, -36, -17, -36, -17, -37, -15, -37, -15, -38, -13, -38, -13, -39)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eyyac"]
+polygon = PackedVector2Array(7, 9, 8, 9, 8, 10, 9, 10, 9, 13, 10, 13, 10, 23, 9, 23, 9, 24, 7, 24)
+
+[sub_resource type="Curve" id="Curve_b3g7l"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 10), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_ww0q4"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 15), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6ax8n"]
+offsets = PackedFloat32Array(0, 0.578125, 1)
+colors = PackedColorArray(0.191406, 0.191406, 0.191406, 1, 0.406189, 0.406189, 0.406189, 1, 0.65361, 0.65361, 0.65361, 1)
+
+[node name="Tree_1" type="Sprite2D"]
+texture = ExtResource("1_3lhg6")
+script = ExtResource("2_jkd2q")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_aqbko")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_p6ttm")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_eyyac")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(1, -29)
+amount = 10
+lifetime = 6.0
+texture = ExtResource("2_gav35")
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 15)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+angular_velocity_max = 60.0
+angular_velocity_curve = SubResource("Curve_b3g7l")
+tangential_accel_min = 10.0
+tangential_accel_max = 25.0
+tangential_accel_curve = SubResource("Curve_ww0q4")
+angle_max = 180.0
+color = Color(0.160784, 1, 0, 1)
+color_initial_ramp = SubResource("Gradient_6ax8n")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://biffpc0nr1dak"]
+
+[ext_resource type="Texture2D" uid="uid://sbm6w52q0afh" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassSimpleBushes.png" id="1_h728c"]
+
+[node name="Bush" type="Sprite2D"]
+texture = ExtResource("1_h728c")
+hframes = 4

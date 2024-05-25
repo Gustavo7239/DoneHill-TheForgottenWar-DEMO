@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy223oyheb172"]
+
+[ext_resource type="Texture2D" uid="uid://l5sp8mwo7log" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/Stones.png" id="1_5lise"]
+
+[node name="Stone" type="Sprite2D"]
+texture = ExtResource("1_5lise")
+hframes = 7
