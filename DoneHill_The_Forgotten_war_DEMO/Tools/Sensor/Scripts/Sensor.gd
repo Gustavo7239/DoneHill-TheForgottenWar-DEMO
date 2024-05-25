@@ -9,7 +9,8 @@ class_name Sensor
 var target : CollisionObject2D
 var collisiones = []
 
-@onready var rangoColision : CollisionShape2D = $Range
+@onready var rangoColision : CollisionShape2D = $CollisionShape2D
+
 var target_distance : get = _get_distance
 var target_direction : get = _get_direction
 

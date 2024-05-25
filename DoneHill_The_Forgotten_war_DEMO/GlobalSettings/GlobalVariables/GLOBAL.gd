@@ -17,8 +17,8 @@ extends Node
 #var camera : Camera2D
 
 
-var SoulPoints : int = 400				#Puntos de alma del Player
-const MAX_SOULS_POINTS : int = 400		#Puntos de alma maximos
+var SoulPoints : int = 0				#Puntos de alma del Player
+const MAX_SOULS_POINTS : int = 0		#Puntos de alma maximos
 
 var Player_HP : int = 4					#Puntos de vida del Player actual
 const MAX_Player_HP : int = 4			#Puntos maximos de vida del Player
