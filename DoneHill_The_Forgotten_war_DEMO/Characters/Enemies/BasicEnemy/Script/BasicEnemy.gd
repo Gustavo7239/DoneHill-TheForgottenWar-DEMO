@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Enemy
+class_name BasicEnemy
 
 @export_category("Config")
 
@@ -10,6 +10,7 @@ class_name Enemy
 @export_group("Motion")
 @export var TargetSpeed : int = 50		#Velocidad de cuando encuentra al player
 @export var NormalSpeed : int = 16		#Velocidad normal
+var CurrentSpeed : int = NormalSpeed	#Velocidad actual
 @export var Gravity	: int = 16			#Gravedad 
 
 #NODOS DEL OBJETO --------------------------------
@@ -29,7 +30,7 @@ func motion_ctrl() -> void:
 	if not ray_ground.is_colliding() or is_on_wall():
 		Orientation *= -1
 
-	velocity.x = Orientation * NormalSpeed
+	velocity.x = Orientation * CurrentSpeed
 	velocity.y += Gravity
 	move_and_slide()
 

@@ -3,4 +3,15 @@
 [ext_resource type="Script" path="res://Tools/Camera/Scripts/Camera.gd" id="1_r7r87"]
 
 [node name="Camera" type="Camera2D"]
+limit_smoothed = true
+position_smoothing_enabled = true
 script = ExtResource("1_r7r87")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Shake_timer" type="Timer" parent="Timers"]
+
+[node name="Zoom_timer" type="Timer" parent="Timers"]
+
+[connection signal="timeout" from="Timers/Shake_timer" to="." method="_on_shake_timer_timeout"]
+[connection signal="timeout" from="Timers/Zoom_timer" to="." method="_on_zoom_timer_timeout"]

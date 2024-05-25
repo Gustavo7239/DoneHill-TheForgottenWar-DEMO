@@ -1,0 +1,133 @@
+[gd_scene load_steps=20 format=3 uid="uid://wtrwatf5f5yq"]
+
+[ext_resource type="Script" path="res://Characters/Player/Skills/Regenerate_skill/Scripts/Heal_skill.gd" id="1_goavp"]
+[ext_resource type="Texture2D" uid="uid://cqt3o7vmbq7sd" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle5.png" id="2_ayvfw"]
+[ext_resource type="AudioStream" uid="uid://dp31jtd4l8cn5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Start.wav" id="2_hs86g"]
+[ext_resource type="Texture2D" uid="uid://cram5nvt52qnj" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle4.png" id="3_3n27k"]
+[ext_resource type="AudioStream" uid="uid://c6xusie06t7en" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_In.wav" id="3_q8ojo"]
+[ext_resource type="Texture2D" uid="uid://2bogp2dp5ilp" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle3.png" id="4_0vvm0"]
+[ext_resource type="AudioStream" uid="uid://bnr3ipbaywhw5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Final.wav" id="4_qui2s"]
+[ext_resource type="AudioStream" uid="uid://cjp74qbce0kq2" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Cancel.wav" id="5_0u5fr"]
+[ext_resource type="Texture2D" uid="uid://c85nq7q5yfomd" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle7.png" id="5_d4ncg"]
+[ext_resource type="PackedScene" uid="uid://c0m140xrm248g" path="res://Tools/FXController/Scenes/FXController.tscn" id="6_3bm42"]
+[ext_resource type="Texture2D" uid="uid://d17u24prrh274" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle8.png" id="6_bn8to"]
+[ext_resource type="Texture2D" uid="uid://4iwgeix8fgp5" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle9.png" id="7_kh7ps"]
+[ext_resource type="Texture2D" uid="uid://blcs5esmjnatb" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle10.png" id="8_u625v"]
+[ext_resource type="Texture2D" uid="uid://te5ent01nmex" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle2.png" id="9_b5on2"]
+[ext_resource type="Texture2D" uid="uid://yj6t8i7ht4i2" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle1.png" id="10_5sywl"]
+[ext_resource type="Texture2D" uid="uid://byxb42212h34h" path="res://Characters/Enemies/BasicEnemy/Sprite/vfx_effect_consume.png" id="11_jcuwe"]
+[ext_resource type="Texture2D" uid="uid://b2qb5f1bfg37o" path="res://Characters/Player/Skills/Regenerate_skill/Sprites/Explosion_blue_circle6.png" id="12_4att1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgsmp"]
+atlas = ExtResource("11_jcuwe")
+region = Rect2(120, 0, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whdxd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ayvfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3n27k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0vvm0")
+}],
+"loop": false,
+"name": &"Charge",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d4ncg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bn8to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kh7ps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u625v")
+}],
+"loop": false,
+"name": &"Finish",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_b5on2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5sywl")
+}],
+"loop": true,
+"name": &"Keep",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgsmp")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_u625v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kh7ps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bn8to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d4ncg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4att1")
+}],
+"loop": false,
+"name": &"Start",
+"speed": 4.0
+}]
+
+[node name="Healing_Skill" type="Area2D"]
+script = ExtResource("1_goavp")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_whdxd")
+animation = &"Finish"
+autoplay = "Off"
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Casting_timer" type="Timer" parent="Timers"]
+
+[node name="Cooldown_timer" type="Timer" parent="Timers"]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="HealingSkill_SoundFX_Start" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("2_hs86g")
+
+[node name="HealingSkill_SoundFX_In" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_q8ojo")
+
+[node name="HealingSkill_SoundFX_Final" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_qui2s")
+
+[node name="HealingSkill_SoundFX_Cancel" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_0u5fr")
+
+[node name="Tools" type="Node2D" parent="."]
+
+[node name="FxController" parent="Tools" instance=ExtResource("6_3bm42")]
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="timeout" from="Timers/Casting_timer" to="." method="_on_casting_timer_timeout"]
+[connection signal="timeout" from="Timers/Cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="finished" from="Audio/HealingSkill_SoundFX_In" to="." method="_on_healing_skill_sound_fx_in_finished"]
