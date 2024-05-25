@@ -33,7 +33,7 @@ script = ExtResource("1_l671n")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qn0qx")
-animation = &"On"
+animation = &"Off"
 autoplay = "Off"
 
 [node name="Tools" type="Node2D" parent="."]

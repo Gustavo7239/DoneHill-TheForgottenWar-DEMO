@@ -16,6 +16,11 @@ extends Node
 #
 #var camera : Camera2D
 
+var music_volume_level = 0
+var fx_volume_level = 0
+
+var music_volume_level_slider = 90
+var fx_volume_level_slider = 90
 
 var SoulPoints : int = 400				#Puntos de alma del Player
 const MAX_SOULS_POINTS : int = 400		#Puntos de alma maximos
