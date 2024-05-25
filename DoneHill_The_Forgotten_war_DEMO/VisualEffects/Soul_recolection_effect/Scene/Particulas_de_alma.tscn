@@ -38,7 +38,7 @@ color_initial_ramp = ExtResource("1_yiupo")
 collision_mode = 2
 
 [node name="Particulas recoger alma" type="GPUParticles2D"]
-position = Vector2(11.025, 12)
+position = Vector2(12.025, 12)
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_b6irc")
 lifetime = 5.0

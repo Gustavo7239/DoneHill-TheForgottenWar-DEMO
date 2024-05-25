@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var bar = $Bar
-var SOUL_GRADIENT_BAR = preload("res://GUI/HUD/Resource/Souls_bar/Soul_gradient_bar.tres")
+var SOUL_GRADIENT_BAR = preload("res://GUI/HUD/Resource/Souls_bar/Resources/Soul_gradient_bar.tres")
 @onready var text_edit = $TextEdit
 
 @onready var particle_souls = $Soul_bar/Particle_souls

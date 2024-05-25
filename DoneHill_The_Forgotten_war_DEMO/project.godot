@@ -32,12 +32,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Terrains/Agua_terrain/": "red",
-"res://Terrains/Arena_terrain/": "green",
-"res://Terrains/Bosque_terrain/": "red",
-"res://Terrains/Cueva_terrain/": "green",
-"res://Terrains/Desierto_terrain/": "green",
-"res://Terrains/Dev_terrain/": "red",
-"res://Terrains/Montaña_helada_terrain/": "green",
+"res://Terrains/TFG_terrain/": "green",
 "res://Terrains/Tutorial_terrain/": "red",
 "res://Tools/Camera/": "red",
 "res://Tools/Camera/Scenes/": "orange",

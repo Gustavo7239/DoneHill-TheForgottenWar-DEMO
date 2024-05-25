@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bboq6yydc33e2"]
+
+[ext_resource type="Script" path="res://Tools/Lights/Sun.gd" id="1_27txn"]
+
+[sub_resource type="Gradient" id="Gradient_q56js"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kii12"]
+gradient = SubResource("Gradient_q56js")
+width = 480
+height = 480
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.2)
+metadata/_snap_enabled = true
+
+[node name="Sun" type="PointLight2D"]
+scale = Vector2(1.74583, 1.74583)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_kii12")
+script = ExtResource("1_27txn")
