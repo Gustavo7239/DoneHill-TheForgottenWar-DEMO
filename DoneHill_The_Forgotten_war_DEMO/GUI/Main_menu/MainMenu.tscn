@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://hrjpay0kg8xq"]
+[gd_scene load_steps=7 format=3 uid="uid://budjjfe2emuca"]
 
+[ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_bonsj"]
 [ext_resource type="Script" path="res://GUI/Main_menu/MainMenu.gd" id="1_e87v6"]
 [ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="2_fbs7a"]
-[ext_resource type="PackedScene" uid="uid://degedtmr3aw5v" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
+[ext_resource type="PackedScene" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
+[ext_resource type="Texture2D" uid="uid://dn7h878243mvd" path="res://GUI/Main_menu/Assets/Fondo_bosque.jpg" id="3_e25ci"]
+[ext_resource type="PackedScene" uid="uid://dnhqoq7bwt38h" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_1.tscn" id="3_njyf8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bonsj")
 script = ExtResource("1_e87v6")
 change_scene = "res://GUI/Pause_menu/PauseMenu.tscn"
 
@@ -23,40 +27,57 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.184314, 0.184314, 1)
 
-[node name="Menu" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e25ci")
+
+[node name="Tree_1" parent="BackGround" instance=ExtResource("3_njyf8")]
+position = Vector2(112, 240)
+scale = Vector2(7.26563, 6.4442)
+
+[node name="Menu" type="VBoxContainer" parent="BackGround"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = 48.0
+offset_right = 165.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="PlayButton" type="Button" parent="Menu"]
+[node name="PlayButton" type="Button" parent="BackGround/Menu"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fbs7a")
-theme_override_font_sizes/font_size = 50
 text = "Jugar"
+flat = true
 
-[node name="OpcionesButton" type="Button" parent="Menu"]
+[node name="OpcionesButton" type="Button" parent="BackGround/Menu"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fbs7a")
-theme_override_font_sizes/font_size = 40
 text = "OPCIONES"
+flat = true
 
-[node name="SalirButton" type="Button" parent="Menu"]
+[node name="SalirButton" type="Button" parent="BackGround/Menu"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fbs7a")
-theme_override_font_sizes/font_size = 50
 text = "SALIR"
+flat = true
 
 [node name="OpcionesMenu" parent="." node_paths=PackedStringArray("menu_back") instance=ExtResource("3_5jih0")]
 visible = false
 layout_mode = 1
-menu_back = NodePath("../Menu")
+menu_back = NodePath("../BackGround/Menu")
 
-[connection signal="pressed" from="Menu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Menu/OpcionesButton" to="." method="_on_opciones_button_pressed"]
-[connection signal="pressed" from="Menu/SalirButton" to="." method="_on_salir_button_pressed"]
+[connection signal="pressed" from="BackGround/Menu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="BackGround/Menu/OpcionesButton" to="." method="_on_opciones_button_pressed"]
+[connection signal="pressed" from="BackGround/Menu/SalirButton" to="." method="_on_salir_button_pressed"]
