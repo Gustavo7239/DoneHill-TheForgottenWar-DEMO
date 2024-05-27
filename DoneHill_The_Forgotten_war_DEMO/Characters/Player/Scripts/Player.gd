@@ -101,7 +101,9 @@ func damage_ctrl(dmg : int = 1):
 	else:
 		#jump_ctrl(0.5)
 		GLOBAL.CAMERA.shake(0.5,1) 
+		sprite.set_animation("Recibe_DMG")
 		Player_HealingPoints -= dmg
+		cooldown_hit()
 		
 	if Input.is_action_pressed("Heal_skill") and is_on_floor():
 		heal_skill.cancel_charge() 
@@ -127,3 +129,8 @@ func no_atraviesa_enemies():
 func _on_sprite_animation_finished():
 	if sprite.animation == "Death":
 		gui.game_over()
+		
+func cooldown_hit():
+	velocity.x = sprite.scale.x * -10
+	velocity.y = -968 * 0.9
+	move_and_slide()

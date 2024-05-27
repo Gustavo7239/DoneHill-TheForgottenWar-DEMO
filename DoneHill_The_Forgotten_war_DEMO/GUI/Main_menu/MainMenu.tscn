@@ -4,8 +4,12 @@
 [ext_resource type="Script" path="res://GUI/Main_menu/MainMenu.gd" id="1_e87v6"]
 [ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="2_fbs7a"]
 [ext_resource type="PackedScene" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://dn7h878243mvd" path="res://GUI/Main_menu/Assets/Fondo_bosque.jpg" id="3_e25ci"]
 [ext_resource type="PackedScene" uid="uid://dnhqoq7bwt38h" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_1.tscn" id="3_njyf8"]
+=======
+[ext_resource type="PackedScene" uid="uid://birs404gqb32b" path="res://GUI/Main_menu/FondoMainMenu.tscn" id="3_keyon"]
+>>>>>>> Stashed changes
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -78,6 +82,17 @@ visible = false
 layout_mode = 1
 menu_back = NodePath("../BackGround/Menu")
 
+<<<<<<< Updated upstream
+=======
+[node name="Black" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -3.0
+offset_right = 856.0
+offset_bottom = 485.0
+color = Color(0, 0, 0, 1)
+
+>>>>>>> Stashed changes
 [connection signal="pressed" from="BackGround/Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="BackGround/Menu/OpcionesButton" to="." method="_on_opciones_button_pressed"]
 [connection signal="pressed" from="BackGround/Menu/SalirButton" to="." method="_on_salir_button_pressed"]

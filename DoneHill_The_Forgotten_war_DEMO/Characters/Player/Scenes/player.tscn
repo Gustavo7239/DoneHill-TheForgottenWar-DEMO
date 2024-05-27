@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://ci1vsvvvcnrq6"]
+[gd_scene load_steps=42 format=3 uid="uid://ci1vsvvvcnrq6"]
 
 [ext_resource type="Script" path="res://Characters/Player/Scripts/Player.gd" id="1_qce0l"]
 [ext_resource type="Texture2D" uid="uid://ckbnkyyqh44eo" path="res://Characters/Player/Sprite/PlayerDesign02.png" id="2_iqldn"]
 [ext_resource type="PackedScene" uid="uid://bp2xbxsd8wl0i" path="res://Characters/Player/Skills/Dash_skill/Scenes/Dash_skill.tscn" id="2_qhjjj"]
 [ext_resource type="PackedScene" uid="uid://8fbebj62v1qw" path="res://Characters/Player/Skills/Jump_skill/Scenes/Jump_skill.tscn" id="3_dwcbs"]
+[ext_resource type="Texture2D" uid="uid://bgibb64adycam" path="res://Characters/Player/Sprite/PlayerDesign03.png" id="3_k1rrw"]
 [ext_resource type="PackedScene" uid="uid://wtrwatf5f5yq" path="res://Characters/Player/Skills/Regenerate_skill/Scenes/Heal_skill.tscn" id="4_hcuro"]
 [ext_resource type="PackedScene" uid="uid://c0m140xrm248g" path="res://Tools/FXController/Scenes/FXController.tscn" id="6_l01ud"]
 
@@ -14,6 +15,26 @@ region = Rect2(32, 160, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_muri7"]
 atlas = ExtResource("2_iqldn")
 region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fttny"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5646y"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tip06"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vhd8"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c26gu"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(160, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_or7pc"]
 atlas = ExtResource("2_iqldn")
@@ -87,6 +108,10 @@ region = Rect2(0, 64, 32, 32)
 atlas = ExtResource("2_iqldn")
 region = Rect2(32, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1kd4"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(32, 192, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f851x"]
 atlas = ExtResource("2_iqldn")
 region = Rect2(0, 32, 32, 32)
@@ -102,6 +127,14 @@ region = Rect2(64, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1olbq"]
 atlas = ExtResource("2_iqldn")
 region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjvvy"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc67h"]
+atlas = ExtResource("3_k1rrw")
+region = Rect2(64, 224, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2g1jc"]
 animations = [{
@@ -119,6 +152,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dash_skill_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fttny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5646y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tip06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vhd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c26gu")
+}],
+"loop": false,
+"name": &"Death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -202,6 +255,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_m1kd4")
+}],
+"loop": false,
+"name": &"Recibe_DMG",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f851x")
 }, {
 "duration": 1.0,
@@ -216,6 +277,17 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjvvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc67h")
+}],
+"loop": false,
+"name": &"Throw_skill",
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5bt6"]
@@ -228,18 +300,17 @@ collision_mask = 29
 platform_floor_layers = 4294901764
 platform_wall_layers = 4
 script = ExtResource("1_qce0l")
-Player_HealingPoints = 2
+Player_HealingPoints = 4
 jump = 600
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2g1jc")
-animation = &"Heal_skill_2"
+animation = &"Recibe_DMG"
 autoplay = "Idle"
 
 [node name="Skills" type="Node2D" parent="Sprite"]
 
 [node name="JumpSkill" parent="Sprite/Skills" node_paths=PackedStringArray("player") instance=ExtResource("3_dwcbs")]
-visible = false
 position = Vector2(0.5, 16.75)
 scale = Vector2(0.75, 0.75)
 player = NodePath("../../..")
@@ -251,7 +322,6 @@ player = NodePath("../../..")
 
 [node name="HealSkill" parent="Sprite/Skills" node_paths=PackedStringArray("player") instance=ExtResource("4_hcuro")]
 position = Vector2(0, 4.75)
-scale = Vector2(0.25, 0.25)
 player = NodePath("../../..")
 
 [node name="Audio" type="Node" parent="."]
@@ -263,6 +333,8 @@ player = NodePath("../../..")
 [node name="Tools" type="Node" parent="."]
 
 [node name="FxController" parent="Tools" instance=ExtResource("6_l01ud")]
+
+[node name="Cooldown_Recibe_DMG" type="Timer" parent="Tools"]
 
 [node name="Collision_Body" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4)
