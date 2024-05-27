@@ -1,11 +1,8 @@
 extends Control
 
 @onready var opciones_menu = $OpcionesMenu
-@onready var menu = $Menu
+@onready var menu = $BackGround/Menu
 
-<<<<<<< Updated upstream
-
-=======
 @onready var black = $Black
 @onready var play_button = $BackGround/Menu/PlayButton
 
@@ -21,7 +18,7 @@ func _ready():
 func shadows_DISAPPEAR():
 	tween.tween_property(black, "modulate", Color(1,1,1,0), time_to_wait)
 	tween.connect("finished",disapierBlack)
->>>>>>> Stashed changes
+
 
 @export_file('*.tscn') var change_scene
 #Cargara el juego
