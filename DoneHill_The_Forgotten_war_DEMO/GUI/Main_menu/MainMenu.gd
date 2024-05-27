@@ -1,9 +1,21 @@
 extends Control
 
 @onready var opciones_menu = $OpcionesMenu
-@onready var menu = $Menu
+@onready var menu = $BackGround/Menu
 
+@onready var black = $Black
 
+var tween : Tween
+var time_to_wait : float = 2
+
+func _ready():
+	tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	black.modulate = Color(1,1,1,1)
+	shadows_DISAPPEAR()
+	
+
+func shadows_DISAPPEAR():
+	tween.tween_property(black, "modulate", Color(1,1,1,0), time_to_wait)
 
 @export_file('*.tscn') var change_scene
 #Cargara el juego

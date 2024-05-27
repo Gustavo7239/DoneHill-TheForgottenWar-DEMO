@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DoneHill_The_Forgotten_war_DEMO"
-run/main_scene="res://Terrains/Dev_terrain/Scene/Dev_terrain.tscn"
+run/main_scene="res://GUI/Credits/Scene/Credits.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
