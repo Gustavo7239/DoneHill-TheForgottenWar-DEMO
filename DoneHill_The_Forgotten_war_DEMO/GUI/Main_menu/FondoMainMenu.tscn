@@ -1,0 +1,472 @@
+[gd_scene load_steps=21 format=3 uid="uid://birs404gqb32b"]
+
+[ext_resource type="PackedScene" uid="uid://dnhqoq7bwt38h" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_1.tscn" id="1_u2jpg"]
+[ext_resource type="Texture2D" uid="uid://dj8s110jrteg6" path="res://GUI/Main_menu/Assets/background_0.png" id="1_v3sxw"]
+[ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="2_58ije"]
+[ext_resource type="PackedScene" uid="uid://biffpc0nr1dak" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/bush.tscn" id="2_axtrq"]
+[ext_resource type="Texture2D" uid="uid://ce5kk4gr7l066" path="res://GUI/Main_menu/Assets/grassMainScreenV2.png" id="2_xscgn"]
+[ext_resource type="PackedScene" uid="uid://dy223oyheb172" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/stone.tscn" id="3_28oyv"]
+
+[sub_resource type="Gradient" id="Gradient_evkdg"]
+offsets = PackedFloat32Array(0, 0.904762, 0.995671)
+colors = PackedColorArray(1, 1, 1, 1, 0.695503, 0.695503, 0.695503, 1, 0.505793, 0.550543, 0.874639, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hu7s1"]
+gradient = SubResource("Gradient_evkdg")
+width = 280
+height = 280
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_m05du"]
+offsets = PackedFloat32Array(0, 0.220779, 0.688312, 0.800866, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.462647, 0.462647, 0.462647, 1, 0.244776, 0.244776, 0.244776, 1, 0.112554, 0.112554, 0.112554, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_odwv7"]
+gradient = SubResource("Gradient_m05du")
+width = 720
+height = 720
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_q3jnx"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok1mv"]
+gradient = SubResource("Gradient_q3jnx")
+width = 720
+height = 720
+metadata/_snap_enabled = true
+
+[sub_resource type="Environment" id="Environment_e7hp2"]
+background_mode = 3
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_levels/3 = 16.0
+glow_levels/4 = 16.0
+glow_levels/5 = 16.0
+glow_levels/6 = 16.0
+glow_levels/7 = 16.0
+glow_normalized = true
+glow_intensity = 6.03
+glow_strength = 2.0
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[sub_resource type="Gradient" id="Gradient_0hhar"]
+colors = PackedColorArray(0.225108, 0.225108, 0.225108, 1, 0.225108, 0.225108, 0.225108, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7xqbs"]
+gradient = SubResource("Gradient_0hhar")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j7sa2"]
+frequency = 0.0051
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uvq35"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_j7sa2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cv3si"]
+shader = ExtResource("2_58ije")
+shader_parameter/scroll = Vector2(0.1, 0.05)
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_uvq35")
+
+[sub_resource type="Gradient" id="Gradient_0q00f"]
+offsets = PackedFloat32Array(0, 0.792208)
+colors = PackedColorArray(1, 1, 1, 0.137255, 0.197937, 0.197937, 0.197937, 0.47451)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8q7cp"]
+gradient = SubResource("Gradient_0q00f")
+width = 720
+height = 720
+fill = 1
+fill_from = Vector2(0.517094, 0.119658)
+fill_to = Vector2(0.884615, 1)
+
+[node name="FondoMainMenu" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.32549, 0.32549, 0.32549, 1)
+position = Vector2(427, 56)
+scale = Vector2(2.96528, 3.04444)
+texture = ExtResource("1_v3sxw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(455, 232)
+scale = Vector2(0.473074, 0.449894)
+texture = ExtResource("2_xscgn")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+light_mask = 3
+offset_right = 855.0
+offset_bottom = 479.0
+color = Color(0, 0, 0.101961, 0.360784)
+metadata/_edit_use_anchors_ = true
+
+[node name="Bosque" type="Node2D" parent="."]
+
+[node name="DecoIzq" type="Node2D" parent="Bosque"]
+
+[node name="Bush2" parent="Bosque/DecoIzq" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(95, 318)
+scale = Vector2(5.45689, 5.4569)
+
+[node name="Tree_3" parent="Bosque/DecoIzq" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(59.0001, 284)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoIzq/Tree_3" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoIzq/Tree_3" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoIzq/Tree_3" index="2"]
+visible = false
+
+[node name="Bush" parent="Bosque/DecoIzq" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(23, 441)
+scale = Vector2(5.45689, 5.4569)
+
+[node name="Tree_4" parent="Bosque/DecoIzq" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(29, 407)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoIzq/Tree_4" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoIzq/Tree_4" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoIzq/Tree_4" index="2"]
+visible = false
+
+[node name="Tree_5" parent="Bosque/DecoIzq" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(160, 262)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoIzq/Tree_5" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoIzq/Tree_5" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoIzq/Tree_5" index="2"]
+visible = false
+
+[node name="Tree_6" parent="Bosque/DecoIzq" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(34, 230)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoIzq/Tree_6" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoIzq/Tree_6" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoIzq/Tree_6" index="2"]
+visible = false
+
+[node name="Tree_7" parent="Bosque/DecoIzq" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(121, 209)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoIzq/Tree_7" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoIzq/Tree_7" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoIzq/Tree_7" index="2"]
+visible = false
+
+[node name="DecoDer" type="Node2D" parent="Bosque"]
+position = Vector2(652, 8)
+
+[node name="Tree_3" parent="Bosque/DecoDer" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(59.0001, 284)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoDer/Tree_3" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoDer/Tree_3" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoDer/Tree_3" index="2"]
+visible = false
+
+[node name="Bush" parent="Bosque/DecoDer" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(23, 441)
+scale = Vector2(5.45689, 5.4569)
+
+[node name="Tree_4" parent="Bosque/DecoDer" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(29, 407)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoDer/Tree_4" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoDer/Tree_4" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoDer/Tree_4" index="2"]
+visible = false
+
+[node name="Tree_8" parent="Bosque/DecoDer" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(189, 260)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoDer/Tree_8" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoDer/Tree_8" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoDer/Tree_8" index="2"]
+visible = false
+
+[node name="Tree_5" parent="Bosque/DecoDer" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(160, 262)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoDer/Tree_5" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoDer/Tree_5" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoDer/Tree_5" index="2"]
+visible = false
+
+[node name="Bush2" parent="Bosque/DecoDer" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(92, 351)
+scale = Vector2(5.45689, 5.4569)
+
+[node name="Tree_6" parent="Bosque/DecoDer" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(34, 230)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoDer/Tree_6" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoDer/Tree_6" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoDer/Tree_6" index="2"]
+visible = false
+
+[node name="Stone" parent="Bosque/DecoDer" instance=ExtResource("3_28oyv")]
+modulate = Color(0.376471, 0.376471, 0.376471, 1)
+position = Vector2(201, 446)
+scale = Vector2(4.96875, 4.96875)
+frame = 1
+
+[node name="Tree_7" parent="Bosque/DecoDer" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(144, 401)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoDer/Tree_7" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoDer/Tree_7" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoDer/Tree_7" index="2"]
+visible = false
+
+[node name="DecoCentral" type="Node2D" parent="Bosque"]
+
+[node name="Bush3" parent="Bosque/DecoCentral" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(280, 310)
+scale = Vector2(5.45689, 5.4569)
+frame = 2
+
+[node name="Tree_3" parent="Bosque/DecoCentral" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(587, 272.5)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoCentral/Tree_3" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoCentral/Tree_3" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_3" index="2"]
+visible = false
+
+[node name="Bush2" parent="Bosque/DecoCentral" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(600, 347)
+rotation = -3.14159
+scale = Vector2(7.39022, -7.39022)
+frame = 1
+
+[node name="Tree_1" parent="Bosque/DecoCentral" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(646, 344.5)
+scale = Vector2(4.1875, 4.1875)
+
+[node name="LightOccluder2D" parent="Bosque/DecoCentral/Tree_1" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoCentral/Tree_1" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_1" index="2"]
+visible = false
+
+[node name="Tree_2" parent="Bosque/DecoCentral" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(717, 419.5)
+scale = Vector2(5.46106, 5.46106)
+
+[node name="LightOccluder2D" parent="Bosque/DecoCentral/Tree_2" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoCentral/Tree_2" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_2" index="2"]
+visible = false
+
+[node name="Tree_4" parent="Bosque/DecoCentral" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.372549, 0.372549, 0.372549, 1)
+position = Vector2(253.754, 254.5)
+scale = Vector2(2.9375, 2.9375)
+
+[node name="LightOccluder2D" parent="Bosque/DecoCentral/Tree_4" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoCentral/Tree_4" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_4" index="2"]
+visible = false
+
+[node name="Stone" parent="Bosque/DecoCentral" instance=ExtResource("3_28oyv")]
+modulate = Color(0.376471, 0.376471, 0.376471, 1)
+position = Vector2(250, 380)
+scale = Vector2(4.96875, 4.96875)
+frame = 6
+
+[node name="Tree_5" parent="Bosque/DecoCentral" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(199.754, 328)
+scale = Vector2(4.1875, 4.1875)
+
+[node name="LightOccluder2D" parent="Bosque/DecoCentral/Tree_5" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoCentral/Tree_5" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_5" index="2"]
+visible = false
+
+[node name="Bush" parent="Bosque/DecoCentral" instance=ExtResource("2_axtrq")]
+modulate = Color(0.403922, 0.403922, 0.403922, 1)
+position = Vector2(188, 443)
+scale = Vector2(5.45689, 5.4569)
+frame = 2
+
+[node name="Tree_6" parent="Bosque/DecoCentral" instance=ExtResource("1_u2jpg")]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(109.754, 431)
+scale = Vector2(5.46106, 5.46106)
+
+[node name="LightOccluder2D" parent="Bosque/DecoCentral/Tree_6" index="0"]
+visible = false
+
+[node name="LightOccluder2D2" parent="Bosque/DecoCentral/Tree_6" index="1"]
+visible = false
+
+[node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_6" index="2"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 3
+offset_right = 855.0
+offset_bottom = 479.0
+color = Color(0, 0, 0.101961, 0.568627)
+metadata/_edit_use_anchors_ = true
+
+[node name="Moon" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(426, 63)
+scale = Vector2(0.264286, 0.264286)
+texture = SubResource("GradientTexture2D_hu7s1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Moon"]
+position = Vector2(-0.000183105, -18.9189)
+scale = Vector2(6.43243, 6.43243)
+energy = 3.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_odwv7")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Moon"]
+position = Vector2(-15.1351, -22.7027)
+scale = Vector2(5.1982, 19.8987)
+energy = 3.0
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_ok1mv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e7hp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.180392, 0.180392, 0.180392, 0.627451)
+position = Vector2(427, 52)
+scale = Vector2(13.375, 1)
+texture = SubResource("GradientTexture2D_7xqbs")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+light_mask = 0
+material = SubResource("ShaderMaterial_cv3si")
+position = Vector2(436, 167)
+scale = Vector2(15.5, 15.851)
+texture = SubResource("GradientTexture2D_8q7cp")
+
+[editable path="Bosque/DecoIzq/Tree_3"]
+[editable path="Bosque/DecoIzq/Tree_4"]
+[editable path="Bosque/DecoIzq/Tree_5"]
+[editable path="Bosque/DecoIzq/Tree_6"]
+[editable path="Bosque/DecoIzq/Tree_7"]
+[editable path="Bosque/DecoDer/Tree_3"]
+[editable path="Bosque/DecoDer/Tree_4"]
+[editable path="Bosque/DecoDer/Tree_8"]
+[editable path="Bosque/DecoDer/Tree_5"]
+[editable path="Bosque/DecoDer/Tree_6"]
+[editable path="Bosque/DecoDer/Tree_7"]
+[editable path="Bosque/DecoCentral/Tree_3"]
+[editable path="Bosque/DecoCentral/Tree_1"]
+[editable path="Bosque/DecoCentral/Tree_2"]
+[editable path="Bosque/DecoCentral/Tree_4"]
+[editable path="Bosque/DecoCentral/Tree_5"]
+[editable path="Bosque/DecoCentral/Tree_6"]
