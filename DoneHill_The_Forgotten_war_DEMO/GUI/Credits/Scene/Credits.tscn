@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1cguunjtpxc6"]
+
+[ext_resource type="Script" path="res://GUI/Credits/Script/Credits.gd" id="1_5qatp"]
+[ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_7ljfi"]
+[ext_resource type="Texture2D" uid="uid://up14jkljiwkf" path="res://GUI/Credits/Assets/CompanyLogo.png" id="2_g1si2"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_7ljfi")
+script = ExtResource("1_5qatp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 856.0
+offset_bottom = 488.0
+
+[node name="Background" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_g1si2")
+
+[node name="Wait_timer" type="Timer" parent="."]
+
+[node name="LblContinue" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 464.0
+offset_right = 832.0
+offset_bottom = 476.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Press"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Black" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_right = 856.0
+offset_bottom = 488.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="Wait_timer" to="." method="_on_wait_timer_timeout"]
