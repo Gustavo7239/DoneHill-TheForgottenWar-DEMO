@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_bonsj"]
 [ext_resource type="Script" path="res://GUI/Main_menu/MainMenu.gd" id="1_e87v6"]
 [ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="2_fbs7a"]
-[ext_resource type="PackedScene" uid="uid://degedtmr3aw5v" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
+[ext_resource type="PackedScene" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
 [ext_resource type="PackedScene" uid="uid://birs404gqb32b" path="res://GUI/Main_menu/FondoMainMenu.tscn" id="3_keyon"]
 
 [node name="MainMenu" type="Control"]
@@ -74,7 +74,7 @@ offset_right = 856.0
 offset_bottom = 485.0
 color = Color(0, 0, 0, 1)
 
-[node name="Black" type="ColorRect" parent="."]
+[node name="Black2" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = -3.0
@@ -82,17 +82,6 @@ offset_right = 856.0
 offset_bottom = 485.0
 color = Color(0, 0, 0, 1)
 
-<<<<<<< Updated upstream
-=======
-[node name="Black" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_top = -3.0
-offset_right = 856.0
-offset_bottom = 485.0
-color = Color(0, 0, 0, 1)
-
->>>>>>> Stashed changes
 [connection signal="pressed" from="BackGround/Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="BackGround/Menu/OpcionesButton" to="." method="_on_opciones_button_pressed"]
 [connection signal="pressed" from="BackGround/Menu/SalirButton" to="." method="_on_salir_button_pressed"]
