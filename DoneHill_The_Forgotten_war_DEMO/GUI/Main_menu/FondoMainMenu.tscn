@@ -1,28 +1,33 @@
-[gd_scene load_steps=21 format=3 uid="uid://birs404gqb32b"]
+[gd_scene load_steps=30 format=3 uid="uid://birs404gqb32b"]
 
 [ext_resource type="PackedScene" uid="uid://dnhqoq7bwt38h" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_1.tscn" id="1_u2jpg"]
 [ext_resource type="Texture2D" uid="uid://dj8s110jrteg6" path="res://GUI/Main_menu/Assets/background_0.png" id="1_v3sxw"]
 [ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="2_58ije"]
 [ext_resource type="PackedScene" uid="uid://biffpc0nr1dak" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/bush.tscn" id="2_axtrq"]
-[ext_resource type="Texture2D" uid="uid://ce5kk4gr7l066" path="res://GUI/Main_menu/Assets/grassMainScreenV2.png" id="2_xscgn"]
+[ext_resource type="Texture2D" uid="uid://bsi561vyo87w7" path="res://GUI/Main_menu/Assets/moon.png" id="2_pvboc"]
+[ext_resource type="Texture2D" uid="uid://vcweq0hh2bcx" path="res://GUI/Main_menu/Assets/MainScreenV3.png" id="2_vj274"]
 [ext_resource type="PackedScene" uid="uid://dy223oyheb172" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/stone.tscn" id="3_28oyv"]
 
-[sub_resource type="Gradient" id="Gradient_evkdg"]
-offsets = PackedFloat32Array(0, 0.904762, 0.995671)
-colors = PackedColorArray(1, 1, 1, 1, 0.695503, 0.695503, 0.695503, 1, 0.505793, 0.550543, 0.874639, 0)
+[sub_resource type="Gradient" id="Gradient_ajkx3"]
+offsets = PackedFloat32Array(0.914706, 1)
+colors = PackedColorArray(1, 1, 1, 0.14902, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hu7s1"]
-gradient = SubResource("Gradient_evkdg")
-width = 280
-height = 280
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kuh3y"]
+gradient = SubResource("Gradient_ajkx3")
+width = 720
+height = 720
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.8, 0.2)
+fill_to = Vector2(0.9, 0.2)
 metadata/_snap_enabled = true
 
+[sub_resource type="Curve" id="Curve_lyw7a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.125, 0.95), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.375, 0.95), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.625, 0.95), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0, Vector2(0.875, 0.95), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 9
+
 [sub_resource type="Gradient" id="Gradient_m05du"]
-offsets = PackedFloat32Array(0, 0.220779, 0.688312, 0.800866, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.462647, 0.462647, 0.462647, 1, 0.244776, 0.244776, 0.244776, 1, 0.112554, 0.112554, 0.112554, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.386364, 0.857955, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.462647, 0.462647, 0.462647, 1, 0.112554, 0.112554, 0.112554, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_odwv7"]
 gradient = SubResource("Gradient_m05du")
@@ -33,18 +38,45 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="Gradient" id="Gradient_q3jnx"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_lj3mu"]
+offsets = PackedFloat32Array(0.789773, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok1mv"]
-gradient = SubResource("Gradient_q3jnx")
-width = 720
-height = 720
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3h5xf"]
+gradient = SubResource("Gradient_lj3mu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
 metadata/_snap_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ehsb8"]
+noise_type = 2
+frequency = 0.0003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n00bi"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_ehsb8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vm5i"]
+shader = ExtResource("2_58ije")
+shader_parameter/scroll = Vector2(0.2, 0)
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_n00bi")
+
+[sub_resource type="Gradient" id="Gradient_au2b4"]
+offsets = PackedFloat32Array(0.75, 1)
+colors = PackedColorArray(0, 0, 0.188235, 0.427451, 0, 0, 0.32549, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_di83f"]
+gradient = SubResource("Gradient_au2b4")
+width = 1920
+height = 1080
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.337607)
 
 [sub_resource type="Environment" id="Environment_e7hp2"]
 background_mode = 3
+glow_enabled = true
 glow_levels/1 = 16.0
 glow_levels/2 = 16.0
 glow_levels/3 = 16.0
@@ -53,10 +85,11 @@ glow_levels/5 = 16.0
 glow_levels/6 = 16.0
 glow_levels/7 = 16.0
 glow_normalized = true
-glow_intensity = 6.03
+glow_intensity = 2.1
 glow_strength = 2.0
+glow_blend_mode = 0
 adjustment_enabled = true
-adjustment_saturation = 1.5
+adjustment_brightness = 0.52
 
 [sub_resource type="Gradient" id="Gradient_0hhar"]
 colors = PackedColorArray(0.225108, 0.225108, 0.225108, 1, 0.225108, 0.225108, 0.225108, 1)
@@ -89,29 +122,70 @@ fill = 1
 fill_from = Vector2(0.517094, 0.119658)
 fill_to = Vector2(0.884615, 1)
 
+[sub_resource type="Gradient" id="Gradient_k58fa"]
+offsets = PackedFloat32Array(0.639205, 0.971591, 1)
+colors = PackedColorArray(0.00392157, 0, 0, 0, 0.000895477, 0, 0, 0.65061, 0, 0, 0, 0.843137)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vwr4h"]
+gradient = SubResource("Gradient_k58fa")
+width = 1920
+height = 1080
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="FondoMainMenu" type="Node2D"]
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0.32549, 0.32549, 0.32549, 1)
-position = Vector2(427, 56)
+position = Vector2(427, 196)
 scale = Vector2(2.96528, 3.04444)
 texture = ExtResource("1_v3sxw")
 
+[node name="Moon" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(450, 193)
+scale = Vector2(2.68056, 2.68056)
+texture = ExtResource("2_pvboc")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Moon"]
+position = Vector2(-8.20728, -15.2953)
+scale = Vector2(1.51735, 1.44301)
+amount = 1
+lifetime = 6.0
+texture = SubResource("GradientTexture2D_kuh3y")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.25
+scale_amount_max = 0.25
+scale_amount_curve = SubResource("Curve_lyw7a")
+
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 light_mask = 0
-position = Vector2(455, 232)
-scale = Vector2(0.473074, 0.449894)
-texture = ExtResource("2_xscgn")
+position = Vector2(426, 199)
+scale = Vector2(4.06735, 3.86806)
+texture = ExtResource("2_vj274")
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D3"]
+position = Vector2(-1.96689, -55.5835)
+scale = Vector2(0.25957, 0.272944)
+energy = 3.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_odwv7")
+texture_scale = 1.25
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D3"]
 visible = false
-light_mask = 3
-offset_right = 855.0
-offset_bottom = 479.0
-color = Color(0, 0, 0.101961, 0.360784)
-metadata/_edit_use_anchors_ = true
+position = Vector2(-7.37581, -12.6679)
+scale = Vector2(1.35283, 1.35283)
+texture = SubResource("GradientTexture2D_3h5xf")
+
+[node name="Filtro_noche" type="Sprite2D" parent="Sprite2D3"]
+material = SubResource("ShaderMaterial_1vm5i")
+position = Vector2(0.245852, 10.5996)
+scale = Vector2(0.25, 0.116816)
+texture = SubResource("GradientTexture2D_di83f")
 
 [node name="Bosque" type="Node2D" parent="."]
+visible = false
 
 [node name="DecoIzq" type="Node2D" parent="Bosque"]
 
@@ -409,49 +483,28 @@ visible = false
 [node name="LightOccluder2D3" parent="Bosque/DecoCentral/Tree_6" index="2"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="."]
-light_mask = 3
-offset_right = 855.0
-offset_bottom = 479.0
-color = Color(0, 0, 0.101961, 0.568627)
-metadata/_edit_use_anchors_ = true
-
-[node name="Moon" type="Sprite2D" parent="."]
-light_mask = 0
-position = Vector2(426, 63)
-scale = Vector2(0.264286, 0.264286)
-texture = SubResource("GradientTexture2D_hu7s1")
-
-[node name="PointLight2D" type="PointLight2D" parent="Moon"]
-position = Vector2(-0.000183105, -18.9189)
-scale = Vector2(6.43243, 6.43243)
-energy = 3.0
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_odwv7")
-
-[node name="PointLight2D2" type="PointLight2D" parent="Moon"]
-position = Vector2(-15.1351, -22.7027)
-scale = Vector2(5.1982, 19.8987)
-energy = 3.0
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_ok1mv")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e7hp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.180392, 0.180392, 0.180392, 0.627451)
-position = Vector2(427, 52)
+position = Vector2(427, 163)
 scale = Vector2(13.375, 1)
 texture = SubResource("GradientTexture2D_7xqbs")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="LightBlur" type="Sprite2D" parent="."]
+visible = false
 light_mask = 0
 material = SubResource("ShaderMaterial_cv3si")
 position = Vector2(436, 167)
 scale = Vector2(15.5, 15.851)
 texture = SubResource("GradientTexture2D_8q7cp")
+
+[node name="Bordes" type="Sprite2D" parent="."]
+position = Vector2(427.5, 240)
+scale = Vector2(0.445313, 0.444444)
+texture = SubResource("GradientTexture2D_vwr4h")
 
 [editable path="Bosque/DecoIzq/Tree_3"]
 [editable path="Bosque/DecoIzq/Tree_4"]

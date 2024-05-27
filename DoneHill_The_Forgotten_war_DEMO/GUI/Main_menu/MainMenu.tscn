@@ -68,6 +68,7 @@ menu_back = NodePath("../BackGround/Menu")
 
 [node name="Black" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_top = -3.0
 offset_right = 856.0
 offset_bottom = 485.0
