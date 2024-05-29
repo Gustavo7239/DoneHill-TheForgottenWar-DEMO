@@ -305,7 +305,7 @@ jump = 600
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2g1jc")
-animation = &"Recibe_DMG"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="Skills" type="Node2D" parent="Sprite"]

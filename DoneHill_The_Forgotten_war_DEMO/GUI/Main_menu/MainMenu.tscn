@@ -45,18 +45,31 @@ theme_override_constants/separation = 20
 
 [node name="PlayButton" type="Button" parent="BackGround/Menu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SalirButton")
+focus_neighbor_bottom = NodePath("../OpcionesButton")
+focus_next = NodePath("../OpcionesButton")
+focus_previous = NodePath("../SalirButton")
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_fbs7a")
 text = "Jugar"
 flat = true
 
 [node name="OpcionesButton" type="Button" parent="BackGround/Menu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../SalirButton")
+focus_next = NodePath("../SalirButton")
+focus_previous = NodePath("../PlayButton")
 theme_override_fonts/font = ExtResource("2_fbs7a")
 text = "OPCIONES"
 flat = true
 
 [node name="SalirButton" type="Button" parent="BackGround/Menu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../OpcionesButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../OpcionesButton")
 theme_override_fonts/font = ExtResource("2_fbs7a")
 text = "SALIR"
 flat = true
@@ -65,6 +78,29 @@ flat = true
 visible = false
 layout_mode = 1
 menu_back = NodePath("../BackGround/Menu")
+
+[node name="Tittle" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.65098)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 124.0
+offset_right = 768.0
+offset_bottom = 214.0
+theme_override_font_sizes/font_size = 80
+text = "DoneHill"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtittle" type="Label" parent="Tittle"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 83.0
+offset_right = 469.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 20
+text = "The forgotten war"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Black" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -75,6 +111,7 @@ offset_bottom = 485.0
 color = Color(0, 0, 0, 1)
 
 [node name="Black2" type="ColorRect" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = -3.0

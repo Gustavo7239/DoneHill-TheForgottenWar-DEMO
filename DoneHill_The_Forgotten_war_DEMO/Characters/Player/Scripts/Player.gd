@@ -73,31 +73,35 @@ func motion_ctrl():
 	move_and_slide()
 	'''ANIMACIONES'''
 	#if not hit_skill.Is_Hitting:
-	if !Input.is_action_pressed("Heal_skill") and !Input.is_action_pressed("Dash_skill"):
-		match is_on_floor():
-			true:
-				if not get_axis().x == 0:
-					sprite.set_animation("Run")
-				else:
-					sprite.set_animation("Idle")
-			false:
-				if velocity.y < 0:
-					sprite.set_animation("Jump")
-				else:
-					sprite.set_animation("Fall")
+	#if !Input.is_action_pressed("Heal_skill") and !Input.is_action_pressed("Dash_skill"):
+	match is_on_floor():
+		true:
+			if not get_axis().x == 0:
+				sprite.set_animation("Run")
+			else:
+				sprite.set_animation("Idle")
+		false:
+			if velocity.y < 0:
+				sprite.set_animation("Jump")
+			else:
+				sprite.set_animation("Fall")
 
 func death_ctrl():
 	velocity.x = 0
 	velocity.y *= gravity
 	move_and_slide()
+	sprite.play("Death")
 
 func damage_ctrl(dmg : int = 1):
 	recibe_damage_fx.play()
 	#camera.apply_shake()
-	if Player_HealingPoints - dmg <= 1:
+	print("daño:" ,dmg)
+	print("vida:" , GLOBAL.Player_HP)
+	print("---------------------------")
+	
+	if Player_HealingPoints - dmg < 1:
 		Player_HealingPoints = 0
 		death = true
-		sprite.set_animation("Death")
 	else:
 		#jump_ctrl(0.5)
 		GLOBAL.CAMERA.shake(0.5,1) 
@@ -131,6 +135,7 @@ func _on_sprite_animation_finished():
 		gui.game_over()
 		
 func cooldown_hit():
-	velocity.x = sprite.scale.x * -10
-	velocity.y = -968 * 0.9
+	velocity.y = -368 * 0.9
+	velocity.x = -120 
+	
 	move_and_slide()
