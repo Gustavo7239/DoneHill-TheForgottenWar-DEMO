@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_bonsj"]
 [ext_resource type="Script" path="res://GUI/Main_menu/MainMenu.gd" id="1_e87v6"]
 [ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="2_fbs7a"]
-[ext_resource type="PackedScene" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
+[ext_resource type="PackedScene" uid="uid://degedtmr3aw5v" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
 [ext_resource type="PackedScene" uid="uid://birs404gqb32b" path="res://GUI/Main_menu/FondoMainMenu.tscn" id="3_keyon"]
 
 [node name="MainMenu" type="Control"]
