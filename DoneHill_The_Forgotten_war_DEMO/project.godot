@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GLOBAL="*res://Terrains/Arena_terrain/Scene/GLOBAL.gd"
+GLOBAL="*res://GlobalSettings/GlobalLoad/GLOBAL.gd"
 GLOBAL_LOAD="*res://GlobalSettings/GlobalLoad/GLOBAL_LOAD.gd"
 
 [display]
