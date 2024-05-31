@@ -4,7 +4,7 @@ extends Control
 @onready var menu = $BackGround/Menu
 
 @onready var black = $Black
-@onready var play_button = $BackGround/Menu/PlayButton
+@onready var play_button = $BackGround/Menu/VBoxContainer/PlayButton
 
 var tween : Tween
 var time_to_wait : float = 2

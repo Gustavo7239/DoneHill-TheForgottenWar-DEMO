@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_law1b")
 
 [node name="Pruebas" type="TextEdit" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 offset_left = 352.0
@@ -53,10 +54,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -360.0
+offset_left = -362.0
 offset_top = 40.0
-offset_right = 360.0
-offset_bottom = 74.0
+offset_right = 358.0
+offset_bottom = 179.0
 grow_horizontal = 2
 theme_override_constants/separation = 300
 
