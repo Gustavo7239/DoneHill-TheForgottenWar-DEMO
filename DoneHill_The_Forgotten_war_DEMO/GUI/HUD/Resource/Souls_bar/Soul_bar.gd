@@ -9,7 +9,7 @@ var SOUL_GRADIENT_BAR = preload("res://GUI/HUD/Resource/Souls_bar/Soul_gradient_
 var puntos: float = 1
 
 func _process(delta):
-	if puntos > 0.2:
+	if GLOBAL.game_data["SoulPoints"] > 0.2:
 		puntos -= 0.05
 		var relacion_puntos_particulas = remap(puntos,0.2, 1, 0,200)
 		particle_souls.initial_velocity_max = relacion_puntos_particulas
