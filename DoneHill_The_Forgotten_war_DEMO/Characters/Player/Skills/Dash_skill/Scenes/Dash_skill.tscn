@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp2xbxsd8wl0i"]
+
+[ext_resource type="Script" path="res://Characters/Player/Skills/Dash_skill/Scripts/Dash_skill.gd" id="1_l671n"]
+[ext_resource type="Texture2D" uid="uid://co6topu0k7gb2" path="res://Characters/Player/Skills/Jump_skill/Sprites/Explosion_gas_circle2.png" id="2_jpfvx"]
+[ext_resource type="PackedScene" uid="uid://c0m140xrm248g" path="res://Tools/FXController/Scenes/FXController.tscn" id="2_v8080"]
+[ext_resource type="AudioStream" uid="uid://byur2qnmwpnu6" path="res://Characters/Player/Skills/Dash_skill/Audio/dash_skill.wav" id="3_25we8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7awlp"]
+atlas = ExtResource("2_jpfvx")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn0qx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7awlp")
+}],
+"loop": false,
+"name": &"On",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwicu"]
+size = Vector2(80, 20)
+
+[node name="DashSkill" type="Area2D"]
+script = ExtResource("1_l671n")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qn0qx")
+animation = &"Off"
+autoplay = "Off"
+
+[node name="Tools" type="Node2D" parent="."]
+
+[node name="FxController" parent="Tools" instance=ExtResource("2_v8080")]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Dash_sound_fx" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_25we8")
+
+[node name="AreaHit" type="Area2D" parent="."]
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="AreaHit"]
+position = Vector2(30, 0)
+shape = SubResource("RectangleShape2D_uwicu")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

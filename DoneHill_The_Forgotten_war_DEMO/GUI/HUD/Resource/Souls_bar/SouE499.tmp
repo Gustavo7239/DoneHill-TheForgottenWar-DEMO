@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dds3xpmr7omdg"]
+
+[ext_resource type="Script" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gd" id="1_3klb6"]
+[ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="1_kq6hy"]
+[ext_resource type="Texture2D" uid="uid://byx6p72alvadw" path="res://GUI/HUD/Resource/Souls_bar/Soul_gradient_bar.tres" id="3_lfwi0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ut5f8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a5tws"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_ut5f8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kapja"]
+shader = ExtResource("1_kq6hy")
+shader_parameter/scroll = Vector2(0.05, 0.05)
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_a5tws")
+
+[node name="SoulBar" type="Node2D"]
+script = ExtResource("1_3klb6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 208.0
+offset_top = 55.0
+offset_right = 392.0
+offset_bottom = 378.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bar" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kapja")
+position = Vector2(291, 195.329)
+scale = Vector2(0.258523, 0.949461)
+texture = ExtResource("3_lfwi0")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 640.0
+offset_top = 139.0
+offset_right = 766.0
+offset_bottom = 265.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 518.0
+offset_top = 379.0
+offset_right = 567.0
+offset_bottom = 410.0
+text = "Subir
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

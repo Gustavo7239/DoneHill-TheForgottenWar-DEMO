@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgcpfri3vyaqf"]
+[gd_scene load_steps=3 format=3 uid="uid://bgcpfri3vyaqf"]
 
 [ext_resource type="Script" path="res://Tools/Camera/Scripts/Camera.gd" id="1_r7r87"]
+[ext_resource type="PackedScene" uid="uid://62wtiudm3m27" path="res://GUI/HUD/Scene/HUD.tscn" id="2_xqg1m"]
 
 [node name="Camera" type="Camera2D"]
+limit_smoothed = true
+position_smoothing_enabled = true
 script = ExtResource("1_r7r87")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Shake_timer" type="Timer" parent="Timers"]
+
+[node name="Zoom_timer" type="Timer" parent="Timers"]
+
+[node name="HUD" parent="." instance=ExtResource("2_xqg1m")]
+
+[connection signal="timeout" from="Timers/Shake_timer" to="." method="_on_shake_timer_timeout"]
+[connection signal="timeout" from="Timers/Zoom_timer" to="." method="_on_zoom_timer_timeout"]

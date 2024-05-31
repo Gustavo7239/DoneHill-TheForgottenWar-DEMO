@@ -1,0 +1,123 @@
+[gd_scene load_steps=3 format=3 uid="uid://degedtmr3aw5v"]
+
+[ext_resource type="Script" path="res://GUI/Options_menu/OpcionesMenu.gd" id="1_law1b"]
+[ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="1_usv56"]
+
+[node name="OpcionesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_law1b")
+
+[node name="Pruebas" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 352.0
+offset_top = 28.0
+offset_right = 532.0
+offset_bottom = 128.0
+
+[node name="VBoxContainerButtons" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -33.0
+offset_right = 36.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="GraficosButton" type="Button" parent="VBoxContainerButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_usv56")
+theme_override_font_sizes/font_size = 30
+text = "Graficos"
+
+[node name="SonidoButton" type="Button" parent="VBoxContainerButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_usv56")
+theme_override_font_sizes/font_size = 30
+text = "Sonido"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 40.0
+offset_right = 360.0
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_constants/separation = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GraficoText" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_usv56")
+theme_override_font_sizes/font_size = 30
+text = "GRAFICOS"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="SonidoText" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("1_usv56")
+theme_override_font_sizes/font_size = 30
+text = "SONIDO"
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="LabelMusic" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_usv56")
+text = "MUSICA"
+
+[node name="HSliderMusic" type="HSlider" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+value = 90.0
+
+[node name="LabelFX" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSliderFX" type="HSlider" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38993
+anchor_top = 0.845833
+anchor_right = 0.61007
+anchor_bottom = 0.933333
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_usv56")
+theme_override_font_sizes/font_size = 30
+text = "Volver"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer2/HBoxContainer/HSliderMusic" to="." method="_on_h_slider_music_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer2/HBoxContainer/HSliderFX" to="." method="_on_h_slider_fx_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

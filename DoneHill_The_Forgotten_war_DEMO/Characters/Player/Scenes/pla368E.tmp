@@ -1,0 +1,272 @@
+[gd_scene load_steps=33 format=3 uid="uid://ci1vsvvvcnrq6"]
+
+[ext_resource type="Script" path="res://Characters/Player/Scripts/Player.gd" id="1_qce0l"]
+[ext_resource type="Texture2D" path="res://Characters/Player/Sprite/PlayerDesign02.png" id="2_iqldn"]
+[ext_resource type="PackedScene" uid="uid://bp2xbxsd8wl0i" path="res://Characters/Player/Skills/Dash_skill/Scenes/Dash_skill.tscn" id="2_qhjjj"]
+[ext_resource type="PackedScene" uid="uid://8fbebj62v1qw" path="res://Characters/Player/Skills/Jump_skill/Scenes/Jump_skill.tscn" id="3_dwcbs"]
+[ext_resource type="PackedScene" uid="uid://wtrwatf5f5yq" path="res://Characters/Player/Skills/Regenerate_skill/Scenes/Heal_skill.tscn" id="4_hcuro"]
+[ext_resource type="PackedScene" uid="uid://c0m140xrm248g" path="res://Tools/FXController/Scenes/FXController.tscn" id="6_l01ud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odi3h"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muri7"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7pc"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84i0g"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2u32"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0e4f"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjv4q"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg2k5"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c4oh"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1taes"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(192, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3lvc"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gi3j"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdv3w"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iok3q"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3577g"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aku0"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tho3"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovtr6"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_483qv"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ghn"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f851x"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1wed"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7ur1"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1olbq"]
+atlas = ExtResource("2_iqldn")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g1jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odi3h")
+}],
+"loop": true,
+"name": &"Dash_skill_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muri7")
+}],
+"loop": true,
+"name": &"Dash_skill_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or7pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84i0g")
+}],
+"loop": false,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2u32")
+}],
+"loop": true,
+"name": &"Heal_skill_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0e4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjv4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg2k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c4oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1taes")
+}],
+"loop": true,
+"name": &"Heal_skill_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3lvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gi3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdv3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iok3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3577g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aku0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tho3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovtr6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_483qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ghn")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f851x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1wed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7ur1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1olbq")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i5bt6"]
+radius = 7.0
+height = 24.0
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+collision_mask = 29
+platform_floor_layers = 4294901764
+platform_wall_layers = 4
+script = ExtResource("1_qce0l")
+Player_HealingPoints = 2
+jump = 600
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2g1jc")
+animation = &"Heal_skill_2"
+autoplay = "Idle"
+
+[node name="Skills" type="Node2D" parent="Sprite"]
+
+[node name="JumpSkill" parent="Sprite/Skills" node_paths=PackedStringArray("player") instance=ExtResource("3_dwcbs")]
+visible = false
+position = Vector2(0.5, 16.75)
+scale = Vector2(0.75, 0.75)
+player = NodePath("../../..")
+
+[node name="DashSkill" parent="Sprite/Skills" instance=ExtResource("2_qhjjj")]
+visible = false
+position = Vector2(0, 17.75)
+player = Object(CharacterBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(4, 4),"skew":0.0,"disable_mode":0,"collision_layer":1,"collision_mask":29,"collision_priority":1.0,"input_pickable":false,"motion_mode":0,"up_direction":Vector2(0, -1),"velocity":Vector2(0, 0),"slide_on_ceiling":true,"max_slides":4,"wall_min_slide_angle":0.261799,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.785398,"floor_snap_length":1.0,"platform_on_leave":0,"platform_floor_layers":4294901764,"platform_wall_layers":4,"safe_margin":0.08,"script":ExtResource("1_qce0l"),"gui":null,"Player_HealingPoints":2,"camera":null,"gravity":16,"jump":600,"normalSpeed":120,"Can_Heal":true,"Can_Dash":true)
+
+
+[node name="HealSkill" parent="Sprite/Skills" node_paths=PackedStringArray("player") instance=ExtResource("4_hcuro")]
+position = Vector2(0, 4.75)
+scale = Vector2(0.25, 0.25)
+player = NodePath("../../..")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="JumpFx" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="RecibeDamageFx" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="Tools" type="Node" parent="."]
+
+[node name="FxController" parent="Tools" instance=ExtResource("6_l01ud")]
+
+[node name="Collision_Body" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_i5bt6")
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

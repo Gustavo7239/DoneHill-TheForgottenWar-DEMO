@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4c3chnnptplk"]
+
+[ext_resource type="Script" path="res://GUI/Pause_menu/PauseMenu.gd" id="1_0mabq"]
+[ext_resource type="PackedScene" uid="uid://degedtmr3aw5v" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="1_1qro6"]
+[ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="2_dvtff"]
+
+[sub_resource type="Gradient" id="Gradient_oybwi"]
+offsets = PackedFloat32Array(0, 0.333, 0.667, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.784314, 0, 0, 0, 0.784314, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ibhb2"]
+gradient = SubResource("Gradient_oybwi")
+width = 500
+height = 500
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mabq")
+change_scene = "res://GUI/Main_menu/MainMenu.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(427, 240)
+scale = Vector2(1.704, 0.96)
+texture = SubResource("GradientTexture2D_ibhb2")
+
+[node name="OpcionesMenu" parent="." node_paths=PackedStringArray("menu_back") instance=ExtResource("1_1qro6")]
+visible = false
+layout_mode = 1
+menu_back = NodePath("../menu")
+
+[node name="menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.290398
+anchor_top = 0.0916667
+anchor_right = 0.709602
+anchor_bottom = 0.885417
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonContinuar" type="Button" parent="menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dvtff")
+theme_override_font_sizes/font_size = 30
+text = "Continuar"
+
+[node name="ButtonOpciones" type="Button" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_dvtff")
+theme_override_font_sizes/font_size = 30
+text = "Opciones
+"
+
+[node name="ButtonMenuPrincipal" type="Button" parent="menu"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_dvtff")
+theme_override_font_sizes/font_size = 25
+text = "Menu Principal"
+
+[connection signal="pressed" from="menu/ButtonContinuar" to="." method="_on_button_continuar_pressed"]
+[connection signal="pressed" from="menu/ButtonOpciones" to="." method="_on_button_opciones_pressed"]
+[connection signal="pressed" from="menu/ButtonMenuPrincipal" to="." method="_on_button_menu_principal_pressed"]
