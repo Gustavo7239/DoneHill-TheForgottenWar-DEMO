@@ -15,18 +15,19 @@ class_name DobleJump_Skill
 
 @onready var fx_controller = $FxController
 
-var Is_Activated : bool = GLOBAL.Player_can_DobleJump
+var Is_Activated : bool = GLOBAL.game_data["Player_can_DobleJump"]
 var Is_on_doblejump : bool = false
 
 func _process(delta):
-	jump_sound_fx.volume_db = GLOBAL.SOUNDFX_VOLUME
-	doble_jump_sound_fx.volume_db = GLOBAL.SOUNDFX_VOLUME
+	jump_sound_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	doble_jump_sound_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
 
 func jump_action():
 	match player.is_on_floor():
 		true:
 			Is_on_doblejump = false
 			jump_ctrl(0.9)
+			
 		false:
 			if not Is_on_doblejump and Is_Activated:
 				Is_on_doblejump = true

@@ -36,9 +36,10 @@ var currentSpeed : int = normalSpeed
 @onready var fx_controller = $Tools/FxController
 
 func _process(delta):
-	GLOBAL.Player_HP = Player_HealingPoints
-	GLOBAL.Player_can_Heal = Can_Heal
-	jump_fx.volume_db = GLOBAL.SOUNDFX_VOLUME
+	#GLOBAL.game_data["Player_can_Heal"] = Can_Heal
+	jump_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	GLOBAL.game_data["Player_HP"] = Player_HealingPoints
+	GLOBAL.game_data["Player_Position"] = position
 	
 	match death:
 		true:
@@ -50,6 +51,7 @@ func _input(event):
 	if not death:
 		if event.is_action_pressed("Jump_skill"):
 			jump_skill.jump_action()
+			GLOBAL.save_game()
 
 func get_axis() -> Vector2:
 	axis.x = int(Input.is_action_pressed("Right_move")) - int(Input.is_action_pressed("Left_move"))
@@ -96,7 +98,7 @@ func damage_ctrl(dmg : int = 1):
 	recibe_damage_fx.play()
 	#camera.apply_shake()
 	print("daño:" ,dmg)
-	print("vida:" , GLOBAL.Player_HP)
+	print("vida:" , GLOBAL.game_data["Player_HP"] )
 	print("---------------------------")
 	
 	if Player_HealingPoints - dmg < 1:
@@ -111,6 +113,8 @@ func damage_ctrl(dmg : int = 1):
 		
 	if Input.is_action_pressed("Heal_skill") and is_on_floor():
 		heal_skill.cancel_charge() 
+		
+	GLOBAL.game_data["Player_HP"] = Player_HealingPoints
 
 func set_Slow_velocity(slowVelocity : float) -> void:
 	currentSpeed = slowVelocity

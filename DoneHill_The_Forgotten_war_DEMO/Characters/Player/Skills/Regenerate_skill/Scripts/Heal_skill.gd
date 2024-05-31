@@ -36,7 +36,7 @@ func _process(delta):
 
 func cargar_ctrl():
 	if Is_Activated and not Is_Charging and not Is_on_cooldown : 
-		if GLOBAL.Player_HP < GLOBAL.MAX_Player_HP and GLOBAL.SoulPoints >= points_to_heal:
+		if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.SoulPoints >= points_to_heal:
 			sprite.play("Start")
 			GLOBAL.CAMERA.zoomFX_Healing(0.02)
 			healing_skill_sound_fx_start.play()
@@ -63,7 +63,7 @@ func _on_cooldown_timer_timeout():
 	Is_on_cooldown = false
 
 func cancel_charge():
-	if GLOBAL.Player_HP < GLOBAL.MAX_Player_HP and GLOBAL.SoulPoints >= points_to_heal:
+	if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.SoulPoints >= points_to_heal:
 		sprite.play("Finish")
 		GLOBAL.CAMERA.normalCameraZoom()
 		healing_skill_sound_fx_start.stop()
