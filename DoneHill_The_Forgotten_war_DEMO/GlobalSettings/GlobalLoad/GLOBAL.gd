@@ -8,7 +8,6 @@ var fx_volume_level = 0
 var music_volume_level_slider = 90
 var fx_volume_level_slider = 90
 
-var SoulPoints : int = 400				#Puntos de alma del Player
 const MAX_SOULS_POINTS : int = 400		#Puntos de alma maximos
 
 var Player_HP : int = 4					#Puntos de vida del Player actual
@@ -38,6 +37,8 @@ var game_data : Dictionary = {
 	"Player_Position" : Vector2.ZERO 	#Posicion del jugador
 }
 
+var SoulPoints = game_data["SoulPoints"]#Puntos de alma del Player
+
 func save_game() -> void:
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	save_file.store_var(game_data)
@@ -56,3 +57,13 @@ func load_game() -> void:
 		print(game_data["Player_Position"].x)
 		print(game_data["Player_Position"].y)
 		print("-----------------------------------------")
+
+func Reload_Player_Settings(player : Player, IsSpan : bool):
+	if IsSpan:
+		if game_data["Player_Position"] != Vector2.ZERO:
+			player.global_position = game_data["Player_Position"]
+		
+	player.Player_HealingPoints = GLOBAL.game_data["Player_HP"]
+	
+	player.Can_Heal = GLOBAL.game_data["Player_can_Heal"]
+	player.Can_Dash = GLOBAL.game_data["Player_can_Dash"]

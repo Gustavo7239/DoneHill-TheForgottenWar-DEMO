@@ -18,7 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GLOBAL="*res://GlobalSettings/GlobalLoad/GLOBAL.gd"
-GLOBAL_LOAD="*res://GlobalSettings/GlobalLoad/GLOBAL_LOAD.gd"
+GLOBAL_LOAD="res://GlobalSettings/GlobalLoad/GLOBAL_LOAD.gd"
+TransitionerScreen="*res://Tools/Transitioner/Scene/Transitioner.tscn"
+NavigationManager="*res://Tools/Navigation_Manager/Script/Navigation_Manager.gd"
 
 [display]
 

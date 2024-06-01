@@ -22,7 +22,7 @@ class_name Dash_Skill
 @onready var cooldown_timer = $Cooldown
 
 
-var Is_Activated : bool = GLOBAL.Player_can_Dash
+var Is_Activated : bool = GLOBAL.game_data["Player_can_Dash"]
 var Is_on_cooldown : bool = false
 var hability_lvl : int = 3
 
@@ -32,7 +32,7 @@ func _ready():
 func _process(delta):
 	global_position = player.global_position
 	scale.x = player.get_axis().x
-	dash_sound_fx.volume_db = GLOBAL.SOUNDFX_VOLUME
+	dash_sound_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"] 
 
 func _on_area_hit_body_entered(body):
 	if body as BasicEnemy and hability_lvl >= 3:
