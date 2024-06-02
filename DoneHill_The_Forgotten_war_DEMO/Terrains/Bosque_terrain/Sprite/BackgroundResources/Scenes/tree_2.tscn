@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj4nw1ok3im0l"]
+
+[ext_resource type="Texture2D" uid="uid://b7smjuioe1sdt" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/ArbolesNuevos.png" id="1_j3485"]
+[ext_resource type="Script" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scripts/tree_1.gd" id="2_awj4k"]
+[ext_resource type="Texture2D" uid="uid://c53p0s1udoajc" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/hoja.png" id="2_nwrsu"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jb6sf"]
+polygon = PackedVector2Array(-18, -30, -18, -28, -19, -28, -19, -23, -18, -23, -18, -19, -17, -19, -17, -18, -16, -18, -16, -15, -14, -15, -14, -14, -12, -14, -12, -12, -11, -12, -11, -15, -10, -15, -10, -16, -11, -16, -11, -19, -10, -19, -10, -20, -9, -20, -9, -21, -6, -21, -6, -20, -5, -20, -5, -19, -3, -19, -3, -20, -2, -20, -2, -21, 0, -21, 0, -22, 1, -22, 1, -21, 2, -21, 2, -20, 3, -20, 3, -19, 4, -19, 4, -20, 5, -20, 5, -21, 9, -21, 9, -20, 10, -20, 10, -19, 12, -19, 12, -20, 13, -20, 13, -21, 15, -21, 15, -22, 16, -22, 16, -23, 17, -23, 17, -29, 17, -33, 16, -33, 16, -35, 15, -35, 15, -36, 14, -36, 14, -38, 12, -38, 12, -39, 7, -39, 7, -40, 2, -40, 2, -41, -6, -41, -6, -40, -9, -40, -9, -39, -12, -39, -12, -38, -14, -38, -14, -37, -15, -37, -15, -35, -16, -35, -16, -34, -17, -34, -17, -32, -18, -32)
+
+[sub_resource type="Curve" id="Curve_q6r3h"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 10), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_vn78x"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 15), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_d7h3x"]
+offsets = PackedFloat32Array(0, 0.578125, 1)
+colors = PackedColorArray(0.191406, 0.191406, 0.191406, 1, 0.406189, 0.406189, 0.406189, 1, 0.65361, 0.65361, 0.65361, 1)
+
+[node name="Tree_2" type="Sprite2D"]
+texture = ExtResource("1_j3485")
+hframes = 3
+frame = 1
+script = ExtResource("2_awj4k")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jb6sf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(1, -29)
+amount = 10
+lifetime = 6.0
+texture = ExtResource("2_nwrsu")
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 15)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+angular_velocity_max = 60.0
+angular_velocity_curve = SubResource("Curve_q6r3h")
+tangential_accel_min = 10.0
+tangential_accel_max = 25.0
+tangential_accel_curve = SubResource("Curve_vn78x")
+angle_max = 180.0
+color = Color(0.160784, 1, 0, 1)
+color_initial_ramp = SubResource("Gradient_d7h3x")

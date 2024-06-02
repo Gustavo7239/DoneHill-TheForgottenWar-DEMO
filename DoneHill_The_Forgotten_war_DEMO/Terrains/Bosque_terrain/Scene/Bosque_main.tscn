@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmi3o3jpqraf"]
+[gd_scene load_steps=10 format=3 uid="uid://bmi3o3jpqraf"]
 
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_ef43o"]
 [ext_resource type="PackedScene" uid="uid://dnhqoq7bwt38h" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_1.tscn" id="2_d0y03"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="3_wdcm2"]
+[ext_resource type="PackedScene" uid="uid://bj4nw1ok3im0l" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_2.tscn" id="4_ducrc"]
+[ext_resource type="PackedScene" uid="uid://dk1xurnk7k563" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_3.tscn" id="4_qyhcb"]
 [ext_resource type="PackedScene" uid="uid://biffpc0nr1dak" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/bush.tscn" id="4_ukhi6"]
 [ext_resource type="PackedScene" uid="uid://dy223oyheb172" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/stone.tscn" id="5_kkslx"]
-[ext_resource type="Texture2D" uid="uid://c6p61a5ja1al2" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/CespedFront.png" id="6_0ekg1"]
 [ext_resource type="PackedScene" uid="uid://c760ylvhowv5c" path="res://Tools/Lights/Sun.tscn" id="7_6pnm3"]
 
 [sub_resource type="Environment" id="Environment_fs8tf"]
@@ -39,257 +40,39 @@ position = Vector2(94.6667, 207.333)
 scale = Vector2(2, 2)
 
 [node name="Tree_2" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
-modulate = Color(0.341176, 0.341176, 0.341176, 1)
-position = Vector2(143.333, 234)
+z_index = -5
+position = Vector2(335.333, 234)
 scale = Vector2(1.5, 1.5)
 
 [node name="Tree_3" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
 z_index = -5
-position = Vector2(169.333, 254.667)
+position = Vector2(169.333, 217.334)
+scale = Vector2(1.75, 1.75)
+
+[node name="Tree_5" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_qyhcb")]
+z_index = -5
+position = Vector2(281.333, 196)
+scale = Vector2(2.25, 2.25)
+
+[node name="Tree_4" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_ducrc")]
+z_index = -5
+position = Vector2(240, 208)
+scale = Vector2(2, 2)
 
 [node name="BushContainer" type="Node2D" parent="BackGroundContainer"]
 
 [node name="Bush" parent="BackGroundContainer/BushContainer" instance=ExtResource("4_ukhi6")]
-visible = false
-modulate = Color(0.0313726, 0.0313726, 0.0313726, 1)
-z_index = 10
-position = Vector2(134, 325.333)
-scale = Vector2(3.01078, 3.01078)
-frame = 3
-
-[node name="Bush2" parent="BackGroundContainer/BushContainer" instance=ExtResource("4_ukhi6")]
-visible = false
-modulate = Color(0.0196078, 0.0196078, 0.0196078, 1)
-z_index = 5
-position = Vector2(74, 322)
-scale = Vector2(3.97126, 3.97126)
-frame = 3
-
-[node name="Bush3" parent="BackGroundContainer/BushContainer" instance=ExtResource("4_ukhi6")]
-visible = false
-modulate = Color(0.0156863, 0.0156863, 0.0156863, 1)
-z_index = 10
-position = Vector2(1.99999, 336)
-scale = Vector2(4.287, 4.287)
-frame = 3
+z_index = -4
+position = Vector2(173.333, 294)
+scale = Vector2(-2.16092, 2.16092)
+frame = 2
 
 [node name="StoneContainer" type="Node2D" parent="BackGroundContainer"]
 
 [node name="Stone" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
 z_index = -5
-position = Vector2(101.333, 304)
+position = Vector2(101.333, 298.667)
 scale = Vector2(2.14583, 2.14583)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="BackGroundContainer"]
-layer = 1
-
-[node name="GrassDarker" type="ParallaxLayer" parent="BackGroundContainer/ParallaxBackground"]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassDarker"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(596, 498.5)
-scale = Vector2(13.2174, 3.79348)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 3
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassDarker"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(805.5, 498.5)
-scale = Vector2(5.94565, 3.79348)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 2
-
-[node name="GrassFront" type="ParallaxLayer" parent="BackGroundContainer/ParallaxBackground"]
-visible = false
-z_index = 3
-
-[node name="GrassBlack" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront"]
-
-[node name="Front" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(73, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front2" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(142, 457)
-scale = Vector2(-1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front3" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(249, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front4" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(142, 457)
-scale = Vector2(-1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front5" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(345, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front6" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(414, 457)
-scale = Vector2(-1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front7" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(521, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front8" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(625, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front9" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(694, 457)
-scale = Vector2(-1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front10" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(801, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front11" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(889, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front12" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(958, 457)
-scale = Vector2(-1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="Front13" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/GrassFront/GrassBlack"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(1065, 456)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-
-[node name="BushesFront" type="ParallaxLayer" parent="BackGroundContainer/ParallaxBackground"]
-visible = false
-modulate = Color(0.203922, 0.203922, 0.203922, 1)
-z_index = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/BushesFront"]
-modulate = Color(0.517647, 0.517647, 0.517647, 1)
-position = Vector2(29, 478)
-scale = Vector2(1.36957, 1.36957)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/BushesFront"]
-modulate = Color(0.517647, 0.517647, 0.517647, 1)
-position = Vector2(211, 476.25)
-scale = Vector2(2.03261, 2.63587)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 1
-
-[node name="Sprite2D3" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/BushesFront"]
-modulate = Color(0.172549, 0.172549, 0.172549, 1)
-position = Vector2(379, 497)
-scale = Vector2(2.03261, 2.16848)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 1
-
-[node name="Sprite2D4" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/BushesFront"]
-modulate = Color(0.517647, 0.517647, 0.517647, 1)
-position = Vector2(325, 478)
-scale = Vector2(1.36957, 1.36957)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 1
-
-[node name="Sprite2D5" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/BushesFront"]
-modulate = Color(0.517647, 0.517647, 0.517647, 1)
-position = Vector2(667, 476.25)
-scale = Vector2(2.03261, 2.63587)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 1
-
-[node name="Sprite2D6" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/BushesFront"]
-modulate = Color(0.172549, 0.172549, 0.172549, 1)
-position = Vector2(547, 497)
-scale = Vector2(2.03261, 2.16848)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 1
-
-[node name="PlantsFront" type="ParallaxLayer" parent="BackGroundContainer/ParallaxBackground"]
-visible = false
-z_index = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/PlantsFront"]
-modulate = Color(0.105882, 0.105882, 0.105882, 1)
-position = Vector2(321, 498)
-scale = Vector2(3.20652, 3.20652)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 5
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/PlantsFront"]
-modulate = Color(0.105882, 0.105882, 0.105882, 1)
-position = Vector2(137, 498)
-scale = Vector2(3.20652, 3.20652)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 6
-
-[node name="Sprite2D3" type="Sprite2D" parent="BackGroundContainer/ParallaxBackground/PlantsFront"]
-modulate = Color(0.105882, 0.105882, 0.105882, 1)
-position = Vector2(649, 498)
-scale = Vector2(3.20652, 3.20652)
-texture = ExtResource("6_0ekg1")
-hframes = 8
-frame = 6
-
-[node name="StonesFront" type="ParallaxLayer" parent="BackGroundContainer/ParallaxBackground"]
-visible = false
-z_index = 2
-
-[node name="Stone" parent="BackGroundContainer/ParallaxBackground/StonesFront" instance=ExtResource("5_kkslx")]
-modulate = Color(0.0588235, 0.0588235, 0.0588235, 1)
-position = Vector2(200, 482)
-scale = Vector2(3.3125, 3.3125)
-frame = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fs8tf")
