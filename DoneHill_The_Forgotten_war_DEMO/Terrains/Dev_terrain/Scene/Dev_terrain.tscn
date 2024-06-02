@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxt0hp6586pxh"]
+[gd_scene load_steps=11 format=3 uid="uid://cxt0hp6586pxh"]
 
 [ext_resource type="PackedScene" uid="uid://dm624kgmgci67" path="res://Terrains/Montaña_helada_terrain/Scene/montaña_helada_tile_map.tscn" id="1_3h8qh"]
 [ext_resource type="Script" path="res://Terrains/Dev_terrain/Script/Dev_terrain.gd" id="1_utua7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="5_8scee"]
 [ext_resource type="PackedScene" uid="uid://crsup6s75fy1m" path="res://Characters/Enemies/Slime/Scene/Slime.tscn" id="7_j4idw"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="8_xaqyy"]
+[ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="10_pox6l"]
 
 [node name="DevTerrain" type="Node2D"]
 script = ExtResource("1_utua7")
@@ -42,3 +43,19 @@ position = Vector2(329, 351)
 [node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_xaqyy")]
 position = Vector2(46, 332)
 player = NodePath("../Player")
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_W" parent="Doors" instance=ExtResource("10_pox6l")]
+position = Vector2(875, 354)
+destination_level_tag = "Bosque_lvl"
+destination_door_tag = "E"
+spawn_direction = "left"
+
+[node name="CollisionShape2D" parent="Doors/Door_W" index="0"]
+position = Vector2(39, -48.5)
+
+[node name="Spawn" parent="Doors/Door_W" index="1"]
+position = Vector2(-65, -2)
+
+[editable path="Doors/Door_W"]

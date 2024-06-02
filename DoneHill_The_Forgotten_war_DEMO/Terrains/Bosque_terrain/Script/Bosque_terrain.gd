@@ -1,15 +1,12 @@
 extends Node
+
 @onready var player = $Player
 
 func _ready():
-	GLOBAL.load_game()
-	
 	if NavigationManager.spawn_door_tag != null:
 		_on_level_spawn(NavigationManager.spawn_door_tag)
+	
 		GLOBAL.Reload_Player_Settings(player, false)
-	else:
-		GLOBAL.Reload_Player_Settings(player, true)
-
 
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag

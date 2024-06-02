@@ -35,6 +35,13 @@ var currentSpeed : int = normalSpeed
 #Tools
 @onready var fx_controller = $Tools/FxController
 
+func _ready():
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+func _on_spawn(position: Vector2, direction: String):
+	global_position = position
+	
+	
 func _process(delta):
 	#GLOBAL.game_data["Player_can_Heal"] = Can_Heal
 	jump_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]

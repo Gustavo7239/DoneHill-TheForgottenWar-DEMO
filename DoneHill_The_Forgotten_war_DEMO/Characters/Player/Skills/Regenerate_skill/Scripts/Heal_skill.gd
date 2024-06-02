@@ -22,7 +22,7 @@ class_name Healing_Skill
 @onready var healing_skill_sound_fx_final = $Audio/HealingSkill_SoundFX_Final
 @onready var healing_skill_sound_fx_cancel = $Audio/HealingSkill_SoundFX_Cancel
 
-var Is_Activated : bool = GLOBAL.Player_can_Heal
+var Is_Activated : bool = GLOBAL.game_data["Player_can_Heal"]
 var Is_on_cooldown : bool = false
 var Is_Charging : bool = false
 
@@ -36,7 +36,7 @@ func _process(delta):
 
 func cargar_ctrl():
 	if Is_Activated and not Is_Charging and not Is_on_cooldown : 
-		if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.SoulPoints >= points_to_heal:
+		if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.game_data["SoulPoints"] >= points_to_heal:
 			sprite.play("Start")
 			GLOBAL.CAMERA.zoomFX_Healing(0.02)
 			healing_skill_sound_fx_start.play()
@@ -53,17 +53,18 @@ var original_score
 
 func reduce_score_progressively():
 	# Guarda el puntaje original
-	original_score = GLOBAL.SoulPoints
+	original_score = GLOBAL.game_data["SoulPoints"]
 	var audio_duration = healing_skill_sound_fx_in.stream.get_length()
 	
 	tweenSubstractHP = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tweenSubstractHP.tween_property(GLOBAL, "SoulPoints", original_score - points_to_heal, audio_duration)
-
+	tweenSubstractHP.connect("finished",substract)
+	
 func _on_cooldown_timer_timeout():
 	Is_on_cooldown = false
 
 func cancel_charge():
-	if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.SoulPoints >= points_to_heal:
+	if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.game_data["SoulPoints"] >= points_to_heal:
 		sprite.play("Finish")
 		GLOBAL.CAMERA.normalCameraZoom()
 		healing_skill_sound_fx_start.stop()
@@ -102,11 +103,13 @@ func _on_sprite_animation_finished():
 		sprite.play("Off")
 
 func updateSoundFX_Volume():
-	healing_skill_sound_fx_start.volume_db = GLOBAL.SOUNDFX_VOLUME
-	healing_skill_sound_fx_in.volume_db = GLOBAL.SOUNDFX_VOLUME
-	healing_skill_sound_fx_final.volume_db = GLOBAL.SOUNDFX_VOLUME
-	healing_skill_sound_fx_cancel.volume_db = GLOBAL.SOUNDFX_VOLUME
+	healing_skill_sound_fx_start.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"] 
+	healing_skill_sound_fx_in.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"] 
+	healing_skill_sound_fx_final.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"] 
+	healing_skill_sound_fx_cancel.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"] 
 
+func substract():
+	GLOBAL.game_data["SoulPoints"] -= points_to_heal
 
 func _on_casting_timer_timeout():
 	pass

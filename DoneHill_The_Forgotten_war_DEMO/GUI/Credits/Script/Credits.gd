@@ -5,9 +5,11 @@ extends Control
 @onready var lbl_continue = $LblContinue
 
 var tween : Tween 
-var time_to_wait : float = 4
+var time_to_wait : float = 1
 
 func _ready():
+	GLOBAL.load_game()
+	#GLOBAL.save_game()
 	tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	black.modulate = Color(1,1,1,1)
 	shadows_DISAPPEAR()
@@ -26,11 +28,12 @@ func _process(delta):
 
 func shadows_DISAPPEAR():
 	showShadow(false)
-	showShadow(true)
+	#showShadow(true)
 	tween.connect("finished",changeScene)
 
 func changeScene():
-	get_tree().change_scene_to_file("res://GUI/Main_menu/MainMenu.tscn")
+	#get_tree().change_scene_to_file("res://GUI/Main_menu/MainMenu.tscn")
+	NavigationManager.change_Scene("MAIN_MENU")
 
 func showShadow(value : bool):
 	match value:

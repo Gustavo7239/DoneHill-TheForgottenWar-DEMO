@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://hrjpay0kg8xq"]
+[gd_scene load_steps=5 format=3 uid="uid://hrjpay0kg8xq"]
 
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_bonsj"]
 [ext_resource type="Script" path="res://GUI/Main_menu/MainMenu.gd" id="1_e87v6"]
 [ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="2_fbs7a"]
-[ext_resource type="PackedScene" uid="uid://degedtmr3aw5v" path="res://GUI/Options_menu/OpcionesMenu.tscn" id="3_5jih0"]
 [ext_resource type="PackedScene" uid="uid://birs404gqb32b" path="res://GUI/Main_menu/FondoMainMenu.tscn" id="3_keyon"]
 
 [node name="MainMenu" type="Control"]
@@ -15,7 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bonsj")
 script = ExtResource("1_e87v6")
-change_scene = "res://Terrains/Dev_terrain/Scene/Dev_terrain.tscn"
 
 [node name="BackGround" type="ColorRect" parent="."]
 layout_mode = 1
@@ -95,28 +93,6 @@ focus_previous = NodePath("../OpcionesButton")
 theme_override_fonts/font = ExtResource("2_fbs7a")
 text = "SALIR"
 flat = true
-
-[node name="OpcionesMenu" parent="." node_paths=PackedStringArray("menu_back") instance=ExtResource("3_5jih0")]
-visible = false
-layout_mode = 1
-menu_back = NodePath("../BackGround/Menu")
-
-[node name="Black" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_top = -3.0
-offset_right = 856.0
-offset_bottom = 485.0
-color = Color(0, 0, 0, 1)
-
-[node name="Black2" type="ColorRect" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_top = -3.0
-offset_right = 856.0
-offset_bottom = 485.0
-color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="BackGround/Menu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="BackGround/Menu/VBoxContainer/OpcionesButton" to="." method="_on_opciones_button_pressed"]
