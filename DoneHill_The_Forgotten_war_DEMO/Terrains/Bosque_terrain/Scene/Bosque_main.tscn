@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmi3o3jpqraf"]
+[gd_scene load_steps=14 format=3 uid="uid://bmi3o3jpqraf"]
 
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_ef43o"]
 [ext_resource type="Script" path="res://Terrains/Bosque_terrain/Script/Bosque_terrain.gd" id="1_kglr0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dy223oyheb172" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/stone.tscn" id="5_kkslx"]
 [ext_resource type="PackedScene" uid="uid://c760ylvhowv5c" path="res://Tools/Lights/Sun.tscn" id="7_6pnm3"]
 [ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="8_x5fph"]
+[ext_resource type="PackedScene" uid="uid://08acho6uda0" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/Paralax.tscn" id="9_l4jed"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="10_o6xpp"]
 
 [sub_resource type="Environment" id="Environment_fs8tf"]
@@ -63,13 +64,124 @@ z_index = -5
 position = Vector2(240, 208)
 scale = Vector2(2, 2)
 
+[node name="Tree_6" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(424, 205.333)
+scale = Vector2(2, 2)
+
+[node name="Tree_7" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(664.666, 232)
+scale = Vector2(1.5, 1.5)
+
+[node name="Tree_8" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(498.667, 219.333)
+scale = Vector2(1.75, 1.75)
+
+[node name="Tree_9" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_qyhcb")]
+z_index = -5
+position = Vector2(610.666, 194)
+scale = Vector2(2.25, 2.25)
+
+[node name="Tree_10" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_ducrc")]
+z_index = -5
+position = Vector2(569.333, 206)
+scale = Vector2(2, 2)
+
+[node name="Tree_11" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(740.667, 207.333)
+scale = Vector2(2, 2)
+
+[node name="Tree_12" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(981.333, 234)
+scale = Vector2(1.5, 1.5)
+
+[node name="Tree_13" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(815.333, 217.334)
+scale = Vector2(1.75, 1.75)
+
+[node name="Tree_14" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_qyhcb")]
+z_index = -5
+position = Vector2(927.333, 196)
+scale = Vector2(2.25, 2.25)
+
+[node name="Tree_15" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_ducrc")]
+z_index = -5
+position = Vector2(886, 208)
+scale = Vector2(2, 2)
+
+[node name="Tree_16" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(1072.67, 217.333)
+scale = Vector2(2, 2)
+
+[node name="Tree_17" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(1313.33, 244)
+scale = Vector2(1.5, 1.5)
+
+[node name="Tree_18" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(1147.33, 227.334)
+scale = Vector2(1.75, 1.75)
+
+[node name="Tree_19" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_qyhcb")]
+z_index = -5
+position = Vector2(1259.33, 206)
+scale = Vector2(2.25, 2.25)
+
+[node name="Tree_20" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_ducrc")]
+z_index = -5
+position = Vector2(1218, 218)
+scale = Vector2(2, 2)
+
+[node name="Tree_21" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(1413.33, 214)
+scale = Vector2(2, 2)
+
+[node name="Tree_22" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(1654, 240.667)
+scale = Vector2(1.5, 1.5)
+
+[node name="Tree_23" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
+z_index = -5
+position = Vector2(1488, 224.001)
+scale = Vector2(1.75, 1.75)
+
+[node name="Tree_24" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_qyhcb")]
+z_index = -5
+position = Vector2(1600, 202.667)
+scale = Vector2(2.25, 2.25)
+
+[node name="Tree_25" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_ducrc")]
+z_index = -5
+position = Vector2(1558.67, 214.667)
+scale = Vector2(2, 2)
+
 [node name="BushContainer" type="Node2D" parent="BackGroundContainer"]
 
 [node name="Bush" parent="BackGroundContainer/BushContainer" instance=ExtResource("4_ukhi6")]
 z_index = -4
-position = Vector2(173.333, 294)
+position = Vector2(178, 291.333)
 scale = Vector2(-2.16092, 2.16092)
 frame = 2
+
+[node name="Bush2" parent="BackGroundContainer/BushContainer" instance=ExtResource("4_ukhi6")]
+z_index = -4
+position = Vector2(597.333, 290)
+scale = Vector2(-2.16092, 2.16092)
+
+[node name="Bush3" parent="BackGroundContainer/BushContainer" instance=ExtResource("4_ukhi6")]
+z_index = -4
+position = Vector2(437.333, 288.667)
+scale = Vector2(2, 2.161)
+frame = 1
 
 [node name="StoneContainer" type="Node2D" parent="BackGroundContainer"]
 
@@ -77,6 +189,49 @@ frame = 2
 z_index = -5
 position = Vector2(101.333, 298.667)
 scale = Vector2(2.14583, 2.14583)
+
+[node name="Stone2" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(274, 299.333)
+scale = Vector2(2.14583, 2.14583)
+frame = 4
+
+[node name="Stone3" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(348.667, 306)
+scale = Vector2(2.14583, 2.14583)
+
+[node name="Stone4" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(676, 298.667)
+scale = Vector2(2.14583, 2.14583)
+frame = 4
+
+[node name="Stone5" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(808.667, 298.667)
+scale = Vector2(2.14583, 2.14583)
+frame = 4
+
+[node name="Stone6" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(942, 299.333)
+scale = Vector2(2.14583, 2.14583)
+frame = 4
+
+[node name="Stone7" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(1209.33, 300)
+scale = Vector2(2.14583, 2.14583)
+frame = 4
+
+[node name="Stone8" parent="BackGroundContainer/StoneContainer" instance=ExtResource("5_kkslx")]
+z_index = -5
+position = Vector2(1586.67, 297.333)
+scale = Vector2(2.14583, 2.14583)
+frame = 3
+
+[node name="Paralax" parent="BackGroundContainer" instance=ExtResource("9_l4jed")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fs8tf")
