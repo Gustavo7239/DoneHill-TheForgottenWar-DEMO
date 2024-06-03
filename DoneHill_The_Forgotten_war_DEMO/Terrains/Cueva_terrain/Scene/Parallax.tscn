@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://c53tajgal4spd"]
+
+[ext_resource type="Texture2D" uid="uid://l6v3lipda81m" path="res://Terrains/Cueva_terrain/Sprite/Background.png" id="1_say5k"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture = ExtResource("1_say5k")
+centered = false
+hframes = 6
+frame = 1
+
+[node name="PicosBack" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PicosBack"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture = ExtResource("1_say5k")
+centered = false
+hframes = 6
+frame = 2
+
+[node name="PicosMid" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PicosMid"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture = ExtResource("1_say5k")
+centered = false
+hframes = 6
+frame = 3
+
+[node name="PicosFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PicosFront"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture = ExtResource("1_say5k")
+centered = false
+hframes = 6
+frame = 4
+
+[node name="Agujeros" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Agujeros"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture = ExtResource("1_say5k")
+centered = false
+hframes = 6
+frame = 5

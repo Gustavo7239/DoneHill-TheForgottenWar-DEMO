@@ -11,6 +11,8 @@ class_name Healing_Skill
 
 #NODOS DEL OBJETO --------------------------------
 @onready var sprite = $Sprite
+@onready var heal_particles = $heal_particles
+
 #Timers
 @onready var casting_timer = $Timers/Casting_timer
 @onready var cooldown_timer = $Timers/Cooldown_timer
@@ -30,6 +32,10 @@ var Is_Charging : bool = false
 
 func _ready():
 	casting_timer.set_wait_time(casting_time)
+	healing_skill_sound_fx_start.volume_db = GLOBAL.fx_volume_level
+	healing_skill_sound_fx_in.volume_db = GLOBAL.fx_volume_level
+	healing_skill_sound_fx_final.volume_db = GLOBAL.fx_volume_level
+	healing_skill_sound_fx_cancel.volume_db = GLOBAL.fx_volume_level
 
 func _process(delta):
 	updateSoundFX_Volume()
@@ -38,6 +44,7 @@ func cargar_ctrl():
 	if Is_Activated and not Is_Charging and not Is_on_cooldown : 
 		if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.game_data["SoulPoints"] >= points_to_heal:
 			sprite.play("Start")
+			heal_particles.emitting = true
 			GLOBAL.CAMERA.zoomFX_Healing(0.02)
 			healing_skill_sound_fx_start.play()
 			
@@ -65,6 +72,7 @@ func _on_cooldown_timer_timeout():
 
 func cancel_charge():
 	if GLOBAL.game_data["Player_HP"] < GLOBAL.MAX_Player_HP and GLOBAL.game_data["SoulPoints"] >= points_to_heal:
+		heal_particles.emitting = false
 		sprite.play("Finish")
 		GLOBAL.CAMERA.normalCameraZoom()
 		healing_skill_sound_fx_start.stop()
@@ -101,6 +109,7 @@ func _on_sprite_animation_finished():
 	elif sprite.animation == "Finish":
 		player.sprite.play("Idle")
 		sprite.play("Off")
+		heal_particles.emitting = false
 
 func updateSoundFX_Volume():
 	healing_skill_sound_fx_start.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"] 

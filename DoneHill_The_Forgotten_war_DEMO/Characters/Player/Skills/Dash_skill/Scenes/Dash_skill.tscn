@@ -30,10 +30,12 @@ size = Vector2(80, 20)
 
 [node name="DashSkill" type="Area2D"]
 script = ExtResource("1_l671n")
+dash_speed = 20000
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_qn0qx")
-animation = &"Off"
+animation = &"On"
 autoplay = "Off"
 
 [node name="Tools" type="Node2D" parent="."]

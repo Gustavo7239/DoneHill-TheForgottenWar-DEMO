@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://08acho6uda0"]
+
+[ext_resource type="Texture2D" uid="uid://b5l58sfmtw3oe" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassSkyV2.png" id="1_xfgu0"]
+[ext_resource type="Texture2D" uid="uid://cqvit2ksa4nn2" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassNubes.png" id="2_m3cnb"]
+
+[node name="Paralax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(850, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+modulate = Color(0.54902, 0.85098, 0.996078, 1)
+texture = ExtResource("1_xfgu0")
+centered = false
+
+[node name="Nubes" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(820, 0)
+
+[node name="Nube1" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(14, 138)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+
+[node name="Nube2" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(197, 182)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+frame = 1
+
+[node name="Nube3" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(183, 133)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="Nube4" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(457, 124)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+
+[node name="Nube5" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(375, 177)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+frame = 1
+
+[node name="Nube6" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(506, 205)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="Nube7" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(457, 124)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+
+[node name="Nube8" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(70, 208)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="Nube9" type="Sprite2D" parent="ParallaxBackground/Nubes"]
+modulate = Color(1, 1, 1, 0.654902)
+position = Vector2(641, 168)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m3cnb")
+centered = false
+hframes = 3
+frame = 2
