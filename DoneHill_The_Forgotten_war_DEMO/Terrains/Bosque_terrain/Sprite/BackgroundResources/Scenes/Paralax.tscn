@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://08acho6uda0"]
+[gd_scene load_steps=4 format=3 uid="uid://08acho6uda0"]
 
 [ext_resource type="Texture2D" uid="uid://b5l58sfmtw3oe" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassSkyV2.png" id="1_xfgu0"]
 [ext_resource type="Texture2D" uid="uid://cqvit2ksa4nn2" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassNubes.png" id="2_m3cnb"]
+[ext_resource type="Texture2D" uid="uid://chc00uiowt8a5" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/BackgroundGrass.png" id="3_vw7ya"]
 
 [node name="Paralax" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(850, 0)
+motion_mirroring = Vector2(850, 476.425)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 modulate = Color(0.54902, 0.85098, 0.996078, 1)
@@ -96,3 +97,29 @@ texture = ExtResource("2_m3cnb")
 centered = false
 hframes = 3
 frame = 2
+
+[node name="BackBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackBackground"]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+light_mask = 5
+position = Vector2(2, 82)
+texture = ExtResource("3_vw7ya")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="FrontBackground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.75, 1)
+motion_mirroring = Vector2(854, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FrontBackground"]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+light_mask = 5
+position = Vector2(2, 45)
+texture = ExtResource("3_vw7ya")
+centered = false
+hframes = 3
+frame = 1
