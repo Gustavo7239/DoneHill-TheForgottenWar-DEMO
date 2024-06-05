@@ -82,7 +82,7 @@ hframes = 4
 frame = 3
 
 [node name="Nubes" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 1)
+motion_scale = Vector2(0.8, 0.3)
 motion_mirroring = Vector2(854, 475)
 
 [node name="Nube1" type="Sprite2D" parent="ParallaxBackground/Nubes"]
