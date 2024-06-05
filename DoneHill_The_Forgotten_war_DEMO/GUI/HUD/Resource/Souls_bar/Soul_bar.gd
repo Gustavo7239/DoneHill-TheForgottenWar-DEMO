@@ -7,14 +7,17 @@ var SOUL_GRADIENT_BAR = preload("res://GUI/HUD/Resource/Souls_bar/Soul_gradient_
 @onready var particle_souls = $Soul_bar/Particle_souls
 
 var puntos: float = 1
+@onready var progress_bar = $ProgressBar
+
 
 func _process(delta):
-	if GLOBAL.game_data["SoulPoints"] > 0.2:
-		puntos -= 0.05
-		var relacion_puntos_particulas = remap(puntos,0.2, 1, 0,200)
+	if(GLOBAL.game_data["SoulPoints"] > 0):
+		progress_bar.value = GLOBAL.game_data["SoulPoints"]
+		var relacion_puntos_particulas = remap(GLOBAL.game_data["SoulPoints"],0, GLOBAL.MAX_SOULS_POINTS, 0,350)
 		particle_souls.initial_velocity_max = relacion_puntos_particulas
 		print(particle_souls.initial_velocity_max)
-	subir(puntos)
+		print(remap(GLOBAL.game_data["SoulPoints"],0, GLOBAL.MAX_SOULS_POINTS, 0.4,1))
+		subir(remap(GLOBAL.game_data["SoulPoints"],0, GLOBAL.MAX_SOULS_POINTS, 0.4,1))
 
 #func subir_bajar(points: float):
 	#

@@ -7,7 +7,7 @@ class_name Healing_Skill
 @export var player_casting_speed : float = 10
 @export var casting_time : float = 2
 @export var heal_cooldown : float = 50
-@export var points_to_heal : int = 200
+@export var points_to_heal : int = 199
 
 #NODOS DEL OBJETO --------------------------------
 @onready var sprite = $Sprite
