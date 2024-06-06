@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://birs404gqb32b"]
+[gd_scene load_steps=35 format=3 uid="uid://birs404gqb32b"]
 
 [ext_resource type="PackedScene" uid="uid://dnhqoq7bwt38h" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_1.tscn" id="1_u2jpg"]
 [ext_resource type="Texture2D" uid="uid://dj8s110jrteg6" path="res://GUI/Main_menu/Assets/background_0.png" id="1_v3sxw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsi561vyo87w7" path="res://GUI/Main_menu/Assets/moon.png" id="2_pvboc"]
 [ext_resource type="Texture2D" uid="uid://vcweq0hh2bcx" path="res://GUI/Main_menu/Assets/MainScreenV3.png" id="2_vj274"]
 [ext_resource type="PackedScene" uid="uid://dy223oyheb172" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/stone.tscn" id="3_28oyv"]
+[ext_resource type="Texture2D" uid="uid://c53p0s1udoajc" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/hoja.png" id="5_xuplt"]
 
 [sub_resource type="Gradient" id="Gradient_ajkx3"]
 offsets = PackedFloat32Array(0.914706, 1)
@@ -38,17 +39,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="Gradient" id="Gradient_lj3mu"]
-offsets = PackedFloat32Array(0.789773, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3h5xf"]
-gradient = SubResource("Gradient_lj3mu")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.7, 0.3)
-metadata/_snap_enabled = true
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ehsb8"]
 noise_type = 2
 frequency = 0.0003
@@ -73,6 +63,33 @@ width = 1920
 height = 1080
 fill_from = Vector2(1, 1)
 fill_to = Vector2(1, 0.337607)
+
+[sub_resource type="Curve" id="Curve_nkeac"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_0aji1"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.819115, 0.259175, 1)
+
+[sub_resource type="Gradient" id="Gradient_62nre"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_trano"]
+offsets = PackedFloat32Array(0.367442, 1)
+colors = PackedColorArray(1, 1, 1, 0.14902, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aybpt"]
+gradient = SubResource("Gradient_trano")
+width = 720
+height = 720
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_au3my"]
+colors = PackedColorArray(0.201794, 0.201794, 0.201794, 1, 1, 1, 1, 1)
 
 [sub_resource type="Environment" id="Environment_e7hp2"]
 background_mode = 3
@@ -158,7 +175,7 @@ lifetime = 6.0
 texture = SubResource("GradientTexture2D_kuh3y")
 gravity = Vector2(0, 0)
 scale_amount_min = 0.25
-scale_amount_max = 0.25
+scale_amount_max = 0.27
 scale_amount_curve = SubResource("Curve_lyw7a")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
@@ -175,17 +192,114 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_odwv7")
 texture_scale = 1.25
 
-[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D3"]
-visible = false
-position = Vector2(-7.37581, -12.6679)
-scale = Vector2(1.35283, 1.35283)
-texture = SubResource("GradientTexture2D_3h5xf")
-
 [node name="Filtro_noche" type="Sprite2D" parent="Sprite2D3"]
 material = SubResource("ShaderMaterial_1vm5i")
 position = Vector2(0.245852, 10.5996)
 scale = Vector2(0.25, 0.116816)
 texture = SubResource("GradientTexture2D_di83f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D3"]
+position = Vector2(-12.5389, 27.4039)
+gravity = Vector2(0, -65)
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_nkeac")
+color_ramp = SubResource("Gradient_0aji1")
+color_initial_ramp = SubResource("Gradient_62nre")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D3/CPUParticles2D"]
+position = Vector2(3.8147e-06, 1.90735e-06)
+scale = Vector2(1.51735, 1.44301)
+amount = 1
+lifetime = 2.0
+texture = SubResource("GradientTexture2D_aybpt")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_lyw7a")
+color = Color(1, 1, 0.278431, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Sprite2D3"]
+position = Vector2(0.49172, 32.5745)
+gravity = Vector2(0, -65)
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_nkeac")
+color_ramp = SubResource("Gradient_0aji1")
+color_initial_ramp = SubResource("Gradient_62nre")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D3/CPUParticles2D2"]
+position = Vector2(3.8147e-06, 1.90735e-06)
+scale = Vector2(1.51735, 1.44301)
+amount = 1
+lifetime = 2.0
+texture = SubResource("GradientTexture2D_aybpt")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_lyw7a")
+color = Color(1, 1, 0.278431, 1)
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Sprite2D3"]
+position = Vector2(19.423, 24.5601)
+gravity = Vector2(0, -65)
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_nkeac")
+color_ramp = SubResource("Gradient_0aji1")
+color_initial_ramp = SubResource("Gradient_62nre")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D3/CPUParticles2D3"]
+position = Vector2(3.8147e-06, 1.90735e-06)
+scale = Vector2(1.51735, 1.44301)
+amount = 1
+lifetime = 2.0
+texture = SubResource("GradientTexture2D_aybpt")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_lyw7a")
+color = Color(1, 1, 0.278431, 1)
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="Sprite2D3"]
+position = Vector2(-19.423, 26.6283)
+gravity = Vector2(0, -65)
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_nkeac")
+color_ramp = SubResource("Gradient_0aji1")
+color_initial_ramp = SubResource("Gradient_62nre")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D3/CPUParticles2D4"]
+position = Vector2(3.8147e-06, 1.90735e-06)
+scale = Vector2(1.51735, 1.44301)
+amount = 1
+lifetime = 2.0
+texture = SubResource("GradientTexture2D_aybpt")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_lyw7a")
+color = Color(1, 1, 0.278431, 1)
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="Sprite2D3"]
+position = Vector2(-103.753, -83.2459)
+rotation = -0.837758
+amount = 100
+lifetime = 5.0
+texture = ExtResource("5_xuplt")
+emission_shape = 1
+emission_sphere_radius = 38.92
+direction = Vector2(0, 1)
+spread = 42.67
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 90.0
+angular_velocity_min = 40.0
+angular_velocity_max = 80.0
+angle_max = 180.0
+color = Color(0.0784314, 0.2, 0.227451, 1)
+color_initial_ramp = SubResource("Gradient_au3my")
 
 [node name="Bosque" type="Node2D" parent="."]
 visible = false

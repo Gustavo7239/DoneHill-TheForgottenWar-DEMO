@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://ucnxyirtdqbv"]
+
+[ext_resource type="Script" path="res://Characters/Player/Skills/Regenerate_skill/Scenes/heal_particles.gd" id="1_yh8g1"]
+
+[sub_resource type="Gradient" id="Gradient_050or"]
+offsets = PackedFloat32Array(0, 0.297436, 0.682051, 1)
+colors = PackedColorArray(0.303423, 0.581376, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yw0dn"]
+gradient = SubResource("Gradient_050or")
+
+[sub_resource type="Gradient" id="Gradient_p00ub"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ot24l"]
+gradient = SubResource("Gradient_p00ub")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gt6e7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(0, 1, 0)
+spread = 25.0
+initial_velocity_min = -40.0
+initial_velocity_max = -40.0
+angular_velocity_min = 34.56
+angular_velocity_max = 161.28
+radial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.05
+color_ramp = SubResource("GradientTexture1D_ot24l")
+color_initial_ramp = SubResource("GradientTexture1D_yw0dn")
+turbulence_noise_strength = 5.12
+turbulence_noise_scale = 0.0
+
+[sub_resource type="Gradient" id="Gradient_jkcxp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_toaeb"]
+gradient = SubResource("Gradient_jkcxp")
+width = 248
+height = 248
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uuydj"]
+gradient = SubResource("Gradient_050or")
+
+[sub_resource type="Gradient" id="Gradient_gsd8l"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tawt5"]
+gradient = SubResource("Gradient_gsd8l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e3q32"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 0, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.2
+color_ramp = SubResource("GradientTexture1D_tawt5")
+color_initial_ramp = SubResource("GradientTexture1D_uuydj")
+
+[sub_resource type="Gradient" id="Gradient_7gnjy"]
+offsets = PackedFloat32Array(0, 0.656388, 0.828194, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.185022, 1, 1, 1, 0.327643, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i5d8c"]
+gradient = SubResource("Gradient_7gnjy")
+width = 248
+height = 248
+fill_from = Vector2(1, 0.824786)
+fill_to = Vector2(1, 1)
+
+[node name="heal_particles" type="GPUParticles2D"]
+emitting = false
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_gt6e7")
+texture = SubResource("GradientTexture2D_toaeb")
+script = ExtResource("1_yh8g1")
+
+[node name="SubParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 11)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_e3q32")
+texture = SubResource("GradientTexture2D_i5d8c")
