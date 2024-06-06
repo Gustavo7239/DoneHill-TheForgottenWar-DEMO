@@ -40,9 +40,20 @@ func change_Scene(scene_tag):
 		TransitionerScreen.transition()
 		await TransitionerScreen.on_transition_finished
 		get_tree().change_scene_to_packed(scene_to_load)
+		
+func spawnPlayerCheckPoint(scene):
+	var scene_to_load
+	match scene:
+		"bosque_lvl":
+			scene_to_load = bosque_lvl
+	
+	TransitionerScreen.transition()
+	await TransitionerScreen.on_transition_finished
+	get_tree().change_scene_to_packed(scene_to_load)
 
 func appear_Scene():
 	TransitionerScreen.transition()
 
 func Trigger_player_spawn(position: Vector2, direction: String):
+	GLOBAL.save_game()
 	on_trigger_player_spawn.emit(position, direction)

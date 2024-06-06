@@ -34,7 +34,10 @@ var game_data : Dictionary = {
 	"Player_can_Dash" : true,			#Tiene disponible la habilidad de dashearse o no
 	"Player_can_DobleJump" : true,		#Tiene disponible la habilidad de doble salto o no
 	
-	"Player_Position" : Vector2.ZERO 	#Posicion del jugador
+	"Player_Position" : Vector2.ZERO, 	#Posicion del jugador
+	
+	"LastScene" : "bosque_lvl",
+	"LastReSpawnPoint": Vector2.ZERO
 }
 
 var SoulPoints = game_data["SoulPoints"]#Puntos de alma del Player
@@ -58,8 +61,8 @@ func load_game() -> void:
 		print(game_data["Player_Position"].y)
 		print("-----------------------------------------")
 
-func Reload_Player_Settings(player : Player, IsSpan : bool):
-	if IsSpan:
+func Reload_Player_Settings(player : Player, IsSpawn : bool):
+	if IsSpawn:
 		if game_data["Player_Position"] != Vector2.ZERO:
 			player.global_position = game_data["Player_Position"]
 		

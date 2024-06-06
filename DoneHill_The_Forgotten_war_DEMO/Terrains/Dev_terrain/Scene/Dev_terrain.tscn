@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxt0hp6586pxh"]
+[gd_scene load_steps=12 format=3 uid="uid://cxt0hp6586pxh"]
 
 [ext_resource type="PackedScene" uid="uid://dm624kgmgci67" path="res://Terrains/Montaña_helada_terrain/Scene/montaña_helada_tile_map.tscn" id="1_3h8qh"]
 [ext_resource type="Script" path="res://Terrains/Dev_terrain/Script/Dev_terrain.gd" id="1_utua7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crsup6s75fy1m" path="res://Characters/Enemies/Slime/Scene/Slime.tscn" id="7_j4idw"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="8_xaqyy"]
 [ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="10_pox6l"]
+[ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="11_4klya"]
 
 [node name="DevTerrain" type="Node2D"]
 script = ExtResource("1_utua7")
@@ -57,5 +58,9 @@ position = Vector2(39, -48.5)
 
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(-65, -2)
+
+[node name="SavePoint" parent="." node_paths=PackedStringArray("SpawnScene") instance=ExtResource("11_4klya")]
+position = Vector2(600, 351)
+SpawnScene = NodePath("..")
 
 [editable path="Doors/Door_W"]

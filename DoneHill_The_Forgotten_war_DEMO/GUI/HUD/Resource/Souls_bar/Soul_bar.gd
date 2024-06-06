@@ -13,7 +13,7 @@ func _process(delta):
 		puntos -= 0.05
 		var relacion_puntos_particulas = remap(puntos,0.2, 1, 0,200)
 		particle_souls.initial_velocity_max = relacion_puntos_particulas
-		print(particle_souls.initial_velocity_max)
+		#print(particle_souls.initial_velocity_max)
 	subir(puntos)
 
 #func subir_bajar(points: float):

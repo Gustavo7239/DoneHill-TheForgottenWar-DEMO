@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmi3o3jpqraf"]
+[gd_scene load_steps=13 format=3 uid="uid://bmi3o3jpqraf"]
 
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_ef43o"]
 [ext_resource type="Script" path="res://Terrains/Bosque_terrain/Script/Bosque_terrain.gd" id="1_kglr0"]
