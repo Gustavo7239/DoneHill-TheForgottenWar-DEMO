@@ -36,7 +36,7 @@ var game_data : Dictionary = {
 	
 	"Player_Position" : Vector2.ZERO, 	#Posicion del jugador
 	
-	"LastScene" : "bosque_lvl",
+	"LastScene" : "Bosque_lvl",
 	"LastReSpawnPoint": Vector2.ZERO
 }
 

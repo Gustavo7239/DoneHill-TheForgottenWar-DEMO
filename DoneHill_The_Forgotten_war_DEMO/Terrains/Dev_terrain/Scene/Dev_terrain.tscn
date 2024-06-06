@@ -59,8 +59,8 @@ position = Vector2(39, -48.5)
 [node name="Spawn" parent="Doors/Door_W" index="1"]
 position = Vector2(-65, -2)
 
-[node name="SavePoint" parent="." node_paths=PackedStringArray("SpawnScene") instance=ExtResource("11_4klya")]
+[node name="SavePoint" parent="." instance=ExtResource("11_4klya")]
 position = Vector2(600, 351)
-SpawnScene = NodePath("..")
+BancoType = 4
 
 [editable path="Doors/Door_W"]

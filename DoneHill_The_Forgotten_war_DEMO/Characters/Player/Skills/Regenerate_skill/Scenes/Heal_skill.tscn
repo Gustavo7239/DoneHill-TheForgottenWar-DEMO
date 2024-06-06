@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://c6xusie06t7en" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_In.wav" id="14_2ool4"]
 [ext_resource type="AudioStream" uid="uid://bnr3ipbaywhw5" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Final.wav" id="15_tfxy5"]
 [ext_resource type="AudioStream" uid="uid://cjp74qbce0kq2" path="res://Characters/Player/Skills/Regenerate_skill/Audio/HealingSkill_SoundFX_Cancel.wav" id="16_16gm2"]
-[ext_resource type="PackedScene" uid="uid://ucnxyirtdqbv" path="res://Characters/Player/Skills/Regenerate_skill/Scenes/heal_particles.tscn" id="18_mtit8"]
+[ext_resource type="PackedScene" path="res://Characters/Player/Skills/Regenerate_skill/Scenes/heal_particles.tscn" id="18_mtit8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgsmp"]
 atlas = ExtResource("11_jcuwe")

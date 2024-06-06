@@ -6,6 +6,9 @@ const bosque_lvl = preload("res://Terrains/Bosque_terrain/Scene/Bosque_main.tscn
 const MAIN_MENU = preload("res://GUI/Main_menu/MainMenu.tscn")
 const OPCIONES_MENU = preload("res://GUI/Options_menu/OpcionesMenu.tscn")
 
+const CUEVA_lvl = preload("res://Terrains/Cueva_terrain/Scene/Cueva_terrain.tscn")
+const DESIERTO_lvl = preload("res://Terrains/Desierto_terrain/Scene/Desierto_terrain.tscn")
+
 signal on_trigger_player_spawn
 
 var spawn_door_tag
@@ -18,6 +21,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = dev_lvl
 		"Bosque_lvl":
 			scene_to_load = bosque_lvl
+		"Cueva_lvl":
+			scene_to_load = CUEVA_lvl
+		"Desierto_lvl":
+			scene_to_load = DESIERTO_lvl
 			
 	if scene_to_load != null:
 		TransitionerScreen.transition()
@@ -44,8 +51,14 @@ func change_Scene(scene_tag):
 func spawnPlayerCheckPoint(scene):
 	var scene_to_load
 	match scene:
-		"bosque_lvl":
+		"Dev_lvl":
+			scene_to_load = dev_lvl
+		"Bosque_lvl":
 			scene_to_load = bosque_lvl
+		"Cueva_lvl":
+			scene_to_load = CUEVA_lvl
+		"Desierto_lvl":
+			scene_to_load = DESIERTO_lvl
 	
 	TransitionerScreen.transition()
 	await TransitionerScreen.on_transition_finished
