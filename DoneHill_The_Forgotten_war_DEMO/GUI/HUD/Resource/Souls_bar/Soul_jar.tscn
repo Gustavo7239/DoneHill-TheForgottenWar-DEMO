@@ -87,6 +87,17 @@ scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_8kip3")
 color_initial_ramp = SubResource("Gradient_4c86j")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 14.0
+offset_top = 254.0
+offset_right = 217.0
+offset_bottom = 332.0
+rotation = -1.56952
+max_value = 400.0
+step = 1.0
+value = 400.0
+show_percentage = false
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(58, 127.5)
 scale = Vector2(8.76, 8.532)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://62wtiudm3m27"]
+[gd_scene load_steps=5 format=3 uid="uid://62wtiudm3m27"]
 
 [ext_resource type="Script" path="res://GUI/HUD/Script/HUD.gd" id="1_2vnjd"]
 [ext_resource type="Texture2D" uid="uid://tuwfiohlo6fm" path="res://GUI/HUD/Resource/Guante/GuanteConYSinGemaV2.png" id="1_jnbkr"]
-[ext_resource type="PackedScene" path="res://GUI/HUD/Resource/Souls_bar/Soul_jar.tscn" id="2_b2218"]
+[ext_resource type="PackedScene" uid="uid://cpgt4ciqh3ww0" path="res://GUI/HUD/Resource/Souls_bar/Soul_jar.tscn" id="2_b2218"]
+[ext_resource type="Script" path="res://GUI/HUD/Script/Parametros.gd" id="4_xyb8q"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_2vnjd")
@@ -18,3 +19,11 @@ scale = Vector2(4.17969, 4.17969)
 texture = ExtResource("1_jnbkr")
 hframes = 7
 frame = 1
+
+[node name="Parametros" type="TextEdit" parent="."]
+visible = false
+offset_left = 623.0
+offset_top = 4.0
+offset_right = 825.0
+offset_bottom = 206.0
+script = ExtResource("4_xyb8q")
