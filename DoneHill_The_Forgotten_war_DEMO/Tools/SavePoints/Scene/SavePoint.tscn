@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1xepb5hmvvb0"]
+
+[ext_resource type="Script" path="res://Tools/SavePoints/Script/SavePoint.gd" id="1_7pyhf"]
+[ext_resource type="Texture2D" uid="uid://bqvxiwxgytpxf" path="res://Tools/SavePoints/Sprite/BancoDescanso.png" id="2_ofn28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f41g6"]
+radius = 15.0
+
+[node name="SavePoint" type="Area2D"]
+z_index = 1
+script = ExtResource("1_7pyhf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ofn28")
+hframes = 5
+
+[node name="AreaCollision" type="Area2D" parent="."]
+
+[node name="AreaSit" type="CollisionShape2D" parent="AreaCollision"]
+position = Vector2(8, 4)
+shape = SubResource("CircleShape2D_f41g6")
+
+[node name="SitPosition" type="Marker2D" parent="AreaCollision"]
+position = Vector2(8, 0)
+
+[node name="CooldownSitting" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AreaCollision" to="." method="_on_area_collision_body_entered"]
+[connection signal="timeout" from="CooldownSitting" to="." method="_on_cooldown_sitting_timeout"]

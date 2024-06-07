@@ -35,6 +35,8 @@ var currentSpeed : int = normalSpeed
 #Tools
 @onready var fx_controller = $Tools/FxController
 
+var IsSitting : bool = false
+
 func _ready():
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
 	
@@ -52,7 +54,8 @@ func _process(delta):
 		true:
 			death_ctrl()
 		false:
-			motion_ctrl()
+			if not IsSitting:
+				motion_ctrl()
 
 func _input(event):
 	if not death:
@@ -83,6 +86,7 @@ func motion_ctrl():
 	'''ANIMACIONES'''
 	#if not hit_skill.Is_Hitting:
 	#if !Input.is_action_pressed("Heal_skill") and !Input.is_action_pressed("Dash_skill"):
+	
 	match is_on_floor():
 		true:
 			if not get_axis().x == 0:
@@ -148,5 +152,5 @@ func _on_sprite_animation_finished():
 func cooldown_hit():
 	velocity.y = -368 * 0.9
 	velocity.x = -120 
-	
 	move_and_slide()
+	

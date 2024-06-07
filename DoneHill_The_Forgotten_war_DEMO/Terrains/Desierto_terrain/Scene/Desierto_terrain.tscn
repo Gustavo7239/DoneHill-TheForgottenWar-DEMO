@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpeock4dd7nsn"]
+[gd_scene load_steps=10 format=3 uid="uid://klefemu1e0ln"]
 
 [ext_resource type="PackedScene" uid="uid://4tt4s12p80b7" path="res://Terrains/Desierto_terrain/Sprite/BackgroundResources/Scenes/Parallax.tscn" id="1_3g3y7"]
 [ext_resource type="Texture2D" uid="uid://1bfjgsf7qmnx" path="res://Terrains/Desierto_terrain/Sprite/BackgroundResources/Sprites/Background.png" id="2_r8hxu"]
 [ext_resource type="PackedScene" uid="uid://dh7ctq67q8n86" path="res://Terrains/Desierto_terrain/Scene/desierto_tile_map.tscn" id="2_wlkij"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="3_jlkwq"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="4_ff5fl"]
+[ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="6_p2ubo"]
 
 [sub_resource type="Gradient" id="Gradient_yxk2m"]
 offsets = PackedFloat32Array(1)
@@ -101,3 +102,7 @@ shape = SubResource("RectangleShape2D_f3c6c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleCollisions/StaticBody2D2"]
 position = Vector2(2, 193)
 shape = SubResource("RectangleShape2D_f3c6c")
+
+[node name="SavePoint" parent="." instance=ExtResource("6_p2ubo")]
+position = Vector2(1356, 320)
+BancoType = 1
