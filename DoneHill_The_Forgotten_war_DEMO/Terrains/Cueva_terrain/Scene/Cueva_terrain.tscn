@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dwsse01vh15u5"]
 
 [ext_resource type="PackedScene" uid="uid://cqu3tfqxoosxe" path="res://Terrains/Cueva_terrain/Scene/cueva_tile_map.tscn" id="1_hp7tp"]
-[ext_resource type="PackedScene" path="res://Terrains/Cueva_terrain/Scene/Parallax.tscn" id="2_h7kym"]
+[ext_resource type="PackedScene" uid="uid://c53tajgal4spd" path="res://Terrains/Cueva_terrain/Scene/Parallax.tscn" id="2_h7kym"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="3_035cu"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="4_ydwrv"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="5_ckb2x"]
