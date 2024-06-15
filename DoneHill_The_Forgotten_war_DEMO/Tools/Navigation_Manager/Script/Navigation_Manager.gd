@@ -5,6 +5,7 @@ const bosque_lvl = preload("res://Terrains/Bosque_terrain/Scene/Bosque_main.tscn
 
 const MAIN_MENU = preload("res://GUI/Main_menu/MainMenu.tscn")
 const OPCIONES_MENU = preload("res://GUI/Options_menu/OpcionesMenu.tscn")
+const DEATH_SCENE = preload("res://GUI/Death_menu/Scene/Death_scene.tscn")
 
 const CUEVA_lvl = preload("res://Terrains/Cueva_terrain/Scene/Cueva_terrain.tscn")
 const DESIERTO_lvl = preload("res://Terrains/Desierto_terrain/Scene/Desierto_terrain.tscn")
@@ -42,6 +43,8 @@ func change_Scene(scene_tag):
 			scene_to_load = dev_lvl
 		"OPTIONS_MENU":
 			scene_to_load = OPCIONES_MENU
+		"DEATH_SCENE":
+			scene_to_load = DEATH_SCENE
 			
 	if scene_to_load != null:
 		TransitionerScreen.transition()

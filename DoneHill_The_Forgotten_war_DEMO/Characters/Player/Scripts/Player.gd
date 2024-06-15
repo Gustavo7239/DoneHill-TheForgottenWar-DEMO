@@ -29,11 +29,14 @@ var currentSpeed : int = normalSpeed
 @onready var dash_skill = $Sprite/Skills/DashSkill
 @onready var jump_skill = $Sprite/Skills/JumpSkill
 @onready var heal_skill = $Sprite/Skills/HealSkill
+@onready var hit_skill = $Sprite/Skills/HitSkill
 #SoundFx
 @onready var jump_fx = $Audio/JumpFx
 @onready var recibe_damage_fx = $Audio/RecibeDamageFx
 #Tools
 @onready var fx_controller = $Tools/FxController
+
+@onready var stopNormalMovement : bool = false
 
 var IsSitting : bool = false
 
@@ -50,6 +53,9 @@ func _process(delta):
 	GLOBAL.game_data["Player_HP"] = Player_HealingPoints
 	GLOBAL.game_data["Player_Position"] = position
 	
+	if Player_HealingPoints < 1:
+		death = true
+		
 	match death:
 		true:
 			death_ctrl()
@@ -75,6 +81,8 @@ func motion_ctrl():
 		heal_skill.cancel_charge() 
 	elif Input.is_action_pressed("Dash_skill") and not get_axis().x == 0:
 		dash_skill.dash_ctrl()
+	elif Input.is_action_pressed("Hit_skill"):
+		hit_skill.Hit()
 		
 	if not get_axis().x == 0:
 		sprite.scale.x = get_axis().x
@@ -86,24 +94,24 @@ func motion_ctrl():
 	'''ANIMACIONES'''
 	#if not hit_skill.Is_Hitting:
 	#if !Input.is_action_pressed("Heal_skill") and !Input.is_action_pressed("Dash_skill"):
-	
-	match is_on_floor():
-		true:
-			if not get_axis().x == 0:
-				sprite.set_animation("Run")
-			else:
-				sprite.set_animation("Idle")
-		false:
-			if velocity.y < 0:
-				sprite.set_animation("Jump")
-			else:
-				sprite.set_animation("Fall")
+	if !stopNormalMovement:
+		match is_on_floor():
+			true:
+				if not get_axis().x == 0:
+					sprite.set_animation("Run")
+				else:
+					sprite.set_animation("Idle")
+			false:
+				if velocity.y < 0:
+					sprite.set_animation("Jump")
+				else:
+					sprite.set_animation("Fall")
 
 func death_ctrl():
 	velocity.x = 0
 	velocity.y *= gravity
 	move_and_slide()
-	sprite.play("Death")
+	sprite.set_animation("Death")
 
 func damage_ctrl(dmg : int = 1):
 	recibe_damage_fx.play()
@@ -147,7 +155,9 @@ func no_atraviesa_enemies():
 
 func _on_sprite_animation_finished():
 	if sprite.animation == "Death":
-		gui.game_over()
+		NavigationManager.change_Scene("DEATH_SCENE")
+	if sprite.animation == "Hit_normal_Right":
+		stopNormalMovement = false
 		
 func cooldown_hit():
 	velocity.y = -368 * 0.9

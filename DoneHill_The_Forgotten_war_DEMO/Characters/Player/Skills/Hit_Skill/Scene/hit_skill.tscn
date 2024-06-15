@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p7swuak84mu6"]
+
+[ext_resource type="Script" path="res://Characters/Player/Skills/Hit_Skill/Script/hit_skill.gd" id="1_smrg7"]
+
+[node name="HitSkill" type="Area2D"]
+script = ExtResource("1_smrg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

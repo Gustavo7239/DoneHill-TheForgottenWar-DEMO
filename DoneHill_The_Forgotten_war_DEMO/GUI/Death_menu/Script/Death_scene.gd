@@ -7,6 +7,11 @@ extends Control
 func _ready():
 	press_any_button_label.visible = false
 
+func _process(delta):
+	if Input.is_action_pressed("ui_accept"):
+		GLOBAL.load_game()
+		NavigationManager.spawnPlayerCheckPoint(GLOBAL.game_data["LastScene"])
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "DeathAnim":
 		press_any_button.play("OnOff")
