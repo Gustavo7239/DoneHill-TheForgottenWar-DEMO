@@ -1,0 +1,1047 @@
+[gd_scene load_steps=38 format=3 uid="uid://6wnn4r14215v"]
+
+[ext_resource type="Script" path="res://Characters/Enemies/Bosses/DragonBoss/Scene/DragonBoss.gd" id="1_ffilk"]
+[ext_resource type="Texture2D" uid="uid://dwakxr0m51uub" path="res://Characters/Enemies/Bosses/DragonBoss/Sprite/DragonBoss_01.png" id="1_k7f35"]
+[ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="2_upr0g"]
+[ext_resource type="Texture2D" uid="uid://2umux72dqnmn" path="res://Characters/Enemies/Bosses/DragonBoss/Sprite/Stone.png" id="3_8jgdj"]
+[ext_resource type="Texture2D" uid="uid://b4pdas7cudruo" path="res://Characters/Enemies/Bosses/DragonBoss/Sprite/Stone2.png" id="4_25xqn"]
+
+[sub_resource type="Animation" id="Animation_pclhc"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossFightSprite/LeftLeg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossFightSprite/RightLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossFightSprite/Rocks/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FallParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossFightSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossFightSprite/Head:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+
+[sub_resource type="Animation" id="Animation_qhrto"]
+resource_name = "LeftLegAtack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossFightSprite/LeftLeg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.3, 1.6, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-19.7921, 0), Vector2(-19.7921, 0), Vector2(172.474, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossFightSprite/RightLeg/DangerZone:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossFightSprite/RightLeg/DangerLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossFightSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossFightSprite/LeftLeg/AreaHit/Collision_Make_DMG:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_cd1p3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WakeUpSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WakeUpSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FallParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossFightSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -544)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossFightSprite/LeftLeg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossFightSprite/RightLeg:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossFightSprite/RightLeg/DangerZone:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossFightSprite/RightLeg/DangerLabel:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossFightSprite/Head:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossFightSprite/Rocks/Rock1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31.4553, -19.0852)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BossFightSprite/Rocks/Rock2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(79.5218, -19.0852)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BossFightSprite/Rocks/Rock4:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(178.482, -19.0852)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BossFightSprite/Rocks/Rock7:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(254.823, -19.0852)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BossFightSprite/Rocks/Rock3:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(124.761, -19.0852)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BossFightSprite/Rocks/Rock5:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155.863, -19.0852)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BossFightSprite/Rocks/Rock6:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(206.757, -19.0852)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BossFightSprite/Rocks/CPUParticles2D:emitting")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("WakeUpSprite:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("BossFightSprite/Rocks/Label:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("BossFightSprite/LeftLeg/AreaHit/Collision_Make_DMG:disabled")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("BossFightSprite/RightLeg/AreaHit/Collision_Make_DMG:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_r1dbp"]
+resource_name = "RightLegAtack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossFightSprite/RightLeg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.3, 1.6, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(19.7921, 0), Vector2(19.7921, 0), Vector2(-172.682, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossFightSprite/RightLeg/DangerZone:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossFightSprite/RightLeg/DangerLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossFightSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossFightSprite/RightLeg/AreaHit/Collision_Make_DMG:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ss0nx"]
+resource_name = "RocksRain"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossFightSprite/Head:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossFightSprite/Rocks/Rock1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(31.4553, -19.0852), Vector2(31.4553, 198.628)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossFightSprite/Rocks/Rock2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(79.5218, -19.0852), Vector2(79.5218, 198.628)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BossFightSprite/Rocks/Rock4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(178.482, -19.0852), Vector2(178.482, 195.8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BossFightSprite/Rocks/Rock7:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(254.823, -19.0852), Vector2(254.823, 195.8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossFightSprite/Rocks/Rock3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(124.761, -19.0852), Vector2(124.761, 198.628)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossFightSprite/Rocks/Rock5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(155.863, -19.0852), Vector2(155.863, 201.455)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossFightSprite/Rocks/Rock6:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(206.757, -19.0852), Vector2(206.757, 198.628)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossFightSprite/Rocks/CPUParticles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossFightSprite:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BossFightSprite/Rocks/Label:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1.1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vlo3l"]
+resource_name = "Spawn"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossFightSprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1.1, 1.3, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -544), Vector2(0, -336), Vector2(0, -400), Vector2(0, -176), Vector2(0, -232), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x1k0j"]
+resource_name = "Wake_up"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WakeUpSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.5, 1.9, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WakeUpSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -608)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FallParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WakeUpSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxnej"]
+_data = {
+"Idle": SubResource("Animation_pclhc"),
+"LeftLegAtack": SubResource("Animation_qhrto"),
+"RESET": SubResource("Animation_cd1p3"),
+"RightLegAtack": SubResource("Animation_r1dbp"),
+"RocksRain": SubResource("Animation_ss0nx"),
+"Spawn": SubResource("Animation_vlo3l"),
+"Wake_up": SubResource("Animation_x1k0j")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t5b06"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bheur"]
+animation = &"LeftLegAtack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tex1r"]
+animation = &"RightLegAtack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7udnu"]
+animation = &"RocksRain"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2mkps"]
+animation = &"Spawn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c50d3"]
+animation = &"Wake_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c3rgr"]
+advance_mode = 2
+advance_condition = &"GoAwake"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lbdvb"]
+advance_mode = 2
+advance_condition = &"GoSpawn"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sphlv"]
+advance_mode = 2
+advance_condition = &"GoIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tx30v"]
+advance_mode = 2
+advance_condition = &"GoIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n032a"]
+advance_mode = 2
+advance_condition = &"NumberThree"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a1u8n"]
+advance_mode = 2
+advance_condition = &"GoIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fm6vr"]
+advance_mode = 2
+advance_condition = &"NumberOne"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3kro4"]
+advance_mode = 2
+advance_condition = &"GoIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uf8wu"]
+advance_mode = 2
+advance_condition = &"NumberTwo"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x64rr"]
+states/End/position = Vector2(995, 99)
+states/Idle/node = SubResource("AnimationNodeAnimation_t5b06")
+states/Idle/position = Vector2(520, 178)
+states/LeftLegAtack/node = SubResource("AnimationNodeAnimation_bheur")
+states/LeftLegAtack/position = Vector2(520, 51)
+states/RightLegAtack/node = SubResource("AnimationNodeAnimation_tex1r")
+states/RightLegAtack/position = Vector2(520, 331)
+states/RocksRain/node = SubResource("AnimationNodeAnimation_7udnu")
+states/RocksRain/position = Vector2(728, 178)
+states/Spawn/node = SubResource("AnimationNodeAnimation_2mkps")
+states/Spawn/position = Vector2(365, 178)
+states/Start/position = Vector2(99, 178)
+states/Wake_up/node = SubResource("AnimationNodeAnimation_c50d3")
+states/Wake_up/position = Vector2(223, 178)
+transitions = ["Start", "Wake_up", SubResource("AnimationNodeStateMachineTransition_c3rgr"), "Wake_up", "Spawn", SubResource("AnimationNodeStateMachineTransition_lbdvb"), "RightLegAtack", "Idle", SubResource("AnimationNodeStateMachineTransition_sphlv"), "LeftLegAtack", "Idle", SubResource("AnimationNodeStateMachineTransition_tx30v"), "Idle", "RocksRain", SubResource("AnimationNodeStateMachineTransition_n032a"), "RocksRain", "Idle", SubResource("AnimationNodeStateMachineTransition_a1u8n"), "Idle", "LeftLegAtack", SubResource("AnimationNodeStateMachineTransition_fm6vr"), "Spawn", "Idle", SubResource("AnimationNodeStateMachineTransition_3kro4"), "Idle", "RightLegAtack", SubResource("AnimationNodeStateMachineTransition_uf8wu")]
+
+[sub_resource type="Gradient" id="Gradient_btr1r"]
+offsets = PackedFloat32Array(0, 0.241026, 0.646154, 1)
+colors = PackedColorArray(0.327644, 0.327644, 0.327644, 1, 0.430739, 0.430739, 0.430739, 1, 0.603992, 0.603992, 0.603992, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b4rqy"]
+gradient = SubResource("Gradient_btr1r")
+
+[sub_resource type="Curve" id="Curve_5d6u3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7poml"]
+curve = SubResource("Curve_5d6u3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b4jwq"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 1, 10)
+spread = 90.0
+flatness = 0.9
+initial_velocity_min = 360.0
+initial_velocity_max = 360.0
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_7poml")
+color = Color(0.368627, 0.294118, 0.254902, 1)
+color_initial_ramp = SubResource("GradientTexture1D_b4rqy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u23j2"]
+size = Vector2(50.894, 21.9127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ubru"]
+size = Vector2(8.1289, 7.24532)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u2hbo"]
+
+[node name="Dragon" type="Node2D"]
+script = ExtResource("1_ffilk")
+
+[node name="WakeUpSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_k7f35")
+centered = false
+hframes = 5
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kxnej")
+}
+autoplay = "Spawn"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kxnej")
+}
+tree_root = SubResource("AnimationNodeStateMachine_x64rr")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/GoAwake = false
+parameters/conditions/GoIdle = false
+parameters/conditions/GoSpawn = false
+parameters/conditions/NumberOne = false
+parameters/conditions/NumberThree = false
+parameters/conditions/NumberTwo = false
+
+[node name="FallParticles" type="GPUParticles2D" parent="."]
+position = Vector2(101, 166)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_b4jwq")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="BossFightSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -544)
+scale = Vector2(2.82941, 2.82941)
+centered = false
+hframes = 5
+vframes = 3
+frame = 7
+
+[node name="Body" type="Sprite2D" parent="BossFightSprite"]
+texture = ExtResource("1_k7f35")
+centered = false
+hframes = 5
+vframes = 3
+frame = 10
+
+[node name="LeftLeg" type="Sprite2D" parent="BossFightSprite"]
+texture = ExtResource("1_k7f35")
+centered = false
+hframes = 5
+vframes = 3
+frame = 11
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/LeftLeg"]
+position = Vector2(46.2994, 151.975)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/LeftLeg/AreaHit"]
+position = Vector2(2.65073, 2.65073)
+shape = SubResource("RectangleShape2D_u23j2")
+disabled = true
+
+[node name="DangerLabel" type="Label" parent="BossFightSprite/LeftLeg"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1.41372
+offset_top = 122.994
+offset_right = 225.414
+offset_bottom = 140.994
+theme = ExtResource("2_upr0g")
+text = "CUIDADO!!!"
+
+[node name="DangerZone" type="ColorRect" parent="BossFightSprite/LeftLeg"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -92.0
+offset_top = 144.0
+offset_right = 302.0
+offset_bottom = 170.0
+color = Color(1, 0, 0, 0.419608)
+
+[node name="RightLeg" type="Sprite2D" parent="BossFightSprite"]
+texture = ExtResource("1_k7f35")
+centered = false
+hframes = 5
+vframes = 3
+frame = 12
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/RightLeg"]
+position = Vector2(159.751, 151.975)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/RightLeg/AreaHit"]
+position = Vector2(2.12019, 4.59474)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_u23j2")
+disabled = true
+
+[node name="DangerLabel" type="Label" parent="BossFightSprite/RightLeg"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 12.3701
+offset_top = 122.994
+offset_right = 220.37
+offset_bottom = 140.994
+theme = ExtResource("2_upr0g")
+text = "CUIDADO!!!"
+
+[node name="DangerZone" type="ColorRect" parent="BossFightSprite/RightLeg"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -92.0
+offset_top = 144.0
+offset_right = 302.0
+offset_bottom = 170.0
+color = Color(1, 0, 0, 0.419608)
+
+[node name="Head" type="Sprite2D" parent="BossFightSprite"]
+texture = ExtResource("1_k7f35")
+centered = false
+hframes = 5
+vframes = 3
+frame = 13
+
+[node name="Rocks" type="Sprite2D" parent="BossFightSprite"]
+
+[node name="Rock1" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(31.4553, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock1"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock1/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="Rock2" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(79.5218, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock2"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock2/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="Rock3" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(124.761, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock3"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock3/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="Rock4" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(178.482, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock4"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock4/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="Rock5" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(155.863, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock5"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock5/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="Rock6" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(206.757, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock6"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock6/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="Rock7" type="Sprite2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(254.823, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("3_8jgdj")
+
+[node name="AreaHit" type="Area2D" parent="BossFightSprite/Rocks/Rock7"]
+position = Vector2(0, 0.176715)
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/Rocks/Rock7/AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BossFightSprite/Rocks"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+material = SubResource("CanvasItemMaterial_u2hbo")
+position = Vector2(152.682, 0)
+emitting = false
+amount = 10
+lifetime = 5.0
+texture = ExtResource("4_25xqn")
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 55.0
+initial_velocity_max = 60.0
+angular_velocity_min = 50.0
+angular_velocity_max = 150.0
+angle_max = 360.0
+scale_amount_max = 2.0
+
+[node name="Label" type="Label" parent="BossFightSprite/Rocks"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 49.8337
+offset_top = 105.676
+offset_right = 161.834
+offset_bottom = 123.676
+theme = ExtResource("2_upr0g")
+text = "CUIDADO!!"
+
+[node name="EndFightCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="AtackCooldown" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="EndFightCooldown" to="." method="_on_end_fight_cooldown_timeout"]
+[connection signal="timeout" from="AtackCooldown" to="." method="_on_atack_cooldown_timeout"]
