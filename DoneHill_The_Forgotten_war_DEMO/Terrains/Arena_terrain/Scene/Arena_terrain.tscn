@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://8xth6hlgasv6"]
+[gd_scene load_steps=23 format=3 uid="uid://8xth6hlgasv6"]
 
 [ext_resource type="PackedScene" uid="uid://4emjx6r3ux85" path="res://Terrains/Arena_terrain/Scene/Arena_tile_map.tscn" id="1_0qsv0"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="2_5sofd"]
 [ext_resource type="Texture2D" uid="uid://bgsa3qphlc18w" path="res://Terrains/Arena_terrain/Sprite/Palmeras.png" id="3_53s45"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="3_c256x"]
 [ext_resource type="Texture2D" uid="uid://2lg4yd5uaqa" path="res://Terrains/Arena_terrain/Sprite/Background.png" id="4_7go1y"]
+[ext_resource type="Texture2D" uid="uid://chc00uiowt8a5" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/BackgroundGrass.png" id="5_483ea"]
 [ext_resource type="Texture2D" uid="uid://cb6sus3drkph7" path="res://Terrains/Arena_terrain/Sprite/Casa en la playa.png" id="6_pmcjw"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d6c4t"]
@@ -348,6 +349,32 @@ position = Vector2(-87, 533)
 rotation = -3.14034
 scale = Vector2(0.19398, 0.585428)
 texture = SubResource("GradientTexture2D_d3ih8")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Decoration"]
+layer = 11
+
+[node name="FrontBack" type="ParallaxLayer" parent="Decoration/ParallaxBackground2"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Front" type="Sprite2D" parent="Decoration/ParallaxBackground2/FrontBack"]
+modulate = Color(0.454902, 0.454902, 0.454902, 1)
+position = Vector2(-25, 112)
+texture = ExtResource("5_483ea")
+centered = false
+flip_h = true
+hframes = 3
+frame = 2
+
+[node name="FrontFront" type="ParallaxLayer" parent="Decoration/ParallaxBackground2"]
+motion_mirroring = Vector2(854, 0)
+
+[node name="Front2" type="Sprite2D" parent="Decoration/ParallaxBackground2/FrontFront"]
+modulate = Color(0.792157, 0.490196, 0, 1)
+position = Vector2(-23, 119)
+texture = ExtResource("5_483ea")
+centered = false
+hframes = 3
+frame = 2
 
 [node name="Player" parent="." instance=ExtResource("2_5sofd")]
 position = Vector2(188, 209)

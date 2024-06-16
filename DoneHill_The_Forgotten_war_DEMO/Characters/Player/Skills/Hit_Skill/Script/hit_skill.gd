@@ -21,5 +21,5 @@ func _process(delta):
 	pass
 
 func Hit():
-	player.stopNormalMovement = false
+	player.stopNormalMovement = true
 	player.sprite.set_animation("Hit_normal_Right")

@@ -36,6 +36,9 @@ var currentSpeed : int = normalSpeed
 #Tools
 @onready var fx_controller = $Tools/FxController
 
+@onready var Test = $TextEdit
+
+
 @onready var stopNormalMovement : bool = false
 
 var IsSitting : bool = false
@@ -48,6 +51,8 @@ func _on_spawn(position: Vector2, direction: String):
 	
 	
 func _process(delta):
+	Test.text = str(sprite.get_animation())
+	
 	#GLOBAL.game_data["Player_can_Heal"] = Can_Heal
 	jump_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
 	GLOBAL.game_data["Player_HP"] = Player_HealingPoints
@@ -81,7 +86,7 @@ func motion_ctrl():
 		heal_skill.cancel_charge() 
 	elif Input.is_action_pressed("Dash_skill") and not get_axis().x == 0:
 		dash_skill.dash_ctrl()
-	elif Input.is_action_pressed("Hit_skill"):
+	elif Input.is_action_just_pressed("Hit_skill"):
 		hit_skill.Hit()
 		
 	if not get_axis().x == 0:
