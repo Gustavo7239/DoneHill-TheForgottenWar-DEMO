@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://ci1vsvvvcnrq6"]
+[gd_scene load_steps=61 format=3 uid="uid://ci1vsvvvcnrq6"]
 
 [ext_resource type="Script" path="res://Characters/Player/Scripts/Player.gd" id="1_qce0l"]
 [ext_resource type="Texture2D" uid="uid://ckbnkyyqh44eo" path="res://Characters/Player/Sprite/PlayerDesign02.png" id="2_iqldn"]
@@ -10,6 +10,22 @@
 [ext_resource type="Script" path="res://Characters/Player/Skills/Hit_Skill/Script/hit_skill.gd" id="5_bfmc8"]
 [ext_resource type="PackedScene" uid="uid://c0m140xrm248g" path="res://Tools/FXController/Scenes/FXController.tscn" id="6_l01ud"]
 [ext_resource type="PackedScene" uid="uid://p7swuak84mu6" path="res://Characters/Player/Skills/Hit_Skill/Scene/hit_skill.tscn" id="9_jtp0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xii8t"]
+radius = 20.0016
+
+[sub_resource type="Gradient" id="Gradient_f6t6m"]
+offsets = PackedFloat32Array(0.36017, 0.830508, 1)
+colors = PackedColorArray(0.987336, 0.987336, 0.987336, 0.426966, 0.970339, 0.970339, 0.970339, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e02l2"]
+gradient = SubResource("Gradient_f6t6m")
+width = 720
+height = 720
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.2)
+metadata/_snap_enabled = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_odi3h"]
 atlas = ExtResource("2_iqldn")
@@ -387,6 +403,67 @@ height = 24.0
 
 [sub_resource type="Theme" id="Theme_sa3k5"]
 
+[sub_resource type="Animation" id="Animation_ivma1"]
+resource_name = "DoubleHit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteAlterParaHit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteAlterParaHit/AnimHit:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.015, 0.015), Vector2(0.059, 0.059), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xrp71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteAlterParaHit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteAlterParaHit/AnimHit:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.059, 0.059)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58gna"]
+_data = {
+"DoubleHit": SubResource("Animation_ivma1"),
+"RESET": SubResource("Animation_xrp71")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
 scale = Vector2(4, 4)
@@ -396,6 +473,25 @@ platform_wall_layers = 4
 script = ExtResource("1_qce0l")
 Player_HealingPoints = 4
 jump = 600
+
+[node name="SpriteAlterParaHit" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_g0rvi")
+hframes = 8
+vframes = 9
+frame = 25
+
+[node name="MakeDamage" type="Area2D" parent="SpriteAlterParaHit"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteAlterParaHit/MakeDamage"]
+position = Vector2(12, 8)
+shape = SubResource("CircleShape2D_xii8t")
+
+[node name="AnimHit" type="Sprite2D" parent="SpriteAlterParaHit"]
+position = Vector2(11.75, 8)
+scale = Vector2(0.059, 0.059)
+texture = SubResource("GradientTexture2D_e02l2")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2g1jc")
@@ -441,10 +537,18 @@ position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_i5bt6")
 
 [node name="TextEdit" type="TextEdit" parent="."]
+visible = false
 offset_left = 50.0
 offset_top = -15.0
 offset_right = 215.0
 offset_bottom = 93.0
 theme = SubResource("Theme_sa3k5")
 
+[node name="AnimationPlayerForHit" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_58gna")
+}
+
+[connection signal="body_entered" from="SpriteAlterParaHit/MakeDamage" to="Sprite/Skills/HitSkill" method="_on_make_damage_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayerForHit" to="Sprite/Skills/HitSkill" method="_on_animation_player_animation_finished"]

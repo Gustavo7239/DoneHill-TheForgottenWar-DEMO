@@ -17,6 +17,8 @@ var charging : bool = false
 @export var normalSpeed : int = 120
 var currentSpeed : int = normalSpeed
 
+var damage = 100
+
 @export_category("Skills")
 @export_group("Heal")
 @export var Can_Heal : bool = true
@@ -25,6 +27,15 @@ var currentSpeed : int = normalSpeed
 
 #-------------- NODOS DEL OBJETO --------------
 @onready var sprite = $Sprite
+
+#HitThings
+@onready var sprite_alter_para_hit = $SpriteAlterParaHit
+@onready var animation_player_for_hit = $AnimationPlayerForHit
+@onready var make_damage:CollisionShape2D = $SpriteAlterParaHit/MakeDamage/CollisionShape2D
+
+
+
+
 #Skills
 @onready var dash_skill = $Sprite/Skills/DashSkill
 @onready var jump_skill = $Sprite/Skills/JumpSkill
@@ -36,6 +47,7 @@ var currentSpeed : int = normalSpeed
 #Tools
 @onready var fx_controller = $Tools/FxController
 
+#Debug
 @onready var Test = $TextEdit
 
 
@@ -51,7 +63,7 @@ func _on_spawn(position: Vector2, direction: String):
 	
 	
 func _process(delta):
-	Test.text = str(sprite.get_animation())
+	#Test.text = str(sprite.get_animation())
 	
 	#GLOBAL.game_data["Player_can_Heal"] = Can_Heal
 	jump_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
@@ -91,6 +103,7 @@ func motion_ctrl():
 		
 	if not get_axis().x == 0:
 		sprite.scale.x = get_axis().x
+		sprite_alter_para_hit.scale.x = get_axis().x
 		
 	velocity.x = get_axis().x * currentSpeed
 	velocity.y += gravity
@@ -99,18 +112,17 @@ func motion_ctrl():
 	'''ANIMACIONES'''
 	#if not hit_skill.Is_Hitting:
 	#if !Input.is_action_pressed("Heal_skill") and !Input.is_action_pressed("Dash_skill"):
-	if !stopNormalMovement:
-		match is_on_floor():
-			true:
-				if not get_axis().x == 0:
-					sprite.set_animation("Run")
-				else:
-					sprite.set_animation("Idle")
-			false:
-				if velocity.y < 0:
-					sprite.set_animation("Jump")
-				else:
-					sprite.set_animation("Fall")
+	match is_on_floor():
+		true:
+			if not get_axis().x == 0:
+				sprite.set_animation("Run")
+			else:
+				sprite.set_animation("Idle")
+		false:
+			if velocity.y < 0:
+				sprite.set_animation("Jump")
+			else:
+				sprite.set_animation("Fall")
 
 func death_ctrl():
 	velocity.x = 0
@@ -162,8 +174,6 @@ func no_atraviesa_enemies():
 func _on_sprite_animation_finished():
 	if sprite.animation == "Death":
 		NavigationManager.change_Scene("DEATH_SCENE")
-	if sprite.animation == "Hit_normal_Right":
-		stopNormalMovement = false
 		
 func cooldown_hit():
 	velocity.y = -368 * 0.9
