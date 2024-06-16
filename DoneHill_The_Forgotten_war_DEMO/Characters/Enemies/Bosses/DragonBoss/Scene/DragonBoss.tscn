@@ -1036,7 +1036,6 @@ text = "CUIDADO!!"
 
 [node name="EndFightCooldown" type="Timer" parent="."]
 wait_time = 10.0
-one_shot = true
 
 [node name="AtackCooldown" type="Timer" parent="."]
 wait_time = 1.5
