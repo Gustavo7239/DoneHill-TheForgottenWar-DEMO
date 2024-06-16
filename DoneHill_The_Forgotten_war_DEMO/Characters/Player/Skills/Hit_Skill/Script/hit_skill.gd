@@ -21,5 +21,11 @@ func _process(delta):
 	pass
 
 func Hit():
-	player.stopNormalMovement = true
-	player.sprite.set_animation("Hit_normal_Right")
+	player.sprite.visible = false
+	player.sprite_alter_para_hit.visible = true
+	player.animation_player_for_hit.play("DoubleHit")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	player.sprite_alter_para_hit.visible = false
+	player.sprite.visible = true
