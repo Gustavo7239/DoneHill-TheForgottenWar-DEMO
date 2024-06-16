@@ -403,7 +403,6 @@ scale = Vector2(0.75, 0.75)
 player = NodePath("../../..")
 
 [node name="DashSkill" parent="Sprite/Skills" node_paths=PackedStringArray("player") instance=ExtResource("2_qhjjj")]
-visible = false
 z_index = 10
 position = Vector2(0, 17.75)
 player = NodePath("../../..")
