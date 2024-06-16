@@ -111,6 +111,7 @@ func death_ctrl():
 	velocity.x = 0
 	velocity.y *= gravity
 	move_and_slide()
+	NavigationManager.spawn_door_tag = null
 	sprite.set_animation("Death")
 
 func damage_ctrl(dmg : int = 1):
