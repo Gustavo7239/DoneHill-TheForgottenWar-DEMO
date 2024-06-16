@@ -236,7 +236,7 @@ script = ExtResource("1_k4gop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -84)
-scale = Vector2(1, 1.17083)
+scale = Vector2(1, 1.19167)
 texture = SubResource("GradientTexture2D_rgnxs")
 centered = false
 
