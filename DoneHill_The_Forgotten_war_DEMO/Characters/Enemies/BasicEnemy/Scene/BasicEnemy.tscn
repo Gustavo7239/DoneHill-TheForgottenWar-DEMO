@@ -121,7 +121,7 @@ animation = &"Walk"
 autoplay = "Walk"
 
 [node name="RayGround" type="RayCast2D" parent="Sprite"]
-position = Vector2(7, 24)
+position = Vector2(12, 24)
 target_position = Vector2(0, 5)
 collision_mask = 4
 

@@ -72,11 +72,11 @@ _data = {
 "RESET": SubResource("Animation_ge3to")
 }
 
-[sub_resource type="Gradient" id="Gradient_ld7cu"]
+[sub_resource type="Gradient" id="Gradient_p0o1l"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g8gll"]
-gradient = SubResource("Gradient_ld7cu")
+gradient = SubResource("Gradient_p0o1l")
 width = 720
 height = 720
 fill_from = Vector2(0.5, 0.6)
