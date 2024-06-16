@@ -1,12 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://8xth6hlgasv6"]
+[gd_scene load_steps=25 format=3 uid="uid://8xth6hlgasv6"]
 
 [ext_resource type="PackedScene" uid="uid://4emjx6r3ux85" path="res://Terrains/Arena_terrain/Scene/Arena_tile_map.tscn" id="1_0qsv0"]
+[ext_resource type="Script" path="res://Terrains/Arena_terrain/Script/ArenaScript.gd" id="1_xcfm0"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="2_5sofd"]
 [ext_resource type="Texture2D" uid="uid://bgsa3qphlc18w" path="res://Terrains/Arena_terrain/Sprite/Palmeras.png" id="3_53s45"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="3_c256x"]
 [ext_resource type="Texture2D" uid="uid://2lg4yd5uaqa" path="res://Terrains/Arena_terrain/Sprite/Background.png" id="4_7go1y"]
 [ext_resource type="Texture2D" uid="uid://chc00uiowt8a5" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/BackgroundGrass.png" id="5_483ea"]
 [ext_resource type="Texture2D" uid="uid://cb6sus3drkph7" path="res://Terrains/Arena_terrain/Sprite/Casa en la playa.png" id="6_pmcjw"]
+[ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="7_33elv"]
+[ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="8_0ven0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_d6c4t"]
 polygon = PackedVector2Array(-1, -15, -3, -15, -3, -13, -4, -13, -4, -12, -5, -12, -5, -11, -6, -11, -6, -10, -7, -10, -7, -9, -7, -8, -8, -8, -8, -2, -7, -2, -7, 0, -7, 1, -6, 1, -6, 3, -6, 3, -5, 3, -5, 5, -4, 5, -4, 7, -3, 7, -3, 8, -2, 8, -1, 9, -1, 10, -3, 10, -3, 9, -5, 9, -5, 8, -6, 8, -6, 8, -6, 7, -8, 7, -8, 6, -9, 6, -9, 4, -10, 4, -10, 3, -12, 3, -12, 1, -12, -4, -13, -4, -13, -9, -12, -9, -12, -14, -11, -14, -11, -16, -10, -16, -10, -17, -8, -17, -8, -18, -8, -19, -7, -19, -7, -20, -6, -20, -6, -19, -4, -19, -4, -20, -3, -20, -3, -17, -2, -17, -2, -16, -1, -16)
@@ -59,6 +62,7 @@ metadata/_snap_enabled = true
 polygon = PackedVector2Array(920, 183, 764, 112, 608, 184, 634, 196, 699, 204, 764, 206, 830, 204, 896, 195)
 
 [node name="ArenaTerrain" type="Node2D"]
+script = ExtResource("1_xcfm0")
 
 [node name="ArenaTileMap" parent="." instance=ExtResource("1_0qsv0")]
 light_mask = 5
@@ -380,6 +384,9 @@ frame = 2
 position = Vector2(188, 209)
 scale = Vector2(1, 1)
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera")
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 skew = -0.511381
 energy = 0.25
@@ -396,4 +403,22 @@ centered = false
 position = Vector2(-552, -104)
 occluder = SubResource("OccluderPolygon2D_6vvlf")
 
+[node name="Camera" parent="." instance=ExtResource("7_33elv")]
+position = Vector2(188, 209)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_Cueva" parent="Doors" instance=ExtResource("8_0ven0")]
+position = Vector2(-158, 139)
+destination_level_tag = "Cueva_lvl"
+destination_door_tag = "N"
+
+[node name="CollisionShape2D" parent="Doors/Door_Cueva" index="0"]
+position = Vector2(73, 404)
+rotation = 1.55916
+
+[node name="Spawn" parent="Doors/Door_Cueva" index="1"]
+position = Vector2(56, 257)
+
 [editable path="SavePoint"]
+[editable path="Doors/Door_Cueva"]

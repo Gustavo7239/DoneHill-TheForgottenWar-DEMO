@@ -9,6 +9,7 @@ const DEATH_SCENE = preload("res://GUI/Death_menu/Scene/Death_scene.tscn")
 
 const CUEVA_lvl = preload("res://Terrains/Cueva_terrain/Scene/Cueva_terrain.tscn")
 const DESIERTO_lvl = preload("res://Terrains/Desierto_terrain/Scene/Desierto_terrain.tscn")
+const ARENA_lvl = preload("res://Terrains/Arena_terrain/Scene/Arena_terrain.tscn")
 
 signal on_trigger_player_spawn
 
@@ -26,6 +27,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = CUEVA_lvl
 		"Desierto_lvl":
 			scene_to_load = DESIERTO_lvl
+		"Arena_lvl":
+			scene_to_load = ARENA_lvl
 			
 	if scene_to_load != null:
 		TransitionerScreen.transition()
