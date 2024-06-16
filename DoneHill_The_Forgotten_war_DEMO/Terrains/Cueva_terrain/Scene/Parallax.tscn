@@ -7,7 +7,7 @@
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(854, 0)
+motion_mirroring = Vector2(854, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color(0.333333, 0.333333, 0.333333, 1)
@@ -17,7 +17,7 @@ hframes = 6
 frame = 1
 
 [node name="PicosBack" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(854, 0)
+motion_mirroring = Vector2(854, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PicosBack"]
 modulate = Color(0.333333, 0.333333, 0.333333, 1)
@@ -27,7 +27,7 @@ hframes = 6
 frame = 2
 
 [node name="PicosMid" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(854, 0)
+motion_mirroring = Vector2(854, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PicosMid"]
 modulate = Color(0.333333, 0.333333, 0.333333, 1)
@@ -37,7 +37,7 @@ hframes = 6
 frame = 3
 
 [node name="PicosFront" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(854, 0)
+motion_mirroring = Vector2(854, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PicosFront"]
 modulate = Color(0.333333, 0.333333, 0.333333, 1)
@@ -47,7 +47,7 @@ hframes = 6
 frame = 4
 
 [node name="Agujeros" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(854, 0)
+motion_mirroring = Vector2(854, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Agujeros"]
 modulate = Color(0.333333, 0.333333, 0.333333, 1)
