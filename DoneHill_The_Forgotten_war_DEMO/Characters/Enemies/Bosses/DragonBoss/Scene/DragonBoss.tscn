@@ -884,7 +884,6 @@ position = Vector2(159.751, 151.975)
 
 [node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/RightLeg/AreaHit"]
 position = Vector2(2.12019, 4.59474)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_u23j2")
 disabled = true
 
@@ -1036,7 +1035,6 @@ text = "CUIDADO!!"
 
 [node name="EndFightCooldown" type="Timer" parent="."]
 wait_time = 10.0
-one_shot = true
 
 [node name="AtackCooldown" type="Timer" parent="."]
 wait_time = 1.5
