@@ -34,9 +34,9 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
-"res://Terrains/Agua_terrain/": "red",
 "res://Terrains/Arena_terrain/": "green",
 "res://Terrains/Bosque_terrain/": "green",
+"res://Terrains/Boss_terrain/": "red",
 "res://Terrains/Cueva_terrain/": "green",
 "res://Terrains/Desierto_terrain/": "green",
 "res://Terrains/Dev_terrain/": "red",

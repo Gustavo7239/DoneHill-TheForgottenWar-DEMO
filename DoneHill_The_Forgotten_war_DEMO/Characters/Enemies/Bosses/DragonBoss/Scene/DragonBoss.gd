@@ -88,3 +88,10 @@ func _on_atack_cooldown_timeout():
 
 func _on_end_fight_cooldown_timeout():
 	boss_fight_sprite.visible = false
+
+func damage_player(body):
+	if body as Player:
+		body.damage_ctrl()
+	
+func _on_area_hit_body_entered(body):
+	damage_player(body)

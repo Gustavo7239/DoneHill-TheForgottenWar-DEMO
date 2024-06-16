@@ -9,10 +9,8 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
-		GLOBAL.load_game()
-		NavigationManager.spawnPlayerCheckPoint(GLOBAL.game_data["LastScene"])
-		GLOBAL.game_data["Player_HP"] = GLOBAL.MAX_Player_HP
-		GLOBAL.game_data["SoulPoints"] = GLOBAL.MAX_SOULS_POINTS
+		#Salir del juego
+		pass
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "DeathAnim":

@@ -54,4 +54,4 @@ func _on_sprite_animation_finished():
 
 func _on_area_hit_body_entered(body):
 	if body as Player and Enemy_HP > 0:
-		body.damage_ctrl(1)
+		body.damage_ctrl()

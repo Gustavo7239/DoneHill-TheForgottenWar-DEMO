@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://blhvpyo7ge2y2"]
+
+[ext_resource type="Texture2D" uid="uid://2umux72dqnmn" path="res://Characters/Enemies/Bosses/DragonBoss/Sprite/Stone.png" id="1_4on56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ubru"]
+size = Vector2(8.1289, 7.24532)
+
+[node name="Rock1" type="Sprite2D"]
+modulate = Color(0.368627, 0.294118, 0.254902, 1)
+position = Vector2(31.4553, -19.0852)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4on56")
+
+[node name="AreaHit" type="Area2D" parent="."]
+position = Vector2(0, 0.176715)
+collision_layer = 2
+
+[node name="Collision_Make_DMG" type="CollisionShape2D" parent="AreaHit"]
+position = Vector2(0, -0.088357)
+shape = SubResource("RectangleShape2D_4ubru")

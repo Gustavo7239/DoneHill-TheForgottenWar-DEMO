@@ -487,6 +487,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteAlterParaHit/MakeDamage"]
 position = Vector2(12, 8)
 shape = SubResource("CircleShape2D_xii8t")
+disabled = true
 
 [node name="AnimHit" type="Sprite2D" parent="SpriteAlterParaHit"]
 position = Vector2(11.75, 8)
