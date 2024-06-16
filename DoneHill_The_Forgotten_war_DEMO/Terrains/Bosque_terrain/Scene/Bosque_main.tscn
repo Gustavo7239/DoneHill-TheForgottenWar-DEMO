@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmi3o3jpqraf"]
+[gd_scene load_steps=21 format=3 uid="uid://bmi3o3jpqraf"]
 
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_ef43o"]
 [ext_resource type="Script" path="res://Terrains/Bosque_terrain/Script/Bosque_terrain.gd" id="1_kglr0"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c760ylvhowv5c" path="res://Tools/Lights/Sun.tscn" id="7_6pnm3"]
 [ext_resource type="Texture2D" uid="uid://chc00uiowt8a5" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/BackgroundGrass.png" id="8_es30o"]
 [ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="8_x5fph"]
-[ext_resource type="PackedScene" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/Paralax.tscn" id="9_l4jed"]
+[ext_resource type="PackedScene" uid="uid://08acho6uda0" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/Paralax.tscn" id="9_l4jed"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="10_o6xpp"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="14_lrp2v"]
 
@@ -26,6 +26,28 @@ adjustment_saturation = 1.11
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72ta0"]
 size = Vector2(20, 503)
 
+[sub_resource type="Gradient" id="Gradient_yh4q8"]
+offsets = PackedFloat32Array(0.330233, 1)
+colors = PackedColorArray(0.91954, 0.91954, 0.91954, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wh0jc"]
+gradient = SubResource("Gradient_yh4q8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.4)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_ld7cu"]
+colors = PackedColorArray(0.580392, 0.431373, 0.309804, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ii0m"]
+gradient = SubResource("Gradient_ld7cu")
+width = 720
+height = 720
+fill_from = Vector2(0.3, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
 [node name="BosqueMain" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_kglr0")
@@ -36,14 +58,14 @@ layer_0/tile_data = PackedInt32Array(852023, 131072, 1, 786487, 65536, 1, 720951
 
 [node name="Player" parent="." instance=ExtResource("3_wdcm2")]
 modulate = Color(0.501961, 0.501961, 0.501961, 1)
-position = Vector2(245.333, 266.667)
+position = Vector2(494, 280)
 scale = Vector2(1, 1)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+[node name="RemoteCamera" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0.000345866, -92.0003)
 remote_path = NodePath("../../Camera")
 
-[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Player"]
+[node name="RemoteSun" type="RemoteTransform2D" parent="Player"]
 position = Vector2(36.667, -261.334)
 scale = Vector2(4, 4)
 remote_path = NodePath("../../Sun")
@@ -54,7 +76,7 @@ remote_path = NodePath("../../Sun")
 
 [node name="Tree_1" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
 z_index = -5
-position = Vector2(94.6667, 207.333)
+position = Vector2(94.6667, 206.667)
 scale = Vector2(2, 2)
 
 [node name="Tree_2" parent="BackGroundContainer/TreeContainer" instance=ExtResource("2_d0y03")]
@@ -220,7 +242,7 @@ position = Vector2(-310, 225.333)
 scale = Vector2(1.75, 1.75)
 
 [node name="Tree_36" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_qyhcb")]
-position = Vector2(-198.001, 200)
+position = Vector2(-198, 200)
 scale = Vector2(2.25, 2.25)
 
 [node name="Tree_37" parent="BackGroundContainer/TreeContainer" instance=ExtResource("4_ducrc")]
@@ -430,17 +452,18 @@ frame = 3
 environment = SubResource("Environment_fs8tf")
 
 [node name="Sun" parent="." instance=ExtResource("7_6pnm3")]
-position = Vector2(282, 5.33297)
+position = Vector2(530.667, 18.666)
 scale = Vector2(4, 4)
 color = Color(0.509804, 0.556863, 0.345098, 1)
 energy = 2.0
+metadata/_edit_lock_ = true
 
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door_E" parent="Doors" instance=ExtResource("8_x5fph")]
 position = Vector2(24, 400)
-destination_level_tag = "Dev_lvl"
-destination_door_tag = "W"
+destination_level_tag = "Desierto_lvl"
+destination_door_tag = "A"
 spawn_direction = "right"
 
 [node name="CollisionShape2D" parent="Doors/Door_E" index="0"]
@@ -450,9 +473,10 @@ position = Vector2(0, -14.75)
 position = Vector2(104, 24)
 
 [node name="Camera" parent="." instance=ExtResource("10_o6xpp")]
-position = Vector2(245.333, 174.667)
+position = Vector2(494, 188)
 
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
+position = Vector2(-120.667, 12.6667)
 collision_layer = 5
 collision_mask = 3
 
@@ -471,5 +495,27 @@ shape = SubResource("RectangleShape2D_72ta0")
 
 [node name="SavePoint" parent="." instance=ExtResource("14_lrp2v")]
 position = Vector2(485.333, 288)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-588.667, 32)
+rotation = 0.261799
+amount = 300
+lifetime = 3.0
+texture = SubResource("GradientTexture2D_wh0jc")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 50)
+spread = 30.95
+gravity = Vector2(0, 0)
+initial_velocity_min = 86.91
+initial_velocity_max = 220.66
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+color = Color(0.890196, 0.521569, 0.282353, 1)
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+z_index = 110
+position = Vector2(-133.521, 165.333)
+scale = Vector2(1.30503, 0.821672)
+texture = SubResource("GradientTexture2D_5ii0m")
 
 [editable path="Doors/Door_E"]
