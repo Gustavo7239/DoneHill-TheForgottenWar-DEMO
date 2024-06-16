@@ -4,32 +4,32 @@
 [ext_resource type="Texture2D" uid="uid://cqvit2ksa4nn2" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassNubes.png" id="2_r78h6"]
 [ext_resource type="Texture2D" uid="uid://1bfjgsf7qmnx" path="res://Terrains/Desierto_terrain/Sprite/BackgroundResources/Sprites/Background.png" id="3_mg756"]
 
-[sub_resource type="Gradient" id="Gradient_x1goq"]
+[sub_resource type="Gradient" id="Gradient_grv7p"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.810332, 0.65014, 0.521164, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_x0pe5"]
-gradient = SubResource("Gradient_x1goq")
+gradient = SubResource("Gradient_grv7p")
 fill_from = Vector2(1, 0.00854701)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="Gradient" id="Gradient_e6mgd"]
+[sub_resource type="Gradient" id="Gradient_cclqr"]
 offsets = PackedFloat32Array(0, 0.00440529, 0.312775, 0.555066, 0.881057, 1)
 colors = PackedColorArray(1, 1, 1, 0, 0.747982, 0.65848, 0.585466, 0.600604, 0.696724, 0.589018, 0.501153, 0.722761, 0.642871, 0.51604, 0.412573, 0.851101, 0.611817, 0.473957, 0.361493, 0.92511, 0.580392, 0.431373, 0.309804, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_phmcs"]
-gradient = SubResource("Gradient_e6mgd")
+gradient = SubResource("Gradient_cclqr")
 width = 854
 height = 480
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="Gradient" id="Gradient_pimc8"]
+[sub_resource type="Gradient" id="Gradient_ne1xe"]
 offsets = PackedFloat32Array(0.330233, 1)
 colors = PackedColorArray(0.91954, 0.91954, 0.91954, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yiu40"]
-gradient = SubResource("Gradient_pimc8")
+gradient = SubResource("Gradient_ne1xe")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.7, 0.4)

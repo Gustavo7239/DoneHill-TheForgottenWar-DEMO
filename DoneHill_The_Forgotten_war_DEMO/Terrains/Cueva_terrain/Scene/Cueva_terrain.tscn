@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwsse01vh15u5"]
+[gd_scene load_steps=18 format=3 uid="uid://dwsse01vh15u5"]
 
 [ext_resource type="PackedScene" uid="uid://cqu3tfqxoosxe" path="res://Terrains/Cueva_terrain/Scene/cueva_tile_map.tscn" id="1_hp7tp"]
-[ext_resource type="PackedScene" path="res://Terrains/Cueva_terrain/Scene/Parallax.tscn" id="2_h7kym"]
+[ext_resource type="Script" path="res://Terrains/Cueva_terrain/Script/CuevaTerrain.gd" id="1_nvxgc"]
+[ext_resource type="PackedScene" uid="uid://c53tajgal4spd" path="res://Terrains/Cueva_terrain/Scene/Parallax.tscn" id="2_h7kym"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="3_035cu"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="4_ydwrv"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="5_ckb2x"]
+[ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="6_ngw14"]
 
 [sub_resource type="Gradient" id="Gradient_bk2tg"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -70,7 +72,19 @@ _data = {
 "RESET": SubResource("Animation_ge3to")
 }
 
+[sub_resource type="Gradient" id="Gradient_ld7cu"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g8gll"]
+gradient = SubResource("Gradient_ld7cu")
+width = 720
+height = 720
+fill_from = Vector2(0.5, 0.6)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
 [node name="CuevaTerrain" type="Node2D"]
+script = ExtResource("1_nvxgc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 5
@@ -97,22 +111,22 @@ position = Vector2(7, -54)
 
 [node name="Player" parent="." instance=ExtResource("3_035cu")]
 modulate = Color(0.901961, 0.901961, 0.901961, 1)
-position = Vector2(989, -449)
+position = Vector2(726, 355)
 scale = Vector2(2, 2)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+[node name="RemoteLight" type="RemoteTransform2D" parent="Player"]
 scale = Vector2(5, 5)
 remote_path = NodePath("../../LuzInterior")
 
-[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Player"]
-position = Vector2(0, 82)
+[node name="RemoteCamera" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -71.5)
 remote_path = NodePath("../../Camera")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hllt1")
 
 [node name="LuzInterior" type="PointLight2D" parent="."]
-position = Vector2(989, -449)
+position = Vector2(726, 355)
 scale = Vector2(10, 10)
 range_layer_min = -101
 range_item_cull_mask = 5
@@ -126,9 +140,32 @@ libraries = {
 autoplay = "IdleLight"
 
 [node name="Camera" parent="." instance=ExtResource("4_ydwrv")]
-position = Vector2(989, -285)
+position = Vector2(726, 212)
 scale = Vector2(2, 2)
 
 [node name="SavePoint" parent="." instance=ExtResource("5_ckb2x")]
 position = Vector2(717, 392)
 BancoType = 2
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_Caida" parent="Doors" instance=ExtResource("6_ngw14")]
+position = Vector2(952, -650)
+destination_level_tag = "Desierto_lvl"
+destination_door_tag = "Subida"
+
+[node name="CollisionShape2D" parent="Doors/Door_Caida" index="0"]
+position = Vector2(31, 30)
+
+[node name="Spawn" parent="Doors/Door_Caida" index="1"]
+position = Vector2(35, 305)
+
+[node name="Filtro2" type="ParallaxLayer" parent="."]
+
+[node name="GroundShadow" type="Sprite2D" parent="Filtro2"]
+z_index = 110
+position = Vector2(1200, -572.875)
+scale = Vector2(5.2625, 1.72743)
+texture = SubResource("GradientTexture2D_g8gll")
+
+[editable path="Doors/Door_Caida"]
