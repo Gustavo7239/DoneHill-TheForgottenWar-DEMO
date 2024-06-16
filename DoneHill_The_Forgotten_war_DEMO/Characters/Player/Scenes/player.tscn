@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ci1vsvvvcnrq6"]
+[gd_scene load_steps=55 format=3 uid="uid://ci1vsvvvcnrq6"]
 
 [ext_resource type="Script" path="res://Characters/Player/Scripts/Player.gd" id="1_qce0l"]
 [ext_resource type="Texture2D" uid="uid://ckbnkyyqh44eo" path="res://Characters/Player/Sprite/PlayerDesign02.png" id="2_iqldn"]
@@ -78,6 +78,10 @@ region = Rect2(64, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_twl5u"]
 atlas = ExtResource("4_g0rvi")
 region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpbly"]
+atlas = ExtResource("4_g0rvi")
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3lvc"]
 atlas = ExtResource("2_iqldn")
@@ -252,17 +256,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u1dvb")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hit_normal_Left",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_twl5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpbly")
 }],
 "loop": false,
 "name": &"Hit_normal_Right",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -378,6 +385,8 @@ animations = [{
 radius = 7.0
 height = 24.0
 
+[sub_resource type="Theme" id="Theme_sa3k5"]
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
 scale = Vector2(4, 4)
@@ -390,7 +399,7 @@ jump = 600
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2g1jc")
-animation = &"Death"
+animation = &"Hit_normal_Right"
 autoplay = "Idle"
 script = ExtResource("5_bfmc8")
 
@@ -430,5 +439,12 @@ player = NodePath("../../..")
 [node name="Collision_Body" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_i5bt6")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 50.0
+offset_top = -15.0
+offset_right = 215.0
+offset_bottom = 93.0
+theme = SubResource("Theme_sa3k5")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
