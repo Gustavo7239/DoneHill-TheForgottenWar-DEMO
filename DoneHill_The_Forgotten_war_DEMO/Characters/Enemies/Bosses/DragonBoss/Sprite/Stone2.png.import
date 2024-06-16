@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c77npili4pel4"
-path="res://.godot/imported/level_spritesheet.png-847193632f363d710fa3f56da2a5e41c.ctex"
+uid="uid://b4pdas7cudruo"
+path="res://.godot/imported/Stone2.png-6eef08a9e199b68c8950095ae6a1cc3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Addons/phantom_camera/examples/textures/2D/level_spritesheet.png"
-dest_files=["res://.godot/imported/level_spritesheet.png-847193632f363d710fa3f56da2a5e41c.ctex"]
+source_file="res://Characters/Enemies/Bosses/DragonBoss/Sprite/Stone2.png"
+dest_files=["res://.godot/imported/Stone2.png-6eef08a9e199b68c8950095ae6a1cc3e.ctex"]
 
 [params]
 
