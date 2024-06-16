@@ -17,6 +17,8 @@ var charging : bool = false
 @export var normalSpeed : int = 120
 var currentSpeed : int = normalSpeed
 
+var damage = 100
+
 @export_category("Skills")
 @export_group("Heal")
 @export var Can_Heal : bool = true
@@ -25,8 +27,12 @@ var currentSpeed : int = normalSpeed
 
 #-------------- NODOS DEL OBJETO --------------
 @onready var sprite = $Sprite
+
+#HitThings
 @onready var sprite_alter_para_hit = $SpriteAlterParaHit
 @onready var animation_player_for_hit = $AnimationPlayerForHit
+@onready var make_damage:CollisionShape2D = $SpriteAlterParaHit/MakeDamage/CollisionShape2D
+
 
 
 
@@ -57,7 +63,7 @@ func _on_spawn(position: Vector2, direction: String):
 	
 	
 func _process(delta):
-	Test.text = str(sprite.get_animation())
+	#Test.text = str(sprite.get_animation())
 	
 	#GLOBAL.game_data["Player_can_Heal"] = Can_Heal
 	jump_fx.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
@@ -97,6 +103,7 @@ func motion_ctrl():
 		
 	if not get_axis().x == 0:
 		sprite.scale.x = get_axis().x
+		sprite_alter_para_hit.scale.x = get_axis().x
 		
 	velocity.x = get_axis().x * currentSpeed
 	velocity.y += gravity

@@ -36,17 +36,17 @@ func motion_ctrl() -> void:
 
 func damage_ctrl(damage : int) -> void:
 	Enemy_HP -= damage
-	if Enemy_HP <= 0:
+	if Enemy_HP < 1:
 		sprite.set_animation("Death")
 		collision_body.set_deferred("disabled", true)
 		Gravity = 0
 		Give_Points()
 		
 func Give_Points():
-	if GLOBAL.SoulPoints + GLOBAL.MAX_SOULS_POINTS < GLOBAL.MAX_SOULS_POINTS :
-		GLOBAL.SoulPoints += Soul_Points
-	elif GLOBAL.SoulPoints + GLOBAL.MAX_SOULS_POINTS >= GLOBAL.MAX_SOULS_POINTS :
-		GLOBAL.SoulPoints = GLOBAL.MAX_SOULS_POINTS
+	if GLOBAL.game_data["SoulPoints"] + GLOBAL.MAX_SOULS_POINTS < GLOBAL.MAX_SOULS_POINTS :
+		GLOBAL.game_data["SoulPoints"] += Soul_Points
+	elif GLOBAL.game_data["SoulPoints"] + GLOBAL.MAX_SOULS_POINTS >= GLOBAL.MAX_SOULS_POINTS :
+		GLOBAL.game_data["SoulPoints"] = GLOBAL.MAX_SOULS_POINTS
 
 func _on_sprite_animation_finished():
 	if sprite.animation == "Death":

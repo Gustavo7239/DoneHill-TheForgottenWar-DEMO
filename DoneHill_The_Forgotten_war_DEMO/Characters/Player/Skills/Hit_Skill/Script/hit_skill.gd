@@ -22,10 +22,22 @@ func _process(delta):
 
 func Hit():
 	player.sprite.visible = false
+	player.make_damage.disabled = false
 	player.sprite_alter_para_hit.visible = true
 	player.animation_player_for_hit.play("DoubleHit")
 
 
 func _on_animation_player_animation_finished(anim_name):
 	player.sprite_alter_para_hit.visible = false
+	player.make_damage.disabled = true
 	player.sprite.visible = true
+
+
+func _on_make_damage_body_entered(body):
+	match body:
+		null: 
+			player.Test.text = "No"
+		_:
+			player.Test.text = str(body)
+	if body as BasicEnemy:
+		body.damage_ctrl(player.damage)
