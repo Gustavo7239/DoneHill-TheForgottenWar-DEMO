@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dk1xurnk7k563" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/tree_3.tscn" id="10_ftn13"]
 [ext_resource type="PackedScene" uid="uid://biffpc0nr1dak" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Scenes/bush.tscn" id="11_n02t2"]
 [ext_resource type="PackedScene" uid="uid://c8581qdasmokc" path="res://Characters/Enemies/BasicEnemy/Scene/BasicEnemy.tscn" id="13_icvmw"]
-[ext_resource type="PackedScene" uid="uid://c6fm3y1u58nmx" path="res://Terrains/Desierto_terrain/Scene/desierto_tile_map_decoration.tscn" id="14_sg046"]
+[ext_resource type="PackedScene" path="res://Terrains/Desierto_terrain/Scene/desierto_tile_map_decoration.tscn" id="14_sg046"]
 
 [sub_resource type="Gradient" id="Gradient_yxk2m"]
 offsets = PackedFloat32Array(1)
