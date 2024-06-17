@@ -1,0 +1,260 @@
+[gd_scene load_steps=19 format=3 uid="uid://ckafbwv8dag4i"]
+
+[ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_x5oud"]
+[ext_resource type="Script" path="res://GUI/CreditosFinal/CreditosFinal.gd" id="2_r2dic"]
+[ext_resource type="Texture2D" uid="uid://xygehor7jfa" path="res://GUI/Death_menu/Assets/moon.png" id="3_rjqgh"]
+[ext_resource type="Texture2D" uid="uid://bgibb64adycam" path="res://Characters/Player/Sprite/PlayerDesign03.png" id="4_dbcl2"]
+
+[sub_resource type="Gradient" id="Gradient_lkexu"]
+offsets = PackedFloat32Array(0, 0.370044, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.160784, 0.160784, 0.160784, 1, 0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rgnxs"]
+gradient = SubResource("Gradient_lkexu")
+width = 855
+height = 480
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ymlbg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vfuli"]
+gradient = SubResource("Gradient_ymlbg")
+width = 1920
+height = 1080
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.4)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_0jp6t"]
+resource_name = "Letras"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Label:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Moon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qcv7r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Moon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpdwg"]
+_data = {
+"Letras": SubResource("Animation_0jp6t"),
+"RESET": SubResource("Animation_qcv7r")
+}
+
+[sub_resource type="Animation" id="Animation_ym6rn"]
+resource_name = "Comenzar"
+length = 1.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_qqvlk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqmve"]
+_data = {
+"Comenzar": SubResource("Animation_ym6rn"),
+"RESET": SubResource("Animation_qqvlk")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jsrfw"]
+polygon = PackedVector2Array(416, 280, 256, 280, 256, 384, 576, 384, 576, 280)
+
+[sub_resource type="Animation" id="Animation_kguxs"]
+resource_name = "OnOff"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressAnyButtonLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qpxgl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressAnyButtonLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01iag"]
+_data = {
+"OnOff": SubResource("Animation_kguxs"),
+"RESET": SubResource("Animation_qpxgl")
+}
+
+[node name="DeathScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x5oud")
+script = ExtResource("2_r2dic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -84)
+scale = Vector2(1, 1.17083)
+texture = SubResource("GradientTexture2D_rgnxs")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 212.0
+offset_top = 77.0
+offset_right = 632.0
+offset_bottom = 287.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "GRACIAS
+POR
+JUGAR"
+horizontal_alignment = 1
+
+[node name="Moon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(416, 37)
+scale = Vector2(4, 4)
+texture = ExtResource("3_rjqgh")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(415.5, 230)
+scale = Vector2(0.423438, 2.50185)
+energy = 1.25
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_vfuli")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(427, 240)
+limit_smoothed = true
+
+[node name="Player" type="Sprite2D" parent="."]
+modulate = Color(0.517647, 0.517647, 0.517647, 1)
+position = Vector2(412, 327)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dbcl2")
+hframes = 8
+vframes = 8
+frame = 1
+
+[node name="LetrasCreditos" type="AnimationPlayer" parent="."]
+root_node = NodePath("../IdlePlayer")
+libraries = {
+"": SubResource("AnimationLibrary_hpdwg")
+}
+autoplay = "Letras"
+
+[node name="IdlePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hqmve")
+}
+autoplay = "Comenzar"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-10, 95)
+color = Color(0, 0, 0, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-10, 95)
+occluder = SubResource("OccluderPolygon2D_jsrfw")
+
+[node name="PressAnyButtonLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 281.0
+offset_right = 570.0
+offset_bottom = 299.0
+text = "PULSA A PARA CERRAR"
+
+[node name="PRESS ANY BUTTON" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_01iag")
+}
+
+[connection signal="animation_finished" from="LetrasCreditos" to="." method="_on_letras_creditos_animation_finished"]

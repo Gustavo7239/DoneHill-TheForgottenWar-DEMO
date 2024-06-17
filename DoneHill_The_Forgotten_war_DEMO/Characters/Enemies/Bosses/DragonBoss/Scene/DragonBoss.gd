@@ -5,18 +5,23 @@ extends Node2D
 @onready var end_fight_cooldown = $EndFightCooldown
 
 @onready var boss_fight_sprite = $BossFightSprite
+@onready var time_until_end = $TimeUntilEnd
 
 
 var randomAtack = RandomNumberGenerator.new()
 
+var battle_end = false
 
 var lastState:int = 0
 
 func _ready():
 	goAwake()
+	end_fight_cooldown.start()
 
 func _process(delta):
-	pass
+	if battle_end:
+		NavigationManager.change_Scene("CREDITOS_FINAL_SCENE")
+	time_until_end.text = str(int(end_fight_cooldown.time_left))
 
 func goIdle():
 	states["parameters/conditions/GoIdle"] = true
@@ -73,7 +78,6 @@ func _on_animation_tree_animation_finished(anim_name):
 	elif  not anim_name == "Idle" && not anim_name == "Wake_up":
 		goIdle()
 		atack_cooldown.start()
-		end_fight_cooldown.start()
 
 func _on_atack_cooldown_timeout():
 	var number_atack = randomAtack.randi_range(1,3)
@@ -87,4 +91,11 @@ func _on_atack_cooldown_timeout():
 
 
 func _on_end_fight_cooldown_timeout():
-	boss_fight_sprite.visible = false
+	battle_end = true
+
+func damage_player(body):
+	if body as Player:
+		body.damage_ctrl()
+
+func _on_area_hit_body_entered(body):
+	damage_player(body)

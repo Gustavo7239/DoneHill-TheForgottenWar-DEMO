@@ -849,6 +849,7 @@ frame = 11
 
 [node name="AreaHit" type="Area2D" parent="BossFightSprite/LeftLeg"]
 position = Vector2(46.2994, 151.975)
+collision_layer = 2
 
 [node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/LeftLeg/AreaHit"]
 position = Vector2(2.65073, 2.65073)
@@ -881,6 +882,7 @@ frame = 12
 
 [node name="AreaHit" type="Area2D" parent="BossFightSprite/RightLeg"]
 position = Vector2(159.751, 151.975)
+collision_layer = 2
 
 [node name="Collision_Make_DMG" type="CollisionShape2D" parent="BossFightSprite/RightLeg/AreaHit"]
 position = Vector2(2.12019, 4.59474)
@@ -1034,12 +1036,29 @@ theme = ExtResource("2_upr0g")
 text = "CUIDADO!!"
 
 [node name="EndFightCooldown" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 70.0
 
 [node name="AtackCooldown" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
 
+[node name="TimeUntilEnd" type="Label" parent="."]
+offset_left = 727.0
+offset_top = 185.0
+offset_right = 806.0
+offset_bottom = 258.0
+theme = ExtResource("2_upr0g")
+theme_override_font_sizes/font_size = 30
+
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="body_entered" from="BossFightSprite/LeftLeg/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/RightLeg/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock1/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock2/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock3/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock4/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock5/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock6/AreaHit" to="." method="_on_area_hit_body_entered"]
+[connection signal="body_entered" from="BossFightSprite/Rocks/Rock7/AreaHit" to="." method="_on_area_hit_body_entered"]
 [connection signal="timeout" from="EndFightCooldown" to="." method="_on_end_fight_cooldown_timeout"]
 [connection signal="timeout" from="AtackCooldown" to="." method="_on_atack_cooldown_timeout"]

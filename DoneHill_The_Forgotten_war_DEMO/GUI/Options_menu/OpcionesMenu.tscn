@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://degedtmr3aw5v"]
+[gd_scene load_steps=5 format=3 uid="uid://degedtmr3aw5v"]
 
 [ext_resource type="Script" path="res://GUI/Options_menu/OpcionesMenu.gd" id="1_law1b"]
 [ext_resource type="FontFile" uid="uid://dpbkhg6dpiabo" path="res://Tools/TextThemes/Super_Mario_Bros._2.ttf" id="1_usv56"]
+[ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="3_rd1rk"]
 [ext_resource type="AudioStream" uid="uid://byur2qnmwpnu6" path="res://Characters/Player/Skills/Dash_skill/Audio/dash_skill.wav" id="3_xdwxh"]
 
 [node name="OpcionesMenu" type="Control"]
@@ -14,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_law1b")
 
 [node name="Pruebas" type="TextEdit" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 offset_left = 352.0
@@ -22,6 +24,7 @@ offset_right = 532.0
 offset_bottom = 128.0
 
 [node name="VBoxContainerButtons" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,10 +64,12 @@ grow_horizontal = 2
 theme_override_constants/separation = 300
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="GraficoText" type="Label" parent="HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_usv56")
 theme_override_font_sizes/font_size = 30
@@ -100,6 +105,8 @@ value = 90.0
 
 [node name="LabelFX" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_rd1rk")
+text = "FX"
 
 [node name="HSliderFX" type="HSlider" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2

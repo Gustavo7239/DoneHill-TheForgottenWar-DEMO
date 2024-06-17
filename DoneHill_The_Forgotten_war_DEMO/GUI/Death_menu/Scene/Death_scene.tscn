@@ -236,7 +236,7 @@ script = ExtResource("1_k4gop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -84)
-scale = Vector2(1, 1.19167)
+scale = Vector2(1, 1.17083)
 texture = SubResource("GradientTexture2D_rgnxs")
 centered = false
 
@@ -296,11 +296,11 @@ occluder = SubResource("OccluderPolygon2D_jsrfw")
 
 [node name="PressAnyButtonLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 295.0
-offset_top = 297.0
-offset_right = 551.0
-offset_bottom = 315.0
-text = "PRESS ANY BUTTON"
+offset_left = 361.0
+offset_top = 299.0
+offset_right = 473.0
+offset_bottom = 317.0
+text = "PULSA A"
 
 [node name="PRESS ANY BUTTON" type="AnimationPlayer" parent="."]
 libraries = {
