@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="DoneHill_The_Forgotten_war_DEMO"
+config/name="DoneHill The Forgotten war DEMO"
+config/description="Demo del juego"
+config/version="0.1"
 run/main_scene="res://GUI/Credits/Scene/Credits.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://GameIcon.png"
 
 [autoload]
 
@@ -41,7 +43,6 @@ folder_colors={
 "res://Terrains/Desierto_terrain/": "green",
 "res://Terrains/Dev_terrain/": "red",
 "res://Terrains/Montaña_helada_terrain/": "green",
-"res://Terrains/Tutorial_terrain/": "red",
 "res://Tools/Camera/": "red",
 "res://Tools/Camera/Scenes/": "orange",
 "res://Tools/Camera/Scripts/": "yellow",
