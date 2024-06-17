@@ -11,6 +11,8 @@ const CREDITOS_FINAL_SCENE = preload("res://GUI/CreditosFinal/CreditosFinal.tscn
 const CUEVA_lvl = preload("res://Terrains/Cueva_terrain/Scene/Cueva_terrain.tscn")
 const DESIERTO_lvl = preload("res://Terrains/Desierto_terrain/Scene/Desierto_terrain.tscn")
 const ARENA_lvl = preload("res://Terrains/Arena_terrain/Scene/Arena_terrain.tscn")
+const MON_lvl = preload("res://Terrains/Montaña_helada_terrain/Scene/montaña_helada_terrain.tscn")
+const BOSS_lvl = preload("res://Terrains/Boss_terrain/Scene/Boss_terrain.tscn")
 
 signal on_trigger_player_spawn
 
@@ -30,6 +32,10 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = DESIERTO_lvl
 		"Arena_lvl":
 			scene_to_load = ARENA_lvl
+		"Mon_lvl":
+			scene_to_load = MON_lvl
+		"Boss_lvl":
+			scene_to_load = BOSS_lvl
 			
 	if scene_to_load != null:
 		TransitionerScreen.transition()
@@ -68,6 +74,12 @@ func spawnPlayerCheckPoint(scene):
 			scene_to_load = CUEVA_lvl
 		"Desierto_lvl":
 			scene_to_load = DESIERTO_lvl
+		"Arena_lvl":
+			scene_to_load = ARENA_lvl
+		"Mon_lvl":
+			scene_to_load = MON_lvl
+		"Boss_lvl":
+			scene_to_load = BOSS_lvl
 	
 	TransitionerScreen.transition()
 	await TransitionerScreen.on_transition_finished

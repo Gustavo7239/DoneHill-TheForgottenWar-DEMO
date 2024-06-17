@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://d05x8ajs0uaa"]
+[gd_scene load_steps=19 format=3 uid="uid://d05x8ajs0uaa"]
 
 [ext_resource type="PackedScene" uid="uid://dm624kgmgci67" path="res://Terrains/Montaña_helada_terrain/Scene/montaña_helada_tile_map.tscn" id="1_22l4k"]
+[ext_resource type="Script" path="res://Terrains/Montaña_helada_terrain/Script/Montana_script.gd" id="1_o5qev"]
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="2_viwch"]
 [ext_resource type="Texture2D" uid="uid://pbbc2jsg3fhq" path="res://Terrains/Montaña_helada_terrain/Sprite/Flecha.png" id="3_5tncq"]
 [ext_resource type="Texture2D" uid="uid://bf1exfda3pa14" path="res://Terrains/Montaña_helada_terrain/Sprite/Sky.png" id="4_kre3x"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="7_0n2pf"]
 [ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="8_ojjdv"]
 [ext_resource type="Texture2D" uid="uid://l5sp8mwo7log" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/Stones.png" id="9_6amwa"]
+[ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="10_5up8n"]
 
 [sub_resource type="Gradient" id="Gradient_om4wj"]
 offsets = PackedFloat32Array(0, 0.202643, 0.585903, 0.832599, 0.955947, 1)
@@ -45,6 +47,7 @@ fill_to = Vector2(0.5, 1)
 metadata/_snap_enabled = true
 
 [node name="MontañaHeladaTerrain" type="Node2D"]
+script = ExtResource("1_o5qev")
 
 [node name="Montaña_helada_tile_map2" parent="." instance=ExtResource("1_22l4k")]
 modulate = Color(0.745098, 0.745098, 0.745098, 1)
@@ -122,9 +125,9 @@ scale_amount_max = 3.0
 
 [node name="GroundShadow3" type="Sprite2D" parent="."]
 z_index = 110
-position = Vector2(-730.719, 1185)
+position = Vector2(987, 1199)
 rotation = 3.14159
-scale = Vector2(1.40773, 1.72743)
+scale = Vector2(9.09787, 1.97848)
 texture = SubResource("GradientTexture2D_dt2d1")
 
 [node name="Telepad" type="Sprite2D" parent="."]
@@ -135,3 +138,32 @@ texture = ExtResource("9_6amwa")
 centered = false
 hframes = 7
 frame = 3
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_MonToBoss" parent="Doors" instance=ExtResource("10_5up8n")]
+position = Vector2(-1088, 841)
+destination_level_tag = "Boss_lvl"
+destination_door_tag = "FromMon"
+
+[node name="CollisionShape2D" parent="Doors/Door_MonToBoss" index="0"]
+position = Vector2(-72, 21)
+rotation = -1.56427
+scale = Vector2(-4.88441, 9.38688)
+
+[node name="Spawn" parent="Doors/Door_MonToBoss" index="1"]
+visible = false
+position = Vector2(444, -1946)
+
+[node name="Door_TpFromPlaya" parent="Doors" instance=ExtResource("10_5up8n")]
+position = Vector2(125, 293)
+
+[node name="CollisionShape2D" parent="Doors/Door_TpFromPlaya" index="0"]
+visible = false
+position = Vector2(-116, 10)
+
+[node name="Spawn" parent="Doors/Door_TpFromPlaya" index="1"]
+position = Vector2(-3, 6)
+
+[editable path="Doors/Door_MonToBoss"]
+[editable path="Doors/Door_TpFromPlaya"]

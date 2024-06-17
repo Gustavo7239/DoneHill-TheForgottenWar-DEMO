@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c15b280wl6pj0"]
+[gd_scene load_steps=22 format=3 uid="uid://c15b280wl6pj0"]
 
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="1_0yaek"]
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_kxrnp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b5l58sfmtw3oe" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassSkyV2.png" id="7_saqdh"]
 [ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="8_pgq38"]
 [ext_resource type="PackedScene" uid="uid://dyub3y6yt831e" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map_decoration.tscn" id="9_oiw35"]
+[ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="10_jn88w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2h0e"]
 size = Vector2(42, 773)
@@ -42,33 +43,6 @@ gradient = SubResource("Gradient_6m44s")
 fill_from = Vector2(1, 0.0470085)
 fill_to = Vector2(1, 1)
 
-[sub_resource type="Animation" id="Animation_2yi6v"]
-resource_name = "caida"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(5, -18), Vector2(5, 534)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 3
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -0.523599]
-}
-
 [sub_resource type="Animation" id="Animation_xeoar"]
 length = 0.001
 tracks/0/type = "value"
@@ -94,6 +68,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2yi6v"]
+resource_name = "caida"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, -18), Vector2(5, 534)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.523599]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ie5pp"]
@@ -186,4 +187,17 @@ libraries = {
 "": SubResource("AnimationLibrary_ie5pp")
 }
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door_FromMon" parent="Doors" instance=ExtResource("10_jn88w")]
+position = Vector2(467, -509)
+
+[node name="CollisionShape2D" parent="Doors/Door_FromMon" index="0"]
+visible = false
+
+[node name="Spawn" parent="Doors/Door_FromMon" index="1"]
+position = Vector2(-36, 456)
+
 [connection signal="timeout" from="Montañita dragon/Caida" to="." method="_on_caida_timeout"]
+
+[editable path="Doors/Door_FromMon"]

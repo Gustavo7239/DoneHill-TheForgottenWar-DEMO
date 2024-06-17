@@ -354,6 +354,7 @@ vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = 759.0
 offset_top = 122.0
 offset_right = 929.0
@@ -366,6 +367,7 @@ vertical_alignment = 1
 
 [node name="aviso" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = 1543.0
 offset_top = 253.0
 offset_right = 1713.0
@@ -377,6 +379,7 @@ vertical_alignment = 1
 
 [node name="aviso2" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = 324.0
 offset_top = 317.0
 offset_right = 494.0
@@ -388,6 +391,7 @@ vertical_alignment = 1
 
 [node name="aviso3" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = 997.0
 offset_top = 304.0
 offset_right = 1167.0
@@ -399,6 +403,7 @@ vertical_alignment = 1
 
 [node name="aviso4" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = -19.0
 offset_top = 295.0
 offset_right = 151.0

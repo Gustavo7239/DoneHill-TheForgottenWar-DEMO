@@ -344,6 +344,7 @@ theme = ExtResource("8_6mnug")
 
 [node name="aviso" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = 3018.0
 offset_top = 226.0
 offset_right = 3468.0
@@ -356,6 +357,7 @@ vertical_alignment = 1
 
 [node name="aviso2" type="Label" parent="Control"]
 z_index = 100
+layout_mode = 0
 offset_left = 801.0
 offset_top = 218.0
 offset_right = 1251.0

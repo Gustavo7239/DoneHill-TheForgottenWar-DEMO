@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7ja4woxol8yc"
-path.bptc="res://.godot/imported/checker_pattern_dark.png-c5033c31eefd1860213412a5cf32f732.bptc.ctex"
+path.bptc="res://.godot/imported/checker_pattern_dark.png-70cedad2d3abf4ad6166d6614eefa7fb.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Addons/phantom_camera/examples/textures/3D/checker_pattern_dark.png"
-dest_files=["res://.godot/imported/checker_pattern_dark.png-c5033c31eefd1860213412a5cf32f732.bptc.ctex"]
+source_file="res://addons/phantom_camera/examples/textures/3D/checker_pattern_dark.png"
+dest_files=["res://.godot/imported/checker_pattern_dark.png-70cedad2d3abf4ad6166d6614eefa7fb.bptc.ctex"]
 
 [params]
 
