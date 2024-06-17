@@ -13,6 +13,7 @@ script = ExtResource("1_7pyhf")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_ofn28")
 hframes = 5
+frame = 4
 
 [node name="AreaCollision" type="Area2D" parent="."]
 

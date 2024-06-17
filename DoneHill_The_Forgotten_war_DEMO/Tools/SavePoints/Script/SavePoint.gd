@@ -33,9 +33,9 @@ func switchSaveScene():
 		2:
 			SpawnScene = "Cueva_lvl"
 		3:
-			SpawnScene = "Dev_lvl"
+			SpawnScene = "Mon_lvl"
 		4:
-			SpawnScene = "Dev_lvl"
+			SpawnScene = "Arena_lvl"
 
 func _on_area_collision_body_entered(body):
 	if body as Player:
