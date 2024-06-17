@@ -10,9 +10,8 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
-		#Salir del juego
-		pass
+		get_tree().quit()
 
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "DeathAnim":
-		press_any_button.play("OnOff")
+
+func _on_letras_creditos_animation_finished(anim_name):
+	press_any_button.play("OnOff")

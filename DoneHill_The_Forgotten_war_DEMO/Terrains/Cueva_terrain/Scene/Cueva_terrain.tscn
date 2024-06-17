@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dwsse01vh15u5"]
+[gd_scene load_steps=29 format=3 uid="uid://dwsse01vh15u5"]
 
 [ext_resource type="PackedScene" uid="uid://cqu3tfqxoosxe" path="res://Terrains/Cueva_terrain/Scene/cueva_tile_map.tscn" id="1_hp7tp"]
 [ext_resource type="Script" path="res://Terrains/Cueva_terrain/Script/CuevaTerrain.gd" id="1_nvxgc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="4_ydwrv"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="5_ckb2x"]
 [ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="6_ngw14"]
+[ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="8_6mnug"]
 
 [sub_resource type="Gradient" id="Gradient_36msd"]
 offsets = PackedFloat32Array(0)
@@ -322,6 +323,47 @@ range_layer_min = -101
 range_item_cull_mask = 5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_06y3a")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
+position = Vector2(3231.5, 269.5)
+scale = Vector2(8.45312, 1.76562)
+energy = 2.0
+range_layer_min = -101
+range_item_cull_mask = 5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_06y3a")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 42.0
+theme = ExtResource("8_6mnug")
+
+[node name="aviso" type="Label" parent="Control"]
+z_index = 100
+offset_left = 3018.0
+offset_top = 226.0
+offset_right = 3468.0
+offset_bottom = 297.0
+theme_override_font_sizes/font_size = 30
+text = "PULSA RT
+PARA DESLIZARTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="aviso2" type="Label" parent="Control"]
+z_index = 100
+offset_left = 801.0
+offset_top = 218.0
+offset_right = 1251.0
+offset_bottom = 289.0
+theme_override_font_sizes/font_size = 20
+text = "----->"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="Doors/Door_Caida"]
 [editable path="Doors/Door_N"]

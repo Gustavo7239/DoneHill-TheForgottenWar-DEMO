@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c15b280wl6pj0"]
+[gd_scene load_steps=21 format=3 uid="uid://c15b280wl6pj0"]
 
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="1_0yaek"]
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_kxrnp"]
@@ -6,12 +6,108 @@
 [ext_resource type="PackedScene" uid="uid://6wnn4r14215v" path="res://Characters/Enemies/Bosses/DragonBoss/Scene/DragonBoss.tscn" id="2_gdokj"]
 [ext_resource type="PackedScene" uid="uid://crsup6s75fy1m" path="res://Characters/Enemies/Slime/Scene/Slime.tscn" id="4_ow82l"]
 [ext_resource type="PackedScene" uid="uid://ci1vsvvvcnrq6" path="res://Characters/Player/Scenes/player.tscn" id="5_112io"]
+[ext_resource type="Texture2D" uid="uid://b5l58sfmtw3oe" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/GrassSkyV2.png" id="7_saqdh"]
+[ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="8_pgq38"]
+[ext_resource type="PackedScene" uid="uid://dyub3y6yt831e" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map_decoration.tscn" id="9_oiw35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2h0e"]
+size = Vector2(42, 773)
+
+[sub_resource type="Gradient" id="Gradient_4g6he"]
+offsets = PackedFloat32Array(0.454128, 0.541284)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s45pa"]
+gradient = SubResource("Gradient_4g6he")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 0.982906)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8llih"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_avrde"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_8llih")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk0tx"]
+shader = ExtResource("8_pgq38")
+shader_parameter/scroll = Vector2(0.05, 0.05)
+shader_parameter/distortionTexture = SubResource("NoiseTexture2D_avrde")
+
+[sub_resource type="Gradient" id="Gradient_6m44s"]
+colors = PackedColorArray(0, 0, 0, 1, 0.61339, 0.61339, 0.61339, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_he3mi"]
+gradient = SubResource("Gradient_6m44s")
+fill_from = Vector2(1, 0.0470085)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_2yi6v"]
+resource_name = "caida"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, -18), Vector2(5, 534)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.523599]
+}
+
+[sub_resource type="Animation" id="Animation_xeoar"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ie5pp"]
+_data = {
+"RESET": SubResource("Animation_xeoar"),
+"caida": SubResource("Animation_2yi6v")
+}
 
 [node name="BossTerrain" type="Node2D"]
 script = ExtResource("1_o44cx")
 
 [node name="Dragon" parent="." instance=ExtResource("2_gdokj")]
-position = Vector2(119, 58)
+position = Vector2(199, 152)
+scale = Vector2(0.8, 0.8)
 
 [node name="Camera" parent="." instance=ExtResource("1_0yaek")]
 position = Vector2(423, 346)
@@ -35,3 +131,59 @@ scale = Vector2(1, 1)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(-8, -139)
 remote_path = NodePath("../../Camera")
+
+[node name="Pared" type="StaticBody2D" parent="."]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared"]
+position = Vector2(67, 130)
+shape = SubResource("RectangleShape2D_r2h0e")
+
+[node name="Pared2" type="StaticBody2D" parent="."]
+position = Vector2(749, -8)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared2"]
+position = Vector2(67, 130)
+shape = SubResource("RectangleShape2D_r2h0e")
+
+[node name="Decor" type="Sprite2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor"]
+position = Vector2(377, 185)
+scale = Vector2(43.8594, 15.6719)
+texture = SubResource("GradientTexture2D_s45pa")
+
+[node name="Sky" type="Sprite2D" parent="Decor"]
+modulate = Color(0.447059, 0.494118, 0.490196, 1)
+z_index = -100
+position = Vector2(-1477, -1038)
+scale = Vector2(4.28103, 4.87292)
+texture = ExtResource("7_saqdh")
+centered = false
+
+[node name="Fog" type="Sprite2D" parent="Decor"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_lk0tx")
+position = Vector2(-1465, -1424)
+scale = Vector2(57.125, 36.3594)
+texture = SubResource("GradientTexture2D_he3mi")
+centered = false
+
+[node name="Montañita dragon" parent="." instance=ExtResource("9_oiw35")]
+modulate = Color(0.560784, 0.560784, 0.560784, 1)
+z_index = -10
+position = Vector2(5, -18)
+layer_0/tile_data = PackedInt32Array(1245195, 131072, 1, 1179659, 131072, 1, 1114123, 65536, 1, 1048587, 65536, 1, 983051, 65536, 1, 917515, 65536, 1, 851979, 65536, 1, 786443, 65536, 1, 720907, 131072, 1, 655371, 131072, 1, 1245194, 131072, 1, 1179658, 65536, 1, 1114122, 131072, 1, 1048586, 131072, 1, 983050, 131072, 1, 917514, 131072, 1, 851978, 65536, 1, 786442, 65536, 1, 720906, 131072, 1, 655370, 65536, 1, 1245193, 65536, 1, 1179657, 131072, 1, 1114121, 131072, 1, 1048585, 131072, 1, 983049, 131072, 1, 917513, 131072, 1, 851977, 131072, 1, 786441, 131072, 1, 720905, 65536, 1, 655369, 65536, 1, 1245192, 131072, 1, 1179656, 65536, 1, 1114120, 65536, 1, 1048584, 65536, 1, 983048, 65536, 1, 917512, 65536, 1, 851976, 65536, 1, 786440, 65536, 1, 720904, 131072, 1, 655368, 131072, 1, 1245191, 65536, 1, 1179655, 65536, 1, 1114119, 65536, 1, 1048583, 131072, 1, 983047, 131072, 1, 917511, 131072, 1, 851975, 131072, 1, 786439, 65536, 1, 720903, 131072, 1, 655367, 65536, 1, 1245190, 65536, 1, 1179654, 131072, 1, 1114118, 131072, 1, 1048582, 65536, 1, 983046, 131072, 1, 917510, 131072, 1, 851974, 65536, 1, 786438, 131072, 1, 720902, 131072, 1, 655366, 65536, 1, 1245189, 65536, 1, 1179653, 65536, 1, 1114117, 65536, 1, 1048581, 131072, 1, 983045, 65536, 1, 917509, 131072, 1, 851973, 131072, 1, 786437, 131072, 1, 720901, 65536, 1, 655365, 65536, 1, 1245188, 131072, 1, 1179652, 131072, 1, 1114116, 131072, 1, 1048580, 131072, 1, 983044, 131072, 1, 917508, 131072, 1, 851972, 131072, 1, 786436, 65536, 1, 720900, 65536, 1, 655364, 65536, 1, 720899, 0, 1, 655363, 0, 1, 589827, 0, 0, 589828, 131072, 0, 589829, 131072, 0, 786435, 0, 1, 851971, 0, 1, 917507, 0, 1, 983043, 0, 1, 1048579, 0, 1, 1114115, 0, 1, 1179651, 0, 1, 1245187, 0, 1, 1310725, 65536, 2, 1310724, 65536, 2, 1310723, 0, 2, 589830, 65536, 0, 1310726, 65536, 2, 589831, 65536, 0, 1310727, 131072, 2, 589832, 131072, 0, 1310728, 65536, 2, 589833, 65536, 0, 1310729, 65536, 2, 589834, 131072, 0, 1310730, 131072, 2, 589835, 131072, 0, 1310731, 131072, 2, 655372, 196608, 1, 720908, 196608, 1, 589836, 196608, 0, 786444, 196608, 1, 851980, 196608, 1, 917516, 196608, 1, 983052, 196608, 1, 1048588, 196608, 1, 1114124, 196608, 1, 1179660, 196608, 1, 1245196, 196608, 1, 1310732, 196608, 2)
+
+[node name="Caida" type="Timer" parent="Montañita dragon"]
+wait_time = 3.3
+one_shot = true
+autostart = true
+
+[node name="AnimCaida" type="AnimationPlayer" parent="Montañita dragon"]
+libraries = {
+"": SubResource("AnimationLibrary_ie5pp")
+}
+
+[connection signal="timeout" from="Montañita dragon/Caida" to="." method="_on_caida_timeout"]

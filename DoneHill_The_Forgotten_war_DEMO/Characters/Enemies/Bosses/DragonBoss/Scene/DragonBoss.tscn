@@ -1036,11 +1036,19 @@ theme = ExtResource("2_upr0g")
 text = "CUIDADO!!"
 
 [node name="EndFightCooldown" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 70.0
 
 [node name="AtackCooldown" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="TimeUntilEnd" type="Label" parent="."]
+offset_left = 727.0
+offset_top = 185.0
+offset_right = 806.0
+offset_bottom = 258.0
+theme = ExtResource("2_upr0g")
+theme_override_font_sizes/font_size = 30
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="BossFightSprite/LeftLeg/AreaHit" to="." method="_on_area_hit_body_entered"]
