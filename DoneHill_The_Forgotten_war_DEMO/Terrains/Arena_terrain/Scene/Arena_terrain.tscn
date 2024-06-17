@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://8xth6hlgasv6"]
+[gd_scene load_steps=37 format=3 uid="uid://8xth6hlgasv6"]
 
 [ext_resource type="PackedScene" uid="uid://4emjx6r3ux85" path="res://Terrains/Arena_terrain/Scene/Arena_tile_map.tscn" id="1_0qsv0"]
 [ext_resource type="Script" path="res://Terrains/Arena_terrain/Script/ArenaScript.gd" id="1_xcfm0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgsa3qphlc18w" path="res://Terrains/Arena_terrain/Sprite/Palmeras.png" id="3_53s45"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="3_c256x"]
 [ext_resource type="Texture2D" uid="uid://2lg4yd5uaqa" path="res://Terrains/Arena_terrain/Sprite/Background.png" id="4_7go1y"]
+[ext_resource type="Texture2D" uid="uid://l5sp8mwo7log" path="res://Terrains/Bosque_terrain/Sprite/BackgroundResources/Sprites/Stones.png" id="6_dqdbh"]
 [ext_resource type="Texture2D" uid="uid://cb6sus3drkph7" path="res://Terrains/Arena_terrain/Sprite/Casa en la playa.png" id="6_pmcjw"]
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="7_33elv"]
 [ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="8_0ven0"]
@@ -506,6 +507,15 @@ texture = SubResource("GradientTexture2D_mobf1")
 [node name="FondoDeAbajo2" type="Sprite2D" parent="Decoration"]
 position = Vector2(1269, 719)
 texture = SubResource("GradientTexture2D_mobf1")
+
+[node name="Telepad" type="Sprite2D" parent="Decoration"]
+modulate = Color(0.364706, 0.266667, 1, 1)
+z_index = -1
+position = Vector2(2355, -42)
+texture = ExtResource("6_dqdbh")
+centered = false
+hframes = 7
+frame = 3
 
 [node name="Player" parent="." instance=ExtResource("2_5sofd")]
 position = Vector2(188, 209)
