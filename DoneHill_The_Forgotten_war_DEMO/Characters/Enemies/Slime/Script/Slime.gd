@@ -28,7 +28,6 @@ func motion_ctrl() -> void:
 		if sensor.target != null:
 			attack_ctrl()
 		else:
-			# No se detectó un jugador, continúa moviéndose con la animación "run"
 			sprite.set_animation("Idle")
 			if not ray_ground.is_colliding() or is_on_wall():
 				Orientation *= -1
