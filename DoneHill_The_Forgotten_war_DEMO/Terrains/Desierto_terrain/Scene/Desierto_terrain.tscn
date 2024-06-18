@@ -413,6 +413,7 @@ text = "!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[editable path="SavePoint"]
 [editable path="Doors/Door_Subida"]
 [editable path="Doors/Door_A"]
 [editable path="TreeContainer/Tree_1"]

@@ -250,3 +250,4 @@ position = Vector2(-133, -866)
 
 [editable path="Doors/Door_MonToBoss"]
 [editable path="Doors/Door_TpFromPlaya"]
+[editable path="SavePoint"]

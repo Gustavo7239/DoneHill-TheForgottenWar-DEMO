@@ -160,9 +160,7 @@ layer_0/tile_data = PackedInt32Array(786580, 131072, 1, 721044, 131072, 1, 65550
 
 [node name="SavePoint" parent="." instance=ExtResource("3_c256x")]
 position = Vector2(204, 292)
-
-[node name="Sprite" parent="SavePoint" index="0"]
-frame = 4
+BancoType = 4
 
 [node name="Decoration" type="Node2D" parent="."]
 

@@ -1,6 +1,7 @@
 extends Node
 
 @onready var player = $Player
+@onready var sit_position = $SavePoint/AreaCollision/SitPosition
 
 func _ready():
 	GLOBAL.load_game()
@@ -10,6 +11,7 @@ func _ready():
 		GLOBAL.Reload_Player_Settings(player, false)
 	else:
 		GLOBAL.Reload_Player_Settings(player, true)
+		player.global_position = sit_position.global_position
 
 
 func _on_level_spawn(destination_tag: String):

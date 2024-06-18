@@ -367,5 +367,6 @@ text = "----->"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[editable path="SavePoint"]
 [editable path="Doors/Door_Caida"]
 [editable path="Doors/Door_N"]
