@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://usrq5hbo3bc2"
+path="res://.godot/imported/Dragon fight 1.mp3-c86459ed2c1b7207641159b38311b55e.mp3str"
+
+[deps]
+
+source_file="res://Terrains/Boss_terrain/Music/Dragon fight 1.mp3"
+dest_files=["res://.godot/imported/Dragon fight 1.mp3-c86459ed2c1b7207641159b38311b55e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

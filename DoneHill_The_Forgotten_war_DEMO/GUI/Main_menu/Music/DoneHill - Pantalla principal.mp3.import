@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ni7i0kdpx1dg"
+path="res://.godot/imported/DoneHill - Pantalla principal.mp3-6cd84aedb307132ad56b00d2532766d8.mp3str"
+
+[deps]
+
+source_file="res://GUI/Main_menu/Music/DoneHill - Pantalla principal.mp3"
+dest_files=["res://.godot/imported/DoneHill - Pantalla principal.mp3-6cd84aedb307132ad56b00d2532766d8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -4,10 +4,14 @@ extends Control
 @onready var menu = $BackGround/Menu
 
 @onready var play_button = $BackGround/Menu/VBoxContainer/PlayButton
+@onready var background_music = $BackgroundMusic
 
 func _ready():
 	GLOBAL.load_game()
 	play_button.grab_focus()
+
+func _process(delta):
+	background_music.volume_db = GLOBAL.game_data["MUSIC_VOLUME"]
 
 func _on_play_button_pressed():
 	NavigationManager.spawnPlayerCheckPoint(GLOBAL.game_data["LastScene"])

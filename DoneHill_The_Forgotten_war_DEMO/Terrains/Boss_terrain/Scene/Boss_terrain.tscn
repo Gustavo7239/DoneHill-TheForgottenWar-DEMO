@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c15b280wl6pj0"]
+[gd_scene load_steps=23 format=3 uid="uid://c15b280wl6pj0"]
 
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="1_0yaek"]
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_kxrnp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" path="res://GUI/HUD/Resource/Souls_bar/Soul_bar.gdshader" id="8_pgq38"]
 [ext_resource type="PackedScene" uid="uid://dyub3y6yt831e" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map_decoration.tscn" id="9_oiw35"]
 [ext_resource type="PackedScene" uid="uid://d0v15ryi0u835" path="res://Tools/Door/Scene/Door.tscn" id="10_jn88w"]
+[ext_resource type="AudioStream" uid="uid://usrq5hbo3bc2" path="res://Terrains/Boss_terrain/Music/Dragon fight 1.mp3" id="11_rngs7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2h0e"]
 size = Vector2(42, 773)
@@ -197,6 +198,10 @@ visible = false
 
 [node name="Spawn" parent="Doors/Door_FromMon" index="1"]
 position = Vector2(-36, 456)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_rngs7")
+autoplay = true
 
 [connection signal="timeout" from="Montañita dragon/Caida" to="." method="_on_caida_timeout"]
 
