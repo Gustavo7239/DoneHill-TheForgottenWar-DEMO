@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://klefemu1e0ln"]
+[gd_scene load_steps=21 format=3 uid="uid://klefemu1e0ln"]
 
 [ext_resource type="PackedScene" uid="uid://4tt4s12p80b7" path="res://Terrains/Desierto_terrain/Sprite/BackgroundResources/Scenes/Parallax.tscn" id="1_3g3y7"]
 [ext_resource type="Script" path="res://Terrains/Desierto_terrain/Script/DesiertoTerrain.gd" id="1_3gbr7"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c8581qdasmokc" path="res://Characters/Enemies/BasicEnemy/Scene/BasicEnemy.tscn" id="13_icvmw"]
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="14_e4rgg"]
 [ext_resource type="PackedScene" uid="uid://c6fm3y1u58nmx" path="res://Terrains/Desierto_terrain/Scene/desierto_tile_map_decoration.tscn" id="14_sg046"]
+[ext_resource type="AudioStream" uid="uid://b2v2kstf3cw8" path="res://Terrains/Desierto_terrain/Music/sandstorm-looping.mp3" id="15_r3kts"]
 
 [sub_resource type="Gradient" id="Gradient_yxk2m"]
 offsets = PackedFloat32Array(1)
@@ -412,6 +413,10 @@ theme_override_font_sizes/font_size = 30
 text = "!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_r3kts")
+autoplay = true
 
 [editable path="SavePoint"]
 [editable path="Doors/Door_Subida"]

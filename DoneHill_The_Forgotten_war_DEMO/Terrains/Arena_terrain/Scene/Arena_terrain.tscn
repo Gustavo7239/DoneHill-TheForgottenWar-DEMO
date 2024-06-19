@@ -620,6 +620,8 @@ libraries = {
 }
 autoplay = "Idle"
 
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+
 [editable path="SavePoint"]
 [editable path="Doors/Door_Cueva"]
 [editable path="Doors/Door_ToMon"]

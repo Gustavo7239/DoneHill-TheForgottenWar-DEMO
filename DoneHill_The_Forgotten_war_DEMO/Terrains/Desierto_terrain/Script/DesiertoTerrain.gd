@@ -2,6 +2,10 @@ extends Node
 
 @onready var player = $Player
 @onready var sit_position = $SavePoint/AreaCollision/SitPosition
+@onready var background_music = $BackgroundMusic
+
+func _process(delta):
+	background_music.volume_db = GLOBAL.game_data["MUSIC_VOLUME"]
 
 func _ready():
 	GLOBAL.load_game()
