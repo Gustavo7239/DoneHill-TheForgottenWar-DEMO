@@ -5,10 +5,18 @@ extends Control
 @onready var press_any_button_label = $PressAnyButtonLabel
 @onready var idle_player = $IdlePlayer
 
+@onready var light = $Music/Light
+@onready var jingle_lose = $Music/jingle_lose
+@onready var voice = $Music/voice
+
 func _ready():
 	press_any_button_label.visible = false
 
 func _process(delta):
+	light.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	jingle_lose.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	voice.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	
 	if Input.is_action_pressed("ui_accept"):
 		GLOBAL.load_game()
 		NavigationManager.spawnPlayerCheckPoint(GLOBAL.game_data["LastScene"])

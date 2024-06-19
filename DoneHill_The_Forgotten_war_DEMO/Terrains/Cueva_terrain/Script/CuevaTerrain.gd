@@ -12,7 +12,10 @@ func _ready():
 	else:
 		GLOBAL.Reload_Player_Settings(player, true)
 		player.global_position = sit_position.global_position
-
+		
+		GLOBAL.game_data["Player_HP"] = GLOBAL.MAX_Player_HP
+		GLOBAL.game_data["SoulPoints"] = GLOBAL.MAX_SOULS_POINTS
+		GLOBAL.Reload_Player_Settings(player,false)
 
 func _on_level_spawn(destination_tag: String):
 	var door_path = "Doors/Door_" + destination_tag
