@@ -44,6 +44,10 @@ func damage_ctrl(damage : int) -> void:
 		sprite.play("Death")
 		Gravity = 0
 		Give_Points()
+		
+func _on_sprite_animation_finished():
+	if sprite.animation == "Death":
+		queue_free()
 
 func jump_ctrl(power : float) -> void:
 	match is_on_floor():
@@ -56,9 +60,6 @@ func jump_ctrl(power : float) -> void:
 			
 	move_and_slide()
 	
-func _on_sprite_animation_finished():
-	if sprite.animation == "Death":
-		queue_free()
 
 func set_focus_on_player(input_vector: Vector2):
 	if input_vector.x > 0:

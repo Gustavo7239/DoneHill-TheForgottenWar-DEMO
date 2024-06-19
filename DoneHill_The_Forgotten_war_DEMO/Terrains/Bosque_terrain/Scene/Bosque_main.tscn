@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bmi3o3jpqraf"]
+[gd_scene load_steps=24 format=3 uid="uid://bmi3o3jpqraf"]
 
 [ext_resource type="PackedScene" uid="uid://b0fmvpbgqchsh" path="res://Terrains/Bosque_terrain/Scene/bosque_tile_map.tscn" id="1_ef43o"]
 [ext_resource type="Script" path="res://Terrains/Bosque_terrain/Script/Bosque_terrain.gd" id="1_kglr0"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bgcpfri3vyaqf" path="res://Tools/Camera/Scenes/Camera.tscn" id="10_o6xpp"]
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="14_lrp2v"]
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="15_fytxc"]
+[ext_resource type="AudioStream" uid="uid://dxdrdyhvyrkif" path="res://GUI/Main_menu/Music/wind-rustling-trees.mp3" id="16_4l5ak"]
+[ext_resource type="AudioStream" uid="uid://bkccs7bim7so6" path="res://Terrains/Bosque_terrain/Music/birds-in-a-garden.mp3" id="17_osr6s"]
 
 [sub_resource type="Environment" id="Environment_fs8tf"]
 background_mode = 3
@@ -560,6 +562,18 @@ text = "JoyStick izquierdo
 Para moverse"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="SoundFX" type="Node" parent="Audio"]
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="Audio/SoundFX"]
+stream = ExtResource("16_4l5ak")
+autoplay = true
+
+[node name="Birds" type="AudioStreamPlayer2D" parent="Audio/SoundFX"]
+stream = ExtResource("17_osr6s")
+autoplay = true
 
 [editable path="Doors/Door_E"]
 [editable path="SavePoint"]

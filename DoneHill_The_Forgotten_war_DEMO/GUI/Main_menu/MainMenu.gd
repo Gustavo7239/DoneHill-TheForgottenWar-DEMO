@@ -4,7 +4,10 @@ extends Control
 @onready var menu = $BackGround/Menu
 
 @onready var play_button = $BackGround/Menu/VBoxContainer/PlayButton
-@onready var background_music = $BackgroundMusic
+
+@onready var fire_place = $Audio/SoundFX/FirePlace
+@onready var background_music = $Audio/Music/BackgroundMusic
+@onready var wind = $Audio/SoundFX/Wind
 
 func _ready():
 	GLOBAL.load_game()
@@ -12,6 +15,8 @@ func _ready():
 
 func _process(delta):
 	background_music.volume_db = GLOBAL.game_data["MUSIC_VOLUME"]
+	fire_place.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	wind.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
 
 func _on_play_button_pressed():
 	NavigationManager.spawnPlayerCheckPoint(GLOBAL.game_data["LastScene"])

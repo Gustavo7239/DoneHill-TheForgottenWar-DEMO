@@ -103,7 +103,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxwxf"]
-size = Vector2(7, 8)
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh3qf"]
 size = Vector2(11, 10)
@@ -117,21 +117,20 @@ script = ExtResource("1_dhmbh")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f7amd")
-animation = &"Walk"
+animation = &"Death"
 autoplay = "Walk"
 
 [node name="RayGround" type="RayCast2D" parent="Sprite"]
 visibility_layer = 4
-position = Vector2(14, 23)
+position = Vector2(8, 24)
 target_position = Vector2(0, 5)
-collision_mask = 2
-collide_with_areas = true
-collide_with_bodies = false
+collision_mask = 4
+hit_from_inside = true
 
 [node name="AreaHit" type="Area2D" parent="Sprite"]
 
 [node name="Collision_Make_DMG" type="CollisionShape2D" parent="Sprite/AreaHit"]
-position = Vector2(6.5, 19)
+position = Vector2(7, 19)
 shape = SubResource("RectangleShape2D_yxwxf")
 
 [node name="Collision_Body" type="CollisionShape2D" parent="."]

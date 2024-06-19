@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d05x8ajs0uaa"]
+[gd_scene load_steps=24 format=3 uid="uid://d05x8ajs0uaa"]
 
 [ext_resource type="PackedScene" uid="uid://dm624kgmgci67" path="res://Terrains/Montaña_helada_terrain/Scene/montaña_helada_tile_map.tscn" id="1_22l4k"]
 [ext_resource type="Script" path="res://Terrains/Montaña_helada_terrain/Script/Montana_script.gd" id="1_o5qev"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b1xepb5hmvvb0" path="res://Tools/SavePoints/Scene/SavePoint.tscn" id="13_146f1"]
 [ext_resource type="PackedScene" uid="uid://c8581qdasmokc" path="res://Characters/Enemies/BasicEnemy/Scene/BasicEnemy.tscn" id="14_gnyif"]
 [ext_resource type="PackedScene" uid="uid://crsup6s75fy1m" path="res://Characters/Enemies/Slime/Scene/Slime.tscn" id="15_1vs6b"]
+[ext_resource type="AudioStream" uid="uid://cppkabnydj1oa" path="res://Terrains/Montaña_helada_terrain/Music/dark-ambient.ogg" id="16_17cb3"]
 
 [sub_resource type="Gradient" id="Gradient_om4wj"]
 offsets = PackedFloat32Array(0, 0.202643, 0.585903, 0.832599, 0.955947, 1)
@@ -247,6 +248,10 @@ position = Vector2(1628, -535)
 
 [node name="Slime6" parent="Enemies/Slimes" instance=ExtResource("15_1vs6b")]
 position = Vector2(-133, -866)
+
+[node name="background_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_17cb3")
+autoplay = true
 
 [editable path="Doors/Door_MonToBoss"]
 [editable path="Doors/Door_TpFromPlaya"]

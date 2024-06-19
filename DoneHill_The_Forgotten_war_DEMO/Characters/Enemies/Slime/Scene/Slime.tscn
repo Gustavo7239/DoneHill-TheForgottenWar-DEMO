@@ -196,7 +196,7 @@ script = ExtResource("1_c53be")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iupws")
-animation = &"Fall"
+animation = &"Death"
 autoplay = "Idle"
 
 [node name="RayGround" type="RayCast2D" parent="Sprite"]
@@ -215,3 +215,5 @@ shape = SubResource("RectangleShape2D_rh8rc")
 [node name="Collision_Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_qh7rb")
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

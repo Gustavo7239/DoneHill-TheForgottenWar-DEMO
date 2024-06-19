@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bsh8jhf8h6n40"]
+[gd_scene load_steps=19 format=3 uid="uid://bsh8jhf8h6n40"]
 
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="1_hglkm"]
 [ext_resource type="Script" path="res://GUI/Death_menu/Script/Death_scene.gd" id="1_k4gop"]
 [ext_resource type="Texture2D" uid="uid://xygehor7jfa" path="res://GUI/Death_menu/Assets/moon.png" id="2_n44fn"]
 [ext_resource type="Texture2D" uid="uid://bgibb64adycam" path="res://Characters/Player/Sprite/PlayerDesign03.png" id="3_b84s4"]
+[ext_resource type="AudioStream" uid="uid://dmtnbbb4k5qc" path="res://GUI/Death_menu/Music/light_switch_click.mp3" id="5_gybmp"]
+[ext_resource type="AudioStream" uid="uid://cgabaxhktc4ju" path="res://GUI/Death_menu/Music/jingle_lose_01.wav" id="6_7gt8s"]
+[ext_resource type="AudioStream" uid="uid://d85b5i058717" path="res://GUI/Death_menu/Music/death_slith_02.wav" id="7_05xu5"]
 
 [sub_resource type="Gradient" id="Gradient_lkexu"]
 offsets = PackedFloat32Array(0, 0.370044, 1)
@@ -102,6 +105,42 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Music/Light:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.8877, 1.6797),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Music/jingle_lose:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = false
+tracks/8/path = NodePath("Music/voice:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ohuin"]
 length = 0.001
@@ -176,6 +215,42 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Music/Light:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Music/jingle_lose:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Music/voice:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hqmve"]
@@ -306,5 +381,16 @@ text = "PULSA A"
 libraries = {
 "": SubResource("AnimationLibrary_01iag")
 }
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Light" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("5_gybmp")
+
+[node name="jingle_lose" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("6_7gt8s")
+
+[node name="voice" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("7_05xu5")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
