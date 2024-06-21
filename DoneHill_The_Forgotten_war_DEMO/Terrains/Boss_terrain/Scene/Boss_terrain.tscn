@@ -211,6 +211,7 @@ autoplay = true
 [node name="Decoracion" type="Node" parent="."]
 
 [node name="Front" type="Sprite2D" parent="Decoracion"]
+visible = false
 modulate = Color(0.454902, 0.454902, 0.454902, 1)
 position = Vector2(-662, 436)
 scale = Vector2(2.32084, 0.4375)
@@ -221,6 +222,7 @@ hframes = 3
 frame = 2
 
 [node name="Front2" type="Sprite2D" parent="Decoracion"]
+visible = false
 modulate = Color(0.207843, 0.207843, 0.207843, 1)
 position = Vector2(-642, 433)
 scale = Vector2(2.31265, 0.466667)
