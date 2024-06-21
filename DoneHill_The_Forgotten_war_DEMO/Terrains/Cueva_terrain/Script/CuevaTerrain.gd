@@ -3,6 +3,13 @@ extends Node
 @onready var player = $Player
 @onready var sit_position = $SavePoint/AreaCollision/SitPosition
 
+@onready var drops = $Audio/drops
+@onready var background = $Audio/background
+
+func _process(delta):
+	drops.volume_db = GLOBAL.game_data["SOUNDFX_VOLUME"]
+	background.volume_db = GLOBAL.game_data["MUSIC_VOLUME"]
+
 func _ready():
 	GLOBAL.load_game()
 	

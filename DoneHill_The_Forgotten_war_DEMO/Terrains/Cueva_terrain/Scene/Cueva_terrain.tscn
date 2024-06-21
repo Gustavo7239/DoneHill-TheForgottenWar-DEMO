@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dwsse01vh15u5"]
+[gd_scene load_steps=33 format=3 uid="uid://dwsse01vh15u5"]
 
 [ext_resource type="PackedScene" uid="uid://cqu3tfqxoosxe" path="res://Terrains/Cueva_terrain/Scene/cueva_tile_map.tscn" id="1_hp7tp"]
 [ext_resource type="Script" path="res://Terrains/Cueva_terrain/Script/CuevaTerrain.gd" id="1_nvxgc"]
@@ -10,6 +10,8 @@
 [ext_resource type="Theme" uid="uid://db1y5qdu2wx8e" path="res://Tools/Themes/TextThemes.tres" id="8_6mnug"]
 [ext_resource type="PackedScene" uid="uid://c8581qdasmokc" path="res://Characters/Enemies/BasicEnemy/Scene/BasicEnemy.tscn" id="9_u4oks"]
 [ext_resource type="PackedScene" uid="uid://crsup6s75fy1m" path="res://Characters/Enemies/Slime/Scene/Slime.tscn" id="10_3qel4"]
+[ext_resource type="AudioStream" uid="uid://b1ctprk66u60x" path="res://Terrains/Cueva_terrain/Music/drops_cave.mp3" id="11_uyabp"]
+[ext_resource type="AudioStream" uid="uid://cvk0w0i0cowch" path="res://Terrains/Cueva_terrain/Music/wind_cave.mp3" id="12_ei5q5"]
 
 [sub_resource type="Gradient" id="Gradient_36msd"]
 offsets = PackedFloat32Array(0)
@@ -165,6 +167,9 @@ remote_path = NodePath("../../LuzInterior")
 [node name="RemoteCamera" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -71.5)
 remote_path = NodePath("../../Camera")
+
+[node name="RemoteAudio" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Audio")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hllt1")
@@ -425,6 +430,17 @@ position = Vector2(4711, -387)
 
 [node name="Slime9" parent="Enemies/Slimes" instance=ExtResource("10_3qel4")]
 position = Vector2(3692, -355)
+
+[node name="Audio" type="Node2D" parent="."]
+position = Vector2(726, 355)
+
+[node name="drops" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("11_uyabp")
+autoplay = true
+
+[node name="background" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("12_ei5q5")
+autoplay = true
 
 [editable path="SavePoint"]
 [editable path="Doors/Door_Caida"]
