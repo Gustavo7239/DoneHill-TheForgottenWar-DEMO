@@ -520,6 +520,9 @@ scale = Vector2(1, 1)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera")
 
+[node name="RemoteAudio" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../BackgroundMusic")
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 skew = -0.511381
 energy = 0.25
@@ -621,6 +624,7 @@ libraries = {
 autoplay = "Idle"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(188, 209)
 
 [editable path="SavePoint"]
 [editable path="Doors/Door_Cueva"]
